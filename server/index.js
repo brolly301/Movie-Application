@@ -1,0 +1,45 @@
+//packages
+const express = require("express");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
+const cors = require("cors");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const mongoSanitize = require("express-mongo-sanitize");
+
+const app = express();
+
+//database & session storage
+const MONGO_URI =
+  "mongodb+srv://brolly301:MementoMori301!!!@cluster0.1wxteu5.mongodb.net/?retryWrites=true&w=majority";
+mongoose
+  .connect(MONGO_URI)
+  .then(() => console.log("Database Connected"))
+  .catch((err) =>
+    console.log("Database not connected. Check Mongo URI." + err)
+  );
+
+const sessionOptions = {
+  secret: "Test",
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: MONGO_URI }),
+  cookie: {
+    httpOnly: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 2,
+    maxAge: 120 * 60 * 1000,
+  },
+};
+
+app.use(session(sessionOptions));
+
+//middlewares
+app.use(morgan("dev"));
+app.use(cors({ origin: true, credentials: true }));
+app.use(express.urlencoded({ extended: true }));
+app.use(mongoSanitize());
+app.use(express.json());
+
+//Port & Listener
+const port = 8080;
+app.listen(port, () => console.log(`Running on Server ${port}`));
