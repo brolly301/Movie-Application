@@ -1,5 +1,11 @@
 import MovieSearch from "../components/MovieSearch";
+import MovieList from "../components/MovieList";
 
 export default function HomePage() {
-  return <MovieSearch />;
+  return (
+    <div>
+      <MovieSearch />
+      <MovieList />
+    </div>
+  );
 }

@@ -1,6 +1,9 @@
 import { useState } from "react";
+import useMovieContext from "../hooks/useMovieContext";
 
 export default function MovieSearch() {
+  const { submitMovie } = useMovieContext();
+
   const [movieData, setMovieData] = useState({
     title: "",
     date: "",
@@ -9,11 +12,11 @@ export default function MovieSearch() {
 
   const handleChange = (e) => {
     setMovieData({ ...movieData, [e.target.name]: e.target.value });
-    console.log(movieData);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    submitMovie(movieData.title);
   };
 
   return (

@@ -1,0 +1,43 @@
+nav {
+  padding-left: 20px;
+}
+
+.nav-ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  height: 80px;
+  justify-content: end;
+
+  align-items: center;
+}
+
+.nav-li {
+  display: inline;
+}
+
+.nav-link {
+  display: inherit;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: #111;
+}
+
+.logout {
+  display: inherit;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.logout:hover {
+  background-color: #111;
+}

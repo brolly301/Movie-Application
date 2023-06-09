@@ -1,3 +1,22 @@
+import { Link, Outlet } from "react-router-dom";
+import "../CSS/Navbar.css";
+
 export default function Navbar() {
-  return <div>I am nav</div>;
+  return (
+    <div>
+      <ul className="nav-ul">
+        <li className="nav-li">
+          <Link className="nav-link" to="/">
+            Home
+          </Link>
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+        </li>
+      </ul>
+      <div>
+        <Outlet />
+      </div>
+    </div>
+  );
 }
