@@ -11,7 +11,8 @@ const app = express();
 
 //database & session storage
 const MONGO_URI =
-  "mongodb+srv://brolly301:MementoMori301!!!@cluster0.1wxteu5.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://brolly301:MementoMori301!!!@cluster0.xvbrxei.mongodb.net/?retryWrites=true&w=majority";
+
 mongoose
   .connect(MONGO_URI)
   .then(() => console.log("Database Connected"))
@@ -39,6 +40,10 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(mongoSanitize());
 app.use(express.json());
+
+//Routes
+const userRoutes = require("./routes/authentication.js");
+app.use("/", userRoutes);
 
 //Port & Listener
 const port = 8080;
