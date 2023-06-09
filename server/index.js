@@ -6,12 +6,14 @@ const cors = require("cors");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const mongoSanitize = require("express-mongo-sanitize");
+const cookieParser = require("cookie-parser");
+const expressValidator = require("express-validator");
 
 const app = express();
 
 //database & session storage
 const MONGO_URI =
-  "mongodb+srv://brolly301:MementoMori301!!!@cluster0.xvbrxei.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://brolly301:MementoMori301!!!@cluster0.mcosecu.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(MONGO_URI)
@@ -40,6 +42,8 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(mongoSanitize());
 app.use(express.json());
+app.use(cookieParser());
+app.use(expressValidator());
 
 //Routes
 const userRoutes = require("./routes/authentication.js");

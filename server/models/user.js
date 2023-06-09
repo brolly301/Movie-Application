@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const uuidv1 = require("uuidv1");
-const crypto = require("crypto-js");
+const crypto = require("crypto");
 
 const UserSchema = new Schema({
   username: {
     type: String,
-    required: true,
   },
   email: {
     type: String,
@@ -14,17 +13,15 @@ const UserSchema = new Schema({
   },
   firstName: {
     type: String,
-    required: true,
   },
   lastName: {
     type: String,
-    required: true,
   },
   hashedPassword: {
     type: String,
     required: true,
   },
-  sale: {
+  salt: {
     type: String,
   },
 });
