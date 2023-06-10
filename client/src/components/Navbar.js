@@ -9,8 +9,15 @@ export default function Navbar() {
           <Link className="nav-link" to="/">
             Home
           </Link>
+        </li>
+        <li className="nav-li">
           <Link className="nav-link" to="/login">
             Login
+          </Link>
+        </li>
+        <li className="nav-li">
+          <Link className="nav-link" to="/register">
+            Register
           </Link>
         </li>
       </ul>
