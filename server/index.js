@@ -8,15 +8,14 @@ const MongoStore = require("connect-mongo");
 const mongoSanitize = require("express-mongo-sanitize");
 const cookieParser = require("cookie-parser");
 const expressValidator = require("express-validator");
+require("dotenv").config();
 
 const app = express();
 
 //database & session storage
-const MONGO_URI =
-  "mongodb+srv://brolly301:MementoMori301!!!@cluster0.mcosecu.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
-  .connect(MONGO_URI)
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("Database Connected"))
   .catch((err) =>
     console.log("Database not connected. Check Mongo URI." + err)
@@ -26,7 +25,7 @@ const sessionOptions = {
   secret: "Test",
   resave: false,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: MONGO_URI }),
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   cookie: {
     httpOnly: true,
     expires: Date.now() + 1000 * 60 * 60 * 24 * 2,
@@ -49,6 +48,7 @@ app.use(expressValidator());
 const userRoutes = require("./routes/authentication.js");
 app.use("/", userRoutes);
 
-//Port & Listener
-const port = 8080;
-app.listen(port, () => console.log(`Running on Server ${port}`));
+//Listener
+app.listen(process.env.port, () =>
+  console.log(`Running on Server ${process.env.port}`)
+);
