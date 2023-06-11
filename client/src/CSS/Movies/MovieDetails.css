@@ -1,0 +1,11 @@
+.movie-details-container {
+  width: 900px;
+  height: 700px;
+  border: 1px solid black;
+  margin: 0 auto;
+  display: flex;
+}
+
+.movie-details-section {
+  margin-left: 20px;
+}

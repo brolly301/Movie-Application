@@ -5,6 +5,7 @@ import "./index.css";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ShowtimesPage from "./pages/ShowtimesPage";
+import MoviePage from "./pages/MoviePage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" index element={<LoginPage />} />
         <Route path="/register" index element={<RegisterPage />} />
         <Route path="/showtimes" index element={<ShowtimesPage />} />
+        <Route path="/showtimes/:id" index element={<MoviePage />} />
       </Routes>
     </>
   );

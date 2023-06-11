@@ -15,7 +15,7 @@ export default function MovieShow({ movie }) {
           <button>20:15pm</button>
           <button>22:30pm</button>
         </div>
-        <Link>
+        <Link state={{ movie: movie }} to={`/showtimes/${movie._id}`}>
           <button>More Details</button>
         </Link>
       </div>
