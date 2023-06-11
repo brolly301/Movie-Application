@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const movies = require("./movies");
+const shows = require("./shows");
 const Movie = require("../models/movie");
+const Show = require("../models/show");
 require("dotenv").config();
 
 mongoose.set("strictQuery", false);
@@ -17,7 +19,10 @@ mongoose
   });
 
 const seedDatabase = async () => {
+  await Movie.deleteMany({});
+  await Show.deleteMany({});
   await Movie.insertMany(movies);
+  await Show.insertMany(shows);
 };
 
 seedDatabase().then(() => {
