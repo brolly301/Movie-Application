@@ -46,7 +46,9 @@ app.use(expressValidator());
 
 //Routes
 const userRoutes = require("./routes/authentication.js");
+const movieRoutes = require("./routes/movies.js");
 app.use("/", userRoutes);
+app.use("/movies", movieRoutes);
 
 //Listener
 app.listen(process.env.port, () =>

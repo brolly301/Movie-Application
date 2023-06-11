@@ -21,6 +21,11 @@ export default function Navbar() {
             Home
           </Link>
         </li>
+        <li className="nav-li">
+          <Link className="nav-link" to="/showtimes">
+            Showtimes
+          </Link>
+        </li>
         {!userData.user ? (
           <>
             <li className="nav-li">

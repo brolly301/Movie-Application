@@ -1,4 +1,4 @@
-import useMovieContext from "../hooks/useMovieContext";
+import useMovieContext from "../../hooks/useMovieContext";
 import MovieShow from "./MovieShow";
 
 export default function MovieList() {

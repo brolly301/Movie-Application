@@ -1,23 +1,23 @@
 import { useState } from "react";
 
-export default function Dropdown() {
+export default function Dropdown({ options }) {
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const options = [
-    {
-      label: "Inception",
-      value: "inception",
-    },
-    {
-      label: "Django",
-      value: "django",
-    },
-    {
-      label: "Pulp Fiction",
-      value: "pulp fiction",
-    },
-  ];
+  // const options = [
+  //   {
+  //     label: "Inception",
+  //     value: "inception",
+  //   },
+  //   {
+  //     label: "Django",
+  //     value: "django",
+  //   },
+  //   {
+  //     label: "Pulp Fiction",
+  //     value: "pulp fiction",
+  //   },
+  // ];
 
   const handleClick = (e) => {
     setIsOpen(!isOpen);
@@ -30,8 +30,8 @@ export default function Dropdown() {
 
   const renderedOptions = options?.map((option) => {
     return (
-      <div key={option.value} onClick={() => handleSelected(option)}>
-        {option.label}
+      <div key={option._id} onClick={() => handleSelected(option)}>
+        {option.title}
       </div>
     );
   });
@@ -41,7 +41,7 @@ export default function Dropdown() {
       <input
         onClick={handleClick}
         type="text"
-        placeholder={selected?.label || "Search..."}
+        placeholder={selected?.title || "Search..."}
         readOnly
       />
       {isOpen && <div>{renderedOptions}</div>}

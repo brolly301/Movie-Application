@@ -4,13 +4,12 @@ import App from "./App";
 import { MovieProvider } from "./context/movies";
 import { BrowserRouter } from "react-router-dom";
 import { UserContextProvider } from "./context/user";
-import Dropdown from "./components/Misc/Dropdown";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <UserContextProvider>
     <MovieProvider>
       <BrowserRouter>
-        <Dropdown />
+        <App />
       </BrowserRouter>
     </MovieProvider>
   </UserContextProvider>

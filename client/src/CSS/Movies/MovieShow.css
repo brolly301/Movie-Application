@@ -1,0 +1,28 @@
+.movie-container {
+  width: 800px;
+  height: 350px;
+  border: 1px solid black;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.movie-poster {
+  height: 300px;
+  width: 220px;
+  border-radius: 2%;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.movie-times-container > button {
+  height: 50px;
+  width: 90px;
+  color: white;
+  background-color: rgb(151, 149, 149);
+  margin-right: 5px;
+}
+
+.movie-details {
+  margin-left: 30px;
+}

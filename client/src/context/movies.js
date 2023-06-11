@@ -1,21 +1,21 @@
-import { createContext, useState } from "react";
-import getMovies from "../APIs/OMDB";
+import { createContext, useEffect, useState } from "react";
+import { getMovies } from "../APIs/movies";
+// import getMovies from "../APIs/OMDB";
 
 const MovieContext = createContext();
 
 export function MovieProvider({ children }) {
   const [movies, setMovies] = useState([]);
 
-  const submitMovie = async (title) => {
-    const results = await getMovies(title);
-    setMovies(results);
-    console.log(movies);
-  };
+  useEffect(() => {
+    const response = getMovies().then((res) => {
+      setMovies(res);
+    });
+  }, []);
 
   const values = {
     movies,
     setMovies,
-    submitMovie,
   };
 
   return (
