@@ -2,7 +2,7 @@ const Movie = require("../models/movie");
 const Show = require("../models/show");
 
 exports.getMovies = async (req, res) => {
-  const movies = await Movie.find({});
+  const movies = await Movie.find({}).populate("shows");
   res.send(movies);
 };
 

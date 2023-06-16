@@ -47,6 +47,12 @@ const MovieSchema = new Schema({
   imdbPoster: {
     type: String,
   },
+  shows: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Show",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Movie", MovieSchema);

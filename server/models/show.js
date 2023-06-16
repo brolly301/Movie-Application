@@ -8,10 +8,6 @@ const ShowSchema = new Schema({
   startTime: {
     type: String,
   },
-  movie: {
-    type: Schema.Types.ObjectId,
-    ref: "Movie",
-  },
 });
 
 module.exports = mongoose.model("Show", ShowSchema);

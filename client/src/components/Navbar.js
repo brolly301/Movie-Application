@@ -21,6 +21,22 @@ export default function Navbar() {
             Home
           </Link>
         </li>
+
+        <li className="nav-li">
+          <Link className="nav-link" to="/prices">
+            Prices
+          </Link>
+        </li>
+        <li className="nav-li">
+          <Link className="nav-link" to="/comingSoon">
+            Coming Soon
+          </Link>
+        </li>
+        <li className="nav-li">
+          <Link className="nav-link" to="/specialOffers">
+            Special Offers
+          </Link>
+        </li>
         <li className="nav-li">
           <Link className="nav-link" to="/showtimes">
             Showtimes

@@ -3,6 +3,7 @@ const movies = require("./movies");
 const shows = require("./shows");
 const Movie = require("../models/movie");
 const Show = require("../models/show");
+const movie = require("../models/movie");
 require("dotenv").config();
 
 mongoose.set("strictQuery", false);
@@ -21,8 +22,10 @@ mongoose
 const seedDatabase = async () => {
   await Movie.deleteMany({});
   await Show.deleteMany({});
-  await Movie.insertMany(movies);
   await Show.insertMany(shows);
+  await Movie.insertMany(movies);
+
+  //Figure out how to insert shows into movies based off their title
 };
 
 seedDatabase().then(() => {
