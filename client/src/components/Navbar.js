@@ -56,11 +56,18 @@ export default function Navbar() {
             </li>
           </>
         ) : (
-          <li className="nav-li">
-            <Link onClick={handleLogout} className="nav-link">
-              Logout
-            </Link>
-          </li>
+          <>
+            <li className="nav-li">
+              <Link className="nav-link" to="/account">
+                Profile
+              </Link>
+            </li>
+            <li className="nav-li">
+              <Link onClick={handleLogout} className="nav-link">
+                Logout
+              </Link>
+            </li>
+          </>
         )}
       </ul>
       <div>

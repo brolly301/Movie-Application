@@ -10,6 +10,7 @@ import ComingSoonPage from "./pages/ComingSoonPage";
 import SpecialOffersPage from "./pages/SpecialOffersPage";
 import PricesPage from "./pages/PricesPage";
 import ComingSoonShowPage from "./pages/ComingSoonShowPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" index element={<HomePage />} />
         <Route path="/login" index element={<LoginPage />} />
         <Route path="/register" index element={<RegisterPage />} />
+        <Route path="/account" index element={<ProfilePage />} />
         <Route path="/prices" index element={<PricesPage />} />
         <Route path="/specialOffers" index element={<SpecialOffersPage />} />
         <Route path="/comingSoon" index element={<ComingSoonPage />} />
