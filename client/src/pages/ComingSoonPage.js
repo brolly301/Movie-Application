@@ -1,3 +1,9 @@
+import ComingSoonList from "../components/ComingSoonPage/ComingSoonList";
+
 export default function ComingSoonPage() {
-  return <div>Coming Soon</div>;
+  return (
+    <div>
+      <ComingSoonList />
+    </div>
+  );
 }

@@ -9,6 +9,7 @@ import MoviePage from "./pages/MoviePage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 import SpecialOffersPage from "./pages/SpecialOffersPage";
 import PricesPage from "./pages/PricesPage";
+import ComingSoonShowPage from "./pages/ComingSoonShowPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/prices" index element={<PricesPage />} />
         <Route path="/specialOffers" index element={<SpecialOffersPage />} />
         <Route path="/comingSoon" index element={<ComingSoonPage />} />
+        <Route path="/comingSoon/:id" index element={<ComingSoonShowPage />} />
         <Route path="/showtimes" index element={<ShowtimesPage />} />
         <Route path="/showtimes/:id" index element={<MoviePage />} />
       </Routes>
