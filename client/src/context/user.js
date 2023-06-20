@@ -6,17 +6,25 @@ const UserContext = createContext();
 export function UserContextProvider({ children }) {
   const [userData, setUserData] = useState({
     user: null,
+    firstName: "",
+    surname: "",
     email: "",
-    password: "",
+    phoneNumber: "",
   });
 
   useEffect(() => {
     const data = getUser().then((res) => {
       setUserData({
         user: res.email,
+        firstName: res.firstName,
+        surname: res.surname,
+        email: res.email,
+        phoneNumber: res.phoneNumber,
       });
     });
   }, [userData.user]);
+
+  console.log(userData);
 
   const values = {
     userData,

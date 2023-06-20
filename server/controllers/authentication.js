@@ -42,10 +42,8 @@ exports.logout = async (req, res) => {
 };
 
 exports.getLoggedInUser = async (req, res) => {
-  const { email } = req.user;
-
   return res.status(200).json({
     message: "User is still logged in",
-    email,
+    ...req.user._doc,
   });
 };

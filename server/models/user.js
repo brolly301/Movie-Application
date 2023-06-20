@@ -4,9 +4,6 @@ const uuidv1 = require("uuidv1");
 const crypto = require("crypto");
 
 const UserSchema = new Schema({
-  username: {
-    type: String,
-  },
   email: {
     type: String,
     required: true,
@@ -14,8 +11,11 @@ const UserSchema = new Schema({
   firstName: {
     type: String,
   },
-  lastName: {
+  surname: {
     type: String,
+  },
+  phoneNumber: {
+    type: Number,
   },
   hashedPassword: {
     type: String,

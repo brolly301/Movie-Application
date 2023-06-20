@@ -1,7 +1,14 @@
-export const register = async ({ email, password } = {}) => {
-  const user = { email, password };
+export const register = async ({
+  email,
+  firstName,
+  surname,
+  phoneNumber,
+  password,
+} = {}) => {
+  const user = { email, firstName, surname, phoneNumber, password };
   const response = await fetch(`${process.env.REACT_APP_BASE_URL}/register`, {
     method: "POST",
+
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
