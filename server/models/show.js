@@ -8,6 +8,9 @@ const ShowSchema = new Schema({
   startTime: {
     type: String,
   },
+  title: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Show", ShowSchema);
