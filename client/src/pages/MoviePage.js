@@ -9,7 +9,7 @@ export default function MoviePage() {
   return (
     <div>
       <MovieDetails movie={movie} />
-      <MovieTimes />
+      <MovieTimes movie={movie} />
     </div>
   );
 }

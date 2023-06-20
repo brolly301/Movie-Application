@@ -1,9 +1,11 @@
-export default function MovieTimes() {
+import { Link } from "react-router-dom";
+
+export default function MovieTimes({ movie }) {
   return (
     <div>
-      <button>18.30pm</button>
-      <button>20.00pm</button>
-      <button>22.15pm</button>
+      <Link to={`/showtimes/${movie._id}/seating`} state={{ movie: movie }}>
+        <button>Book</button>
+      </Link>
     </div>
   );
 }

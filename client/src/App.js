@@ -11,6 +11,7 @@ import SpecialOffersPage from "./pages/SpecialOffersPage";
 import PricesPage from "./pages/PricesPage";
 import ComingSoonShowPage from "./pages/ComingSoonShowPage";
 import ProfilePage from "./pages/ProfilePage";
+import SeatingPage from "./pages/SeatingPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/comingSoon/:id" index element={<ComingSoonShowPage />} />
         <Route path="/showtimes" index element={<ShowtimesPage />} />
         <Route path="/showtimes/:id" index element={<MoviePage />} />
+        <Route path="/showtimes/:id/seating" index element={<SeatingPage />} />
       </Routes>
     </>
   );
