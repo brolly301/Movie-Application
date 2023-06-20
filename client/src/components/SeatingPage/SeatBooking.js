@@ -26,7 +26,9 @@ export default function SeatBooking({ movie }) {
     <div>
       Seat Bookings
       <button onClick={handleClick}>Book</button>
-      <button>Free Booking (Loyalty Points)</button>
+      {userData.loyaltyPoints >= 100 && (
+        <button>Free Booking (Loyalty Points)</button>
+      )}
     </div>
   );
 }
