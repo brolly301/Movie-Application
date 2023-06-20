@@ -10,6 +10,7 @@ export function UserContextProvider({ children }) {
     surname: "",
     email: "",
     phoneNumber: "",
+    loyaltyPoints: "",
   });
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export function UserContextProvider({ children }) {
         surname: res.surname,
         email: res.email,
         phoneNumber: res.phoneNumber,
+        loyaltyPoints: res.loyaltyPoints,
       });
     });
   }, [userData.user]);

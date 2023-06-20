@@ -2,8 +2,9 @@ export const editUserDetails = async ({
   firstName,
   surname,
   phoneNumber,
+  loyaltyPoints,
 } = {}) => {
-  const updatedUser = { firstName, surname, phoneNumber };
+  const updatedUser = { firstName, surname, phoneNumber, loyaltyPoints };
 
   const response = await fetch(
     `${process.env.REACT_APP_BASE_URL}/profile/editUserDetails`,

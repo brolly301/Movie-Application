@@ -17,6 +17,10 @@ const UserSchema = new Schema({
   phoneNumber: {
     type: Number,
   },
+  loyaltyPoints: {
+    type: Number,
+    default: 0,
+  },
   hashedPassword: {
     type: String,
     required: true,
