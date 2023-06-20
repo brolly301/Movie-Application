@@ -6,7 +6,7 @@ import { editUserDetails } from "../../APIs/profile";
 export default function SeatBooking({ movie }) {
   const { userData, setUserData } = useUserContext();
 
-  const handleClick = () => {
+  const handleBooking = () => {
     bookMovie({
       startTime: "Now",
       startDate: "11th",
@@ -22,12 +22,31 @@ export default function SeatBooking({ movie }) {
     }
   };
 
+  const handleFreeBooking = () => {
+    bookMovie({
+      startTime: "Now",
+      startDate: "11th",
+      movieID: movie._id,
+    });
+
+    if (userData.user) {
+      setUserData({
+        ...userData,
+        loyaltyPoints: (userData.loyaltyPoints -= 100),
+      });
+      editUserDetails({ ...userData });
+      console.log(userData);
+    }
+  };
+
   return (
     <div>
       Seat Bookings
-      <button onClick={handleClick}>Book</button>
+      <button onClick={handleBooking}>Book</button>
       {userData.loyaltyPoints >= 100 && (
-        <button>Free Booking (Loyalty Points)</button>
+        <button onClick={handleFreeBooking}>
+          Free Booking (Loyalty Points)
+        </button>
       )}
     </div>
   );
