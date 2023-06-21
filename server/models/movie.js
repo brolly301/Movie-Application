@@ -49,8 +49,12 @@ const MovieSchema = new Schema({
   },
   shows: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Show",
+      date: {
+        type: String,
+      },
+      startTime: {
+        type: String,
+      },
     },
   ],
 });

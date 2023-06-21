@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import MovieDetails from "../components/MoviePage/MovieDetails";
-import MovieTimes from "../components/MoviePage/MovieTimes";
+import MovieTimesList from "../components/MoviePage/MovieTimesList";
 
 export default function MoviePage() {
   const location = useLocation();
@@ -9,7 +9,6 @@ export default function MoviePage() {
   return (
     <div>
       <MovieDetails movie={movie} />
-      <MovieTimes movie={movie} />
     </div>
   );
 }

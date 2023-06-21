@@ -1,4 +1,5 @@
 import "../../CSS/Movies/MovieDetails.css";
+import MovieTimesList from "./MovieTimesList";
 
 export default function MovieDetails({ movie }) {
   return (
@@ -8,7 +9,6 @@ export default function MovieDetails({ movie }) {
         <h1>{movie.title}</h1>
         <h2>{movie.rated}</h2>
         <h2>{movie.runtime}</h2>
-
         <label>Description:</label>
         <p>{movie.plot}</p>
         <label htmlFor="">Starring:</label>
@@ -17,6 +17,9 @@ export default function MovieDetails({ movie }) {
         <p>{movie.director}</p>
         <label htmlFor="">Genres</label>
         <p>{movie.genre}</p>
+        <div>
+          <MovieTimesList movie={movie} />
+        </div>
       </div>
     </div>
   );

@@ -9,3 +9,7 @@
 .movie-details-section {
   margin-left: 20px;
 }
+
+.movie-times-list {
+  display: flex;
+}

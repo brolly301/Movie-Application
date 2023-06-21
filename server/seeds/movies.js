@@ -16,6 +16,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
     imdbRating: "8.8",
     imdbID: "tt1375666",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "13th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "The Dark Knight",
@@ -34,6 +52,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
     imdbRating: "9.0",
     imdbID: "tt0468569",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "Pulp Fiction",
@@ -52,6 +88,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
     imdbRating: "8.9",
     imdbID: "tt0110912",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "Fight Club",
@@ -70,6 +124,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
     imdbRating: "8.8",
     imdbID: "tt0137523",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "The Matrix",
@@ -88,6 +160,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
     imdbRating: "8.7",
     imdbID: "tt0133093",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "Interstellar",
@@ -106,6 +196,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
     imdbRating: "8.7",
     imdbID: "tt0816692",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "American Psycho",
@@ -124,6 +232,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BZTM2ZGJmNjQtN2UyOS00NjcxLWFjMDktMDE2NzMyNTZlZTBiXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
     imdbRating: "7.6",
     imdbID: "tt0144084",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "Trainspotting",
@@ -142,6 +268,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BMzA5Zjc3ZTMtMmU5YS00YTMwLWI4MWUtYTU0YTVmNjVmODZhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
     imdbRating: "8.1",
     imdbID: "tt0117951",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "The Departed",
@@ -160,6 +304,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_SX300.jpg",
     imdbRating: "8.5",
     imdbID: "tt0407887",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "The Wolf of Wall Street",
@@ -178,6 +340,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg",
     imdbRating: "8.2",
     imdbID: "tt0993846",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "Django Unchained",
@@ -196,6 +376,24 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX300.jpg",
     imdbRating: "8.4",
     imdbID: "tt1853728",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
   {
     title: "Avengers: Infinity War",
@@ -214,5 +412,23 @@ module.exports = [
       "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg",
     imdbRating: "8.4",
     imdbID: "tt4154756",
+    shows: [
+      {
+        date: "12th June",
+        startTime: "14.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "18.30pm",
+      },
+      {
+        date: "12th June",
+        startTime: "20.15pm",
+      },
+      {
+        date: "12th June",
+        startTime: "22.45pm",
+      },
+    ],
   },
 ];
