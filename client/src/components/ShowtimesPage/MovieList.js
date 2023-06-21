@@ -5,7 +5,11 @@ export default function MovieList() {
   const { movies, date } = useMovieContext();
 
   const renderedList = movies?.map((movie) => {
-    return <MovieShow key={movie.imdbID} movie={movie} link="showtimes" />;
+    movie.shows.filter((show) => {
+      if (show.date === date) {
+        return <MovieShow key={movie.imdbID} movie={movie} link="showtimes" />;
+      }
+    });
   });
 
   return <div>{renderedList}</div>;
