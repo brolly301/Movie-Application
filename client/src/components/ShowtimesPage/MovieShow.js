@@ -1,10 +1,15 @@
 import "../../CSS/Movies/MovieShow.css";
 import { Link } from "react-router-dom";
 import MovieTimes from "../MoviePage/MovieTimes";
+import useMovieContext from "../../hooks/useMovieContext";
 
 export default function MovieShow({ movie, link }) {
+  const { date } = useMovieContext();
+
   const renderedList = movie.shows?.map((show) => {
-    return <MovieTimes show={show} movie={movie} />;
+    if (show.date === date) {
+      return <MovieTimes show={show} movie={movie} />;
+    }
   });
 
   return (
