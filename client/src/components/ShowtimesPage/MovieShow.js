@@ -6,8 +6,6 @@ import useMovieContext from "../../hooks/useMovieContext";
 export default function MovieShow({ movie, link }) {
   const { date } = useMovieContext();
 
-  console.log(movie);
-
   const renderedList = movie.shows?.map((show) => {
     if (show.date === date) {
       return <MovieTimes show={show} movie={movie} />;
@@ -22,7 +20,6 @@ export default function MovieShow({ movie, link }) {
         <h2>Rated: {movie.rated}</h2>
         <h3>Running Time: {movie.runtime}</h3>
         <h3>Date: {new Date().toDateString().substring(4)}</h3>
-        {/* Time will go here */}
         <Link state={{ movie: movie }} to={`/${link}/${movie._id}`}>
           <button>More Details</button>
         </Link>
