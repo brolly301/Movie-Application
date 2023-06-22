@@ -4,25 +4,13 @@ import MovieShow from "./MovieShow";
 export default function MovieList() {
   const { movies, date } = useMovieContext();
 
-  const renderedList =  movies?.map((movie) => movie.shows.map((show)=> {
-if (show.date === date) {
+  //Maps through movies array to get individual movie
+  //Some function tests if at least one date meets the condition
+  const renderedList = movies?.map((movie) => {
+    if (movie.shows.some((show) => show.date === date)) {
       return <MovieShow key={movie.imdbID} movie={movie} link="showtimes" />;
-      }
-  } ))
-
-  
-
-  console.log(renderedList)
-
-  // const renderedList = movies?.map((movie) => {
-  //   movie.shows.filter((show) => {
-  //     if (show.date === date) {
-  //       return <MovieShow key={movie.imdbID} movie={movie} link="showtimes" />;
-  //     }
-  //   });
-  // });
+    }
+  });
 
   return <div>{renderedList}</div>;
 }
-
-
