@@ -6,23 +6,22 @@ import TimeDropdown from "../Misc/TimeDropdown ";
 
 export default function MovieSearch() {
   const { movies } = useMovieContext();
+  const [date, setDate] = useState();
   const [selectedMovie, setSelectedMovie] = useState({
-    movie: null || "",
+    movie: null || [],
     dates: [],
     startTime: [],
   });
 
-  // const list =
+  const handleDate = (date) => {
+    setDate(date);
+  };
 
   const handleSetMovie = (movie) => {
     setSelectedMovie({
       movie: movie,
-      dates: [...new Set(movie.shows.map((show) => show.date))],
-      startTime: selectedMovie.movie.shows?.map((show) => {
-        if (show.date === "12th June") {
-          return show.startTime;
-        }
-      }),
+      dates: movie.shows,
+      startTime: movie.shows,
     });
   };
 
@@ -46,8 +45,8 @@ export default function MovieSearch() {
     <div>
       <form onSubmit={handleSubmit}>
         <MovieDropdown options={movies} selectedMovie={handleSetMovie} />
-        <DateDropdown options={selectedMovie.dates} />
-        <TimeDropdown options={selectedMovie.startTime} />
+        <DateDropdown options={selectedMovie.dates} handleDate={handleDate} />
+        <TimeDropdown options={selectedMovie.startTime} date={date} />
         <button>Book</button>
       </form>
     </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function DateDropdown({ options, selectedDate }) {
+export default function DateDropdown({ options, handleDate }) {
   const [selected, setSelected] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,9 +11,12 @@ export default function DateDropdown({ options, selectedDate }) {
   const handleSelected = (option) => {
     setSelected(option);
     setIsOpen(!isOpen);
+    handleDate(option);
   };
 
-  const renderedOptions = options?.map((option) => {
+  const newList = [...new Set(options.map((option) => option.date))];
+
+  const renderedOptions = newList?.map((option) => {
     return (
       <div
         key={Math.floor(Math.random() * 10000)}

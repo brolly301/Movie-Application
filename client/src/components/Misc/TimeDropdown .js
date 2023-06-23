@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function TimeDropdown({ options, selectedTime }) {
+export default function TimeDropdown({ options, date }) {
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,9 +13,14 @@ export default function TimeDropdown({ options, selectedTime }) {
     setIsOpen(!isOpen);
   };
 
-  console.log(options);
+  const newList = options?.map((show) => {
+    if (show.date === date) {
+      return show.startTime;
+    }
+  });
+  console.log(newList);
 
-  const renderedOptions = options?.map((option) => {
+  const renderedOptions = newList?.map((option) => {
     return (
       <div
         key={Math.floor(Math.random() * 10000)}
