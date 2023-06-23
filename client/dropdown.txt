@@ -1,0 +1,98 @@
+MovieList:
+
+import { useState } from "react";
+import useMovieContext from "../../hooks/useMovieContext";
+import Dropdown from "../Misc/Dropdown";
+
+export default function MovieSearch() {
+  const { movies } = useMovieContext();
+  const [selectedMovie, setSelectedMovie] = useState({
+    movie: null,
+    date: null,
+    startTime: null,
+  });
+
+  const handleSetMovie = (movie) => {
+    setSelectedMovie({
+      movie: movie,
+    });
+  };
+
+  const handleSetDate = (date) => {
+    setSelectedMovie({
+      date: date,
+    });
+  };
+
+  const handleSetTime = (startTime) => {
+    setSelectedMovie({
+      startTime: startTime,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <Dropdown options={movies} selectedMovie={handleSetMovie} />
+        <Dropdown
+          options={selectedMovie.movie?.shows}
+          selectedMovie={handleSetDate}
+        />
+        <Dropdown
+          options={selectedMovie.movie?.shows}
+          selectedMovie={handleSetTime}
+        />
+        <button>Book</button>
+      </form>
+    </div>
+  );
+}
+
+
+
+
+
+
+Dropdown:
+
+
+import { useState } from "react";
+
+export default function Dropdown({ options, selectedMovie }) {
+  const [selected, setSelected] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = (e) => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSelected = (option) => {
+    setSelected(option);
+    selectedMovie(option);
+    setIsOpen(!isOpen);
+  };
+
+  const renderedOptions = options?.map((option) => {
+    return (
+      <div key={option._id} onClick={() => handleSelected(option)}>
+        {option.title || option.date || option.startTime}
+      </div>
+    );
+  });
+
+  return (
+    <div>
+      <input
+        onClick={handleClick}
+        type="text"
+        placeholder={selected?.title || selected?.date || "Search..."}
+        readOnly
+      />
+      {isOpen && <div>{renderedOptions}</div>}
+    </div>
+  );
+}
