@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getUser } from "../APIs/authentication";
+import { getBookings } from "../APIs/profile";
 
 const UserContext = createContext();
 
@@ -12,6 +13,24 @@ export function UserContextProvider({ children }) {
     phoneNumber: "",
     loyaltyPoints: "",
   });
+
+  const [bookingDetails, setBookingDetails] = useState({
+    startTime: [],
+    startDate: [],
+    movieID: [],
+  });
+
+  // getBookings().then((res) => {
+  //   console.log(res.startTime);
+  // });
+
+  useEffect(() => {
+    const data = getBookings().then((res) => {
+      setBookingDetails(res);
+    });
+  }, [userData.user]);
+
+  console.log(bookingDetails);
 
   useEffect(() => {
     const data = getUser().then((res) => {
@@ -26,11 +45,10 @@ export function UserContextProvider({ children }) {
     });
   }, [userData.user]);
 
-  console.log(userData);
-
   const values = {
     userData,
     setUserData,
+    bookingDetails,
   };
 
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>;

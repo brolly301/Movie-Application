@@ -1,3 +1,12 @@
+import useUserContext from "../../../hooks/useUserContext";
+
 export default function LoyaltyPoints() {
-  return <div>Loyalty Points</div>;
+  const { userData } = useUserContext();
+
+  return (
+    <div>
+      Loyalty Points
+      <div>{userData.loyaltyPoints || 0}</div>
+    </div>
+  );
 }

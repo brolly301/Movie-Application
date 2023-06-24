@@ -11,6 +11,7 @@ export default function SeatBooking({ movie, show }) {
       startTime: show.startTime,
       startDate: show.date,
       movieID: movie._id,
+      email: userData.email,
     });
 
     if (userData.user) {
@@ -24,9 +25,10 @@ export default function SeatBooking({ movie, show }) {
 
   const handleFreeBooking = () => {
     bookMovie({
-      startTime: "Now",
-      startDate: "11th",
+      startTime: show.startTime,
+      startDate: show.date,
       movieID: movie._id,
+      email: userData.email,
     });
 
     if (userData.user) {

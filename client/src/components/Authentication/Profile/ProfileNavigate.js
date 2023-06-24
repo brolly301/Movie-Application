@@ -1,9 +1,10 @@
 import { useState } from "react";
 import ProfileDetails from "./ProfileDetails";
 import LoginDetails from "./LoginDetails";
-import BookingDetails from "./BookingDetails";
+import BookingDetailsShow from "./BookingDetailsShow";
 import LoyaltyPoints from "./LoyaltyPoints";
 import "../../../CSS/Authentication/ProfileNav.css";
+import BookingDetailsList from "./BookingDetailsList";
 
 export default function ProfileNavigate() {
   const [content, setContent] = useState(<LoginDetails />);
@@ -15,7 +16,7 @@ export default function ProfileNavigate() {
     setContent(<LoginDetails />);
   };
   const handleClick2 = (e) => {
-    setContent(<BookingDetails />);
+    setContent(<BookingDetailsList />);
   };
   const handleClick3 = (e) => {
     setContent(<LoyaltyPoints />);

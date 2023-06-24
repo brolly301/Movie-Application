@@ -20,3 +20,18 @@ export const editUserDetails = async ({
   );
   return await response.json();
 };
+
+export const getBookings = async () => {
+  const response = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/profile/bookingDetails`,
+    {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  return await response.json();
+};

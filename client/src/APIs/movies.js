@@ -41,9 +41,10 @@ export const bookMovie = async ({
   startTime,
   startDate,
   seatNumber,
+  email,
   movieID,
 } = {}) => {
-  const booking = { startTime, startDate, seatNumber, movieID };
+  const booking = { startTime, startDate, email, seatNumber, movieID };
 
   const response = await fetch(
     `${process.env.REACT_APP_BASE_URL}/movies/book`,
