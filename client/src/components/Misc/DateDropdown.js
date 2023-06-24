@@ -1,8 +1,12 @@
-import { useState } from "react";
+import {useEffect, useState } from "react";
 
-export default function DateDropdown({ options, handleDate }) {
+export default function DateDropdown({ options, handleDate, movie }) {
   const [selected, setSelected] = useState();
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setSelected("")
+  }, [movie])
 
   const handleClick = (e) => {
     setIsOpen(!isOpen);

@@ -25,18 +25,6 @@ export default function MovieSearch() {
     });
   };
 
-  // const handleSetDate = (date) => {
-  //   setSelectedMovie({
-  //     date: date,
-  //   });
-  // };
-
-  // const handleSetTime = (startTime) => {
-  //   setSelectedMovie({
-  //     startTime: startTime,
-  //   });
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -45,8 +33,8 @@ export default function MovieSearch() {
     <div>
       <form onSubmit={handleSubmit}>
         <MovieDropdown options={movies} selectedMovie={handleSetMovie} />
-        <DateDropdown options={selectedMovie.dates} handleDate={handleDate} />
-        <TimeDropdown options={selectedMovie.startTime} date={date} />
+        <DateDropdown options={selectedMovie.dates} handleDate={handleDate} movie={selectedMovie.movie}/>
+        <TimeDropdown options={selectedMovie.startTime} date={date} movie={selectedMovie.movie}/>
         <button>Book</button>
       </form>
     </div>

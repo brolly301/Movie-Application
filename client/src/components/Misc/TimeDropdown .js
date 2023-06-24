@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function TimeDropdown({ options, date }) {
+export default function TimeDropdown({ options, date, movie }) {
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setSelected("")
+  }, [movie])
 
   const handleClick = (e) => {
     setIsOpen(!isOpen);
@@ -18,7 +22,6 @@ export default function TimeDropdown({ options, date }) {
       return show.startTime;
     }
   });
-  console.log(newList);
 
   const renderedOptions = newList?.map((option) => {
     return (
@@ -35,7 +38,7 @@ export default function TimeDropdown({ options, date }) {
       <input
         onClick={handleClick}
         type="text"
-        placeholder={selected?.startTime || "Search..."}
+        placeholder={selected || "Search..."}
         readOnly
       />
       {isOpen && <div>{renderedOptions}</div>}
