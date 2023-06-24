@@ -30,8 +30,6 @@ export function UserContextProvider({ children }) {
     });
   }, [userData.user]);
 
-  console.log(bookingDetails);
-
   useEffect(() => {
     const data = getUser().then((res) => {
       setUserData({

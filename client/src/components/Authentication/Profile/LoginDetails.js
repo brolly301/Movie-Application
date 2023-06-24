@@ -7,7 +7,7 @@ export default function LoginDetails() {
   return (
     <div className="login-details-container">
       <label htmlFor="">Email Address</label>
-      <input type="text" value={userData.email} />
+      <input type="text" defaultValue={userData.email} />
       <label htmlFor="">Password</label>
       <input type="password" placeholder="***********" />
       <button>Edit</button>
