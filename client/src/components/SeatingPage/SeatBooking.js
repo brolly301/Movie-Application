@@ -1,15 +1,15 @@
-import { useLocation } from "react-router-dom";
 import { bookMovie } from "../../APIs/movies";
 import useUserContext from "../../hooks/useUserContext";
 import { editUserDetails } from "../../APIs/profile";
 
-export default function SeatBooking({ movie }) {
+export default function SeatBooking({ movie, show }) {
   const { userData, setUserData } = useUserContext();
 
+  console.log(show);
   const handleBooking = () => {
     bookMovie({
-      startTime: "Now",
-      startDate: "11th",
+      startTime: show.startTime,
+      startDate: show.date,
       movieID: movie._id,
     });
 

@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 
-export default function TimeDropdown({ options, date, movie }) {
+export default function TimeDropdown({
+  options,
+  date,
+  movie,
+  handleSelectedTime,
+}) {
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    setSelected("")
-  }, [movie])
+    setSelected("");
+  }, [movie]);
 
   const handleClick = (e) => {
     setIsOpen(!isOpen);
@@ -15,6 +20,7 @@ export default function TimeDropdown({ options, date, movie }) {
   const handleSelected = (option) => {
     setSelected(option);
     setIsOpen(!isOpen);
+    handleSelectedTime(option);
   };
 
   const newList = options?.map((show) => {
@@ -27,7 +33,8 @@ export default function TimeDropdown({ options, date, movie }) {
     return (
       <div
         key={Math.floor(Math.random() * 10000)}
-        onClick={() => handleSelected(option)}>
+        onClick={() => handleSelected(option)}
+      >
         {option}
       </div>
     );

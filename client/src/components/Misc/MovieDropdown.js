@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-export default function MovieDropdown({ options, selectedMovie }) {
+export default function MovieDropdown({
+  options,
+  selectedMovie,
+  handleSelectedMovie,
+}) {
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,6 +15,7 @@ export default function MovieDropdown({ options, selectedMovie }) {
   const handleSelected = (option) => {
     setSelected(option);
     selectedMovie(option);
+    handleSelectedMovie(option);
     setIsOpen(!isOpen);
   };
 
