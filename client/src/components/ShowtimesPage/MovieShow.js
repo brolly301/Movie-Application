@@ -8,7 +8,7 @@ export default function MovieShow({ movie, link }) {
 
   const renderedList = movie.shows?.map((show) => {
     if (show.date === date) {
-      return <MovieTimes show={show} movie={movie} />;
+      return <MovieTimes key={show._id} show={show} movie={movie} />;
     }
   });
 

@@ -5,7 +5,9 @@ export default function ComingSoonList() {
   const { comingSoon } = useMovieContext();
 
   const renderedList = comingSoon?.map((movie) => {
-    return <MovieShow key={movie.imdbID} movie={movie} link="comingSoon" />;
+    return (
+      <MovieShow key={Math.random() * 10000} movie={movie} link="comingSoon" />
+    );
   });
 
   return <div>{renderedList}</div>;

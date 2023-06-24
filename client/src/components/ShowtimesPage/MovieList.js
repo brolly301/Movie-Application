@@ -8,7 +8,9 @@ export default function MovieList() {
   //Some function tests if at least one date meets the condition
   const renderedList = movies?.map((movie) => {
     if (movie.shows.some((show) => show.date === date)) {
-      return <MovieShow key={movie.imdbID} movie={movie} link="showtimes" />;
+      return (
+        <MovieShow key={Math.random() * 10000} movie={movie} link="showtimes" />
+      );
     }
   });
 
