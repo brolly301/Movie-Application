@@ -27,7 +27,11 @@ module.exports = [
   },
   {
     date: date(1),
-    startTime: "20.30pm",
+    startTime: "20.15pm",
+  },
+  {
+    date: date(1),
+    startTime: "21.30pm",
   },
   {
     date: date(2),
@@ -42,6 +46,10 @@ module.exports = [
     startTime: "20.30pm",
   },
   {
+    date: date(2),
+    startTime: "22.45pm",
+  },
+  {
     date: date(3),
     startTime: "14.30pm",
   },
@@ -51,31 +59,29 @@ module.exports = [
   },
   {
     date: date(3),
-    startTime: "20.30pm",
+    startTime: "19.45pm",
   },
   {
     date: date(4),
     startTime: "14.30pm",
   },
+
   {
     date: date(4),
-    startTime: "18.30pm",
+    startTime: "22.30pm",
   },
-  {
-    date: date(4),
-    startTime: "20.30pm",
-  },
+
   {
     date: date(5),
-    startTime: "14.30pm",
-  },
-  {
-    date: date(5),
-    startTime: "18.30pm",
+    startTime: "17.30pm",
   },
   {
     date: date(5),
     startTime: "20.30pm",
+  },
+  {
+    date: date(6),
+    startTime: "12.15pm",
   },
   {
     date: date(6),

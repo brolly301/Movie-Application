@@ -1,6 +1,6 @@
 import "../../CSS/Movies/MovieDetails.css";
 import MovieTimesList from "./MovieTimesList";
-import MovieDatesShow from "../ShowtimesPage/MovieDatesShow";
+import MovieDatesList from "../ShowtimesPage/MovieDatesList";
 
 export default function MovieDetails({ movie }) {
   return (
@@ -19,7 +19,7 @@ export default function MovieDetails({ movie }) {
         <label htmlFor="">Genres</label>
         <p>{movie.genre}</p>
         <div>
-          <MovieDatesShow />
+          <MovieDatesList />
         </div>
         <div>
           <MovieTimesList movie={movie} />
