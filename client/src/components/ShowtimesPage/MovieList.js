@@ -7,7 +7,7 @@ export default function MovieList() {
   //Maps through movies array to get individual movie
   //Some function tests if at least one date meets the condition
   const renderedList = movies?.map((movie) => {
-    if (movie.shows.some((show) => show.date === date)) {
+    if (movie.shows.some((show) => show.date.substring(4, 10) === date)) {
       return (
         <MovieShow key={Math.random() * 10000} movie={movie} link="showtimes" />
       );

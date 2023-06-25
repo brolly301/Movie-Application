@@ -22,9 +22,7 @@ mongoose
 
 const seedDatabase = async () => {
   await Movie.deleteMany({});
-  await Show.deleteMany({});
   await ComingSoon.deleteMany({});
-  await Show.insertMany(shows);
   await Movie.insertMany(movies);
   await ComingSoon.insertMany(comingSoon);
 

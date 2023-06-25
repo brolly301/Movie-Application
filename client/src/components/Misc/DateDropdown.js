@@ -24,7 +24,9 @@ export default function DateDropdown({
     handleSelectedDate(option);
   };
 
-  const newList = [...new Set(options.map((option) => option.date))];
+  const newList = [
+    ...new Set(options.map((option) => option.date.substring(4, 10))),
+  ];
 
   const renderedOptions = newList?.map((option) => {
     return (

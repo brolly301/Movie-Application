@@ -7,7 +7,7 @@ const MovieContext = createContext();
 export function MovieProvider({ children }) {
   const [movies, setMovies] = useState([]);
   const [comingSoon, setComingSoon] = useState([]);
-  const [date, setDate] = useState("12th June");
+  const [date, setDate] = useState(new Date().toString().substring(4, 10));
 
   useEffect(() => {
     const response = getMovies().then((res) => {

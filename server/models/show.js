@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ShowSchema = new Schema({
   date: {
-    type: String,
+    type: Date,
   },
   startTime: {
     type: String,

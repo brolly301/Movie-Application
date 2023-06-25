@@ -6,7 +6,7 @@ export default function MovieTimesList({ movie }) {
   const { date } = useMovieContext();
 
   const renderedList = movie.shows?.map((show) => {
-    if (show.date === date) {
+    if (show.date.substring(4, 10) === date) {
       return <MovieTimes show={show} movie={movie} />;
     }
   });

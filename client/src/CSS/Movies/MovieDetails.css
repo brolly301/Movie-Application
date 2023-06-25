@@ -12,4 +12,5 @@
 
 .movie-times-list {
   display: flex;
+  justify-content: center;
 }

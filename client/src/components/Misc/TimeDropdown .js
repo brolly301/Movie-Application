@@ -24,7 +24,7 @@ export default function TimeDropdown({
   };
 
   const newList = options?.map((show) => {
-    if (show.date === date) {
+    if (show.date.substring(4, 10) === date) {
       return show.startTime;
     }
   });
