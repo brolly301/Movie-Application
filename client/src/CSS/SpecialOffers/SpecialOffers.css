@@ -1,0 +1,14 @@
+.special-offers-container {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.special-offers-container > img {
+  width: 300px;
+  height: 300px;
+}

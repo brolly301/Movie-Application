@@ -1,0 +1,8 @@
+.special-offers-list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 20px;
+}

@@ -19,7 +19,7 @@ export default function MovieShow({ movie, link }) {
         <h1>{movie.title}</h1>
         <h2>Rated: {movie.rated}</h2>
         <h3>Running Time: {movie.runtime}</h3>
-        <h3>Date: {new Date().toDateString().substring(4)}</h3>
+        <h3>Date: {date}</h3>
         <Link state={{ movie: movie }} to={`/${link}/${movie._id}`}>
           <button>More Details</button>
         </Link>

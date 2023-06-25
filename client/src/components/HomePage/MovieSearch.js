@@ -4,6 +4,7 @@ import useMovieContext from "../../hooks/useMovieContext";
 import MovieDropdown from "../Misc/MovieDropdown";
 import DateDropdown from "../Misc/DateDropdown";
 import TimeDropdown from "../Misc/TimeDropdown ";
+import "../../CSS/HomePage/MovieSearch.css";
 
 export default function MovieSearch() {
   const { movies } = useMovieContext();
@@ -47,7 +48,7 @@ export default function MovieSearch() {
   };
 
   return (
-    <div>
+    <div className="movie-search-container">
       <MovieDropdown
         options={movies}
         selectedMovie={handleSetMovie}
