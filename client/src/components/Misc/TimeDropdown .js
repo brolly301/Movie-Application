@@ -32,9 +32,9 @@ export default function TimeDropdown({
   const renderedOptions = newList?.map((option) => {
     return (
       <div
+        className="movie-search-dropdowns"
         key={Math.floor(Math.random() * 10000)}
-        onClick={() => handleSelected(option)}
-      >
+        onClick={() => handleSelected(option)}>
         {option}
       </div>
     );
@@ -45,7 +45,7 @@ export default function TimeDropdown({
       <input
         onClick={handleClick}
         type="text"
-        placeholder={selected || "Search..."}
+        placeholder={selected || "Choose Time..."}
         readOnly
       />
       {isOpen && <div>{renderedOptions}</div>}
