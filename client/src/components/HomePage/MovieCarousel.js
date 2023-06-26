@@ -4,8 +4,9 @@ import "../../CSS/HomePage/MovieCarousel.css";
 
 export default function MovieCarousel({ movies }) {
   return (
-    <div className="movie-carousel-container">
+    <div>
       <Splide
+        className="movie-carousel-container"
         options={{
           rewind: true,
           perMove: 1,
