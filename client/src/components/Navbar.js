@@ -16,15 +16,10 @@ export default function Navbar() {
   return (
     <div>
       <ul className="nav-ul">
+        <h1>Movie Dome</h1>
         <li className="nav-li">
-          <Link className="nav-link" to="/">
-            Home
-          </Link>
-        </li>
-
-        <li className="nav-li">
-          <Link className="nav-link" to="/prices">
-            Prices
+          <Link className="nav-link" to="/showtimes">
+            What's On?
           </Link>
         </li>
         <li className="nav-li">
@@ -33,15 +28,22 @@ export default function Navbar() {
           </Link>
         </li>
         <li className="nav-li">
+          <Link className="nav-link" to="/prices">
+            Prices
+          </Link>
+        </li>
+
+        <li className="nav-li">
           <Link className="nav-link" to="/specialOffers">
             Special Offers
           </Link>
         </li>
         <li className="nav-li">
-          <Link className="nav-link" to="/showtimes">
-            Showtimes
+          <Link className="nav-link" to="/specialOffers">
+            Loyalty
           </Link>
         </li>
+        {/* 
         {!userData.user ? (
           <>
             <li className="nav-li">
@@ -68,7 +70,7 @@ export default function Navbar() {
               </Link>
             </li>
           </>
-        )}
+        )} */}
       </ul>
       <div>
         <Outlet />

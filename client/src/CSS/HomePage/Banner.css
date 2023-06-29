@@ -1,0 +1,13 @@
+.banner-container {
+  background-color: #f85050;
+  height: 70px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 100%;
+  align-items: center;
+}
+
+.banner-container > h2 {
+  color: white;
+  font-size: 30px;
+}
