@@ -23,6 +23,20 @@ nav {
   color: #f85050;
 }
 
+.nav-ul > span {
+  color: white;
+  border: 1px solid white;
+  padding: 5px 17px;
+  font-size: 18px;
+}
+
+.nav-user {
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 50%;
+  color: white;
+}
+
 .nav-link {
   font-size: 18px;
   display: inherit;

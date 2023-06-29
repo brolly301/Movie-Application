@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import { FaUser } from "react-icons/fa";
 import useUserContext from "../hooks/useUserContext";
 import "../CSS/Navbar.css";
 import { logout } from "../APIs/authentication";
@@ -43,6 +44,9 @@ export default function Navbar() {
             Loyalty
           </Link>
         </li>
+        <span>Contact</span>
+        <FaUser className="nav-user" />
+
         {/* 
         {!userData.user ? (
           <>
