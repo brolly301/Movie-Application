@@ -19,20 +19,42 @@ export default function RegisterForm() {
 
   return (
     <div className="register-container">
-      <form onSubmit={handleSubmit} className="form-container">
-        <label>First Name</label>
-        <input name="firstName" onChange={handleChange} type="text" />
-        <label>Surname</label>
-        <input name="surname" onChange={handleChange} type="text" />
-        <label>Email</label>
-        <input name="email" onChange={handleChange} type="text" />
-        <label>Phone Number</label>
-        <input name="phoneNumber" onChange={handleChange} type="text" />
-        <label>Password</label>
-        <input name="password" onChange={handleChange} type="text" />
-        <label>Confirm Password</label>
-        <input type="text" />
-        <button>Submit</button>
+      <h1>Register</h1>
+      <h3>Please enter your details below to register</h3>
+      <form onSubmit={handleSubmit} className="register-form-container">
+        <input
+          name="firstName"
+          onChange={handleChange}
+          type="text"
+          placeholder="First Name..."
+        />
+        <input
+          name="surname"
+          onChange={handleChange}
+          type="text"
+          placeholder="Surname..."
+        />
+        <input
+          name="email"
+          onChange={handleChange}
+          type="text"
+          placeholder="Email Address..."
+        />
+        <input
+          name="phoneNumber"
+          onChange={handleChange}
+          type="text"
+          placeholder="Phone Number..."
+        />
+        <input
+          name="password"
+          onChange={handleChange}
+          type="text"
+          placeholder="Password..."
+        />
+        <input type="text" placeholder="Confirm Password..." />
+        <button>Register</button>
+        <button>Have an account? Login here.</button>
       </form>
     </div>
   );

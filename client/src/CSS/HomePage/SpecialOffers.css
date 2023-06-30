@@ -1,0 +1,9 @@
+.special-offers-home-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.special-offers-home-container > div > img {
+  width: 300px;
+  height: 300px;
+}

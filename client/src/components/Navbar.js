@@ -17,7 +17,9 @@ export default function Navbar() {
   return (
     <div>
       <ul className="nav-ul">
-        <h1>Movie Dome</h1>
+        <Link className="nav-link-title" to="/">
+          <h1 className="nav-title">Movie Dome</h1>
+        </Link>
         <li className="nav-li">
           <Link className="nav-link" to="/showtimes">
             What's On?
@@ -40,12 +42,16 @@ export default function Navbar() {
           </Link>
         </li>
         <li className="nav-li">
-          <Link className="nav-link" to="/specialOffers">
+          <Link className="nav-link" to="/loyalty">
             Loyalty
           </Link>
         </li>
-        <span>Contact</span>
-        <FaUser className="nav-user" />
+        <Link to="/contactUs">
+          <span className="nav-contact">Contact</span>
+        </Link>
+        <Link to="/login">
+          <FaUser className="nav-user"></FaUser>
+        </Link>
 
         {/* 
         {!userData.user ? (

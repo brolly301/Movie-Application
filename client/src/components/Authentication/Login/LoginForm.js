@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { login } from "../../../APIs/authentication";
 import useUserContext from "../../../hooks/useUserContext";
+import { Link } from "react-router-dom";
+import "../../../CSS/Authentication/LoginForm.css";
 
 export default function LoginForm() {
   const { setUserData } = useUserContext();
@@ -20,13 +22,27 @@ export default function LoginForm() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input onChange={handleChange} name="email" type="text" />
-        <label>Password</label>
-        <input onChange={handleChange} name="password" type="text" />
-        <button>Submit</button>
+    <div className="login-form-container">
+      <h1>Login</h1>
+      <h3>Please enter your login details to continue.</h3>
+      <form className="login-form-main" onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          name="email"
+          type="text"
+          placeholder="Email Address..."
+        />
+        <input
+          onChange={handleChange}
+          name="password"
+          type="text"
+          placeholder="Password..."
+        />
+        <button>Login</button>
+        <div>Or</div>
+        <Link to="/register">
+          <button type="button">Register</button>
+        </Link>
       </form>
     </div>
   );

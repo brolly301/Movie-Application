@@ -49,6 +49,9 @@ export default function MovieSearch() {
 
   return (
     <div className="movie-search-container">
+      <div>
+        <button>Quick Book</button>
+      </div>
       <MovieDropdown
         options={movies}
         selectedMovie={handleSetMovie}
@@ -68,8 +71,7 @@ export default function MovieSearch() {
       />
       <Link
         to={`showtimes/${formData.movie?._id}/seating`}
-        state={{ movie: formData.movie, show: formData }}
-      >
+        state={{ movie: formData.movie, show: formData }}>
         <button>Book</button>
       </Link>
     </div>

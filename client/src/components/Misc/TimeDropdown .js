@@ -23,11 +23,15 @@ export default function TimeDropdown({
     handleSelectedTime(option);
   };
 
-  const newList = options?.map((show) => {
-    if (show.date.substring(4, 10) === date) {
-      return show.startTime;
-    }
-  });
+  const newList = [
+    ...new Set(
+      options?.map((show) => {
+        if (show.date.substring(4, 10) === date) {
+          return show.startTime;
+        }
+      })
+    ),
+  ];
 
   const renderedOptions = newList?.map((option) => {
     return (

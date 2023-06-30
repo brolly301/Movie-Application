@@ -18,12 +18,16 @@ nav {
   display: inline;
 }
 
-.nav-ul > h1 {
+.nav-title {
   font-size: 40px;
   color: #f85050;
+  text-decoration: none;
+}
+.nav-link-title {
+  text-decoration: none;
 }
 
-.nav-ul > span {
+.nav-contact {
   color: white;
   border: 1px solid white;
   padding: 5px 17px;
