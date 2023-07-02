@@ -37,8 +37,10 @@ export default function EditProfileDetails({ onEdit }) {
           type="text"
           defaultValue={userData.phoneNumber}
         />
-        <button type="submit">Save</button>
-        <button onClick={onEdit} type="button">
+        <button className="no-border" type="submit">
+          Save
+        </button>
+        <button className="border" onClick={onEdit} type="button">
           Cancel
         </button>
       </form>

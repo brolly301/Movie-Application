@@ -18,7 +18,9 @@ export default function ProfileDetails() {
       <input type="text" value={userData.surname} readOnly />
       <input type="text" value={userData.email} readOnly />
       <input type="text" value={userData.phoneNumber} readOnly />
-      <button onClick={handleEdit}>Edit</button>
+      <button className="no-border" onClick={handleEdit}>
+        Edit
+      </button>
     </div>
   );
 

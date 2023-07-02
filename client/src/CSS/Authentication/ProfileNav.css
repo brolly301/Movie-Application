@@ -4,8 +4,10 @@
   justify-content: center;
 }
 
-.profile-nav-container > h3 {
-  margin: 50px;
+.profile-nav-container > button {
+  color: white;
+  background-color: #f85050d9;
+  padding: 10px 35px 10px 35px;
 }
 
 .profile-content {

@@ -1,26 +1,21 @@
-.profile-details-container {
+.profile-loyalty-container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  text-align: center;
+  color: white;
 }
 
-.profile-details-container > input {
-  width: 300px;
-  height: 30px;
-  background-color: #d9d9d9;
-  margin: 3px 0 3px 0;
-}
-
-.profile-details-container > button.no-border {
+.profile-loyalty-container > button.no-border {
   all: unset;
   height: 30px;
   color: white;
   text-align: center;
   border: 1px solid white;
   margin: 10px 0 10px 0;
+  width: 300px;
 }
 
-.profile-details-container > button.border {
+.profile-loyalty-container > button.border {
   all: unset;
   height: 30px;
   background-color: #f85050d9;
@@ -28,4 +23,9 @@
   text-align: center;
   border: 1px solid black;
   margin: 0 0 10px 0;
+}
+
+.profile-loyalty-points {
+  font-size: 40px;
+  margin: 0;
 }

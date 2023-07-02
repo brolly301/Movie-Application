@@ -25,10 +25,10 @@ export default function ProfileNavigate() {
   return (
     <div className="profile-container">
       <div className="profile-nav-container">
-        <h3 onClick={handleClick}>Profile</h3>
-        <h3 onClick={handleClick1}>Login</h3>
-        <h3 onClick={handleClick2}>Bookings</h3>
-        <h3 onClick={handleClick3}>Loyalty</h3>
+        <button onClick={handleClick}>Profile</button>
+        <button onClick={handleClick1}>Login</button>
+        <button onClick={handleClick2}>Bookings</button>
+        <button onClick={handleClick3}>Loyalty</button>
       </div>
       <div className="profile-content">{content}</div>
     </div>
