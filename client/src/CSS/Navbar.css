@@ -1,5 +1,4 @@
-nav {
-  padding-left: 20px;
+.nav-main {
 }
 
 .nav-ul {
@@ -10,7 +9,6 @@ nav {
   background-color: #333;
   height: 80px;
   justify-content: center;
-
   align-items: center;
 }
 
@@ -19,6 +17,9 @@ nav {
 }
 
 .nav-title {
+  position: absolute;
+  top: -15px;
+  left: 300px;
   font-size: 40px;
   color: #f85050;
   text-decoration: none;
@@ -29,12 +30,23 @@ nav {
 
 .nav-contact {
   color: white;
+  text-decoration: none;
   border: 1px solid white;
   padding: 5px 17px;
   font-size: 18px;
 }
 
+.nav-link-container {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 350px;
+}
+
 .nav-user {
+  position: absolute;
+  top: 15px;
+  margin-left: 15px;
   border: 1px solid white;
   padding: 8px;
   border-radius: 50%;
@@ -43,9 +55,7 @@ nav {
 
 .nav-link {
   font-size: 18px;
-  display: inherit;
   color: white;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }

@@ -33,7 +33,8 @@ export default function DateDropdown({
       <div
         className="movie-search-dropdowns"
         key={Math.floor(Math.random() * 10000)}
-        onClick={() => handleSelected(option)}>
+        onClick={() => handleSelected(option)}
+      >
         {option}
       </div>
     );
@@ -46,6 +47,7 @@ export default function DateDropdown({
         type="text"
         placeholder={selected || "Choose Date..."}
         readOnly
+        className="movie-search-input"
       />
       {isOpen && <div>{renderedOptions}</div>}
     </div>

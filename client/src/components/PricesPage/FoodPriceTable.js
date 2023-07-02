@@ -1,6 +1,8 @@
+import "../../CSS/Prices/Prices.css";
+
 export default function FoodPriceTable() {
   return (
-    <div>
+    <div className="prices-table-container">
       <table>
         <tr>
           <th>Item</th>

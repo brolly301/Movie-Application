@@ -1,0 +1,35 @@
+.comingSoon-container {
+  width: 500px;
+  height: 350px;
+  border: 1px solid black;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #d9d9d9;
+  margin-top: 20px;
+  padding-right: 10px;
+}
+
+.comingSoon-poster {
+  height: 300px;
+  width: 220px;
+  border-radius: 2%;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.comingSoon-details {
+  margin-left: 30px;
+}
+
+.comingSoon-list {
+  margin: 0 auto;
+  width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comingSoon-title {
+  color: white;
+  text-align: center;
+}

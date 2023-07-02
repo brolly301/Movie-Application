@@ -1,6 +1,5 @@
 import useMovieContext from "../../hooks/useMovieContext";
-import MovieList from "./MovieList";
-
+import "../../CSS/Movies/MovieDates.css";
 export default function MovieDatesShow({ date }) {
   const { setDate } = useMovieContext();
 
@@ -12,7 +11,11 @@ export default function MovieDatesShow({ date }) {
 
   return (
     <div>
-      <button onClick={handleClick} value={formattedDate}>
+      <button
+        className="movie-date-button"
+        onClick={handleClick}
+        value={formattedDate}
+      >
         {formattedDate}
       </button>
     </div>

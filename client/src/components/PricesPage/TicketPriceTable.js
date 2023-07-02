@@ -1,6 +1,6 @@
 export default function TicketPriceTable() {
   return (
-    <div>
+    <div className="prices-table-container">
       <table>
         <tr>
           <th>Ticket</th>

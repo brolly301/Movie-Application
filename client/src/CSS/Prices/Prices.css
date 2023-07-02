@@ -1,0 +1,25 @@
+.prices-table-container {
+}
+
+.prices-table-container > table {
+  width: 500px;
+  text-align: center;
+  background-color: #d9d9d9;
+  margin-bottom: 20px;
+}
+
+.prices-table-container > table > tr > th {
+  background-color: #9c9c9c;
+}
+
+.prices-title {
+  color: white;
+  text-align: center;
+}
+
+.prices-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

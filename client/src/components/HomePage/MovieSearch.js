@@ -50,7 +50,7 @@ export default function MovieSearch() {
   return (
     <div className="movie-search-container">
       <div>
-        <button>Quick Book</button>
+        <button className="movie-search-quick-button">Quick Book</button>
       </div>
       <MovieDropdown
         options={movies}
@@ -71,8 +71,9 @@ export default function MovieSearch() {
       />
       <Link
         to={`showtimes/${formData.movie?._id}/seating`}
-        state={{ movie: formData.movie, show: formData }}>
-        <button>Book</button>
+        state={{ movie: formData.movie, show: formData }}
+      >
+        <button className="movie-search-book-button">Book</button>
       </Link>
     </div>
   );

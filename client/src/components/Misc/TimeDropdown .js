@@ -38,7 +38,8 @@ export default function TimeDropdown({
       <div
         className="movie-search-dropdowns"
         key={Math.floor(Math.random() * 10000)}
-        onClick={() => handleSelected(option)}>
+        onClick={() => handleSelected(option)}
+      >
         {option}
       </div>
     );
@@ -47,6 +48,7 @@ export default function TimeDropdown({
   return (
     <div>
       <input
+        className="movie-search-input"
         onClick={handleClick}
         type="text"
         placeholder={selected || "Choose Time..."}

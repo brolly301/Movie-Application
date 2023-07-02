@@ -5,6 +5,8 @@
   margin: 0 auto;
   display: flex;
   margin-bottom: 20px;
+  background-color: #d9d9d9;
+  margin-top: 20px;
 }
 
 .movie-poster {
@@ -25,4 +27,21 @@
 
 .movie-details {
   margin-left: 30px;
+}
+
+.movie-show-button {
+  width: 130px;
+  height: 40px;
+  margin: 5px 0 5px 0;
+  background-color: #f85050e9;
+  color: white;
+}
+
+.movie-showtimes-container {
+  position: absolute;
+  margin-left: 600px;
+}
+
+.movie-page-title {
+  color: white;
 }

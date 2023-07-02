@@ -15,11 +15,11 @@ export default function Navbar() {
   };
 
   return (
-    <div>
+    <div className="nav-main">
+      <Link className="nav-link-title" to="/">
+        <h1 className="nav-title">Movie Dome</h1>
+      </Link>
       <ul className="nav-ul">
-        <Link className="nav-link-title" to="/">
-          <h1 className="nav-title">Movie Dome</h1>
-        </Link>
         <li className="nav-li">
           <Link className="nav-link" to="/showtimes">
             What's On?
@@ -46,12 +46,6 @@ export default function Navbar() {
             Loyalty
           </Link>
         </li>
-        <Link to="/contactUs">
-          <span className="nav-contact">Contact</span>
-        </Link>
-        <Link to="/login">
-          <FaUser className="nav-user"></FaUser>
-        </Link>
 
         {/* 
         {!userData.user ? (
@@ -82,6 +76,15 @@ export default function Navbar() {
           </>
         )} */}
       </ul>
+
+      <div className="nav-link-container">
+        <Link to="/contactUs" className="nav-link-title">
+          <h2 className="nav-contact">Contact</h2>
+        </Link>
+        <Link to="/login">
+          <FaUser className="nav-user"></FaUser>
+        </Link>
+      </div>
       <div>
         <Outlet />
       </div>

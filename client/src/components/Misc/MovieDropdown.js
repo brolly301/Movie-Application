@@ -24,7 +24,8 @@ export default function MovieDropdown({
       <div
         className="movie-search-dropdowns"
         key={option._id}
-        onClick={() => handleSelected(option)}>
+        onClick={() => handleSelected(option)}
+      >
         {option.title}
       </div>
     );
@@ -33,6 +34,7 @@ export default function MovieDropdown({
   return (
     <div>
       <input
+        className="movie-search-input"
         onClick={handleClick}
         type="text"
         placeholder={selected?.title || "Choose Movie..."}

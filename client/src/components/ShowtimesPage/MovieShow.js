@@ -2,6 +2,7 @@ import "../../CSS/Movies/MovieShow.css";
 import { Link } from "react-router-dom";
 import MovieTimes from "../MoviePage/MovieTimes";
 import useMovieContext from "../../hooks/useMovieContext";
+import MovieShowShowtimes from "./MovieShowShowtimes";
 
 export default function MovieShow({ movie, link }) {
   const { date } = useMovieContext();
@@ -21,9 +22,15 @@ export default function MovieShow({ movie, link }) {
         <h3>Running Time: {movie.runtime}</h3>
         <h3>Date: {date}</h3>
         <Link state={{ movie: movie }} to={`/${link}/${movie._id}`}>
-          <button>More Details</button>
+          <button className="movie-show-button">More Details</button>
         </Link>
-        <div className="movie-times-list">{renderedList}</div>
+      </div>
+      <div className="movie-showtimes-container">
+        <MovieShowShowtimes
+          showtimes={renderedList}
+          movie={movie}
+          link={link}
+        />
       </div>
     </div>
   );

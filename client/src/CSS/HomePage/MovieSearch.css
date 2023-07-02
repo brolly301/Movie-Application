@@ -6,9 +6,37 @@
   margin-bottom: 30px;
 }
 
-.movie-search-dropdowns {
-  padding: 5px;
+.movie-search-input {
+  padding: 10px;
+  margin: 0 2px 0 2px;
+  background-color: #d9d9d9;
 }
 
-/* .movie-search-dropdowns:hover {
-}  */
+.movie-search-dropdowns {
+  padding: 5px;
+  background-color: #d9d9d9;
+}
+
+.movie-search-book-button {
+  background-color: #f85050;
+  color: white;
+  width: 110px;
+  padding: 10px;
+  margin-left: 5px;
+}
+
+.movie-search-quick-button {
+  background-color: #f85050;
+  color: white;
+  width: 110px;
+  padding: 10px;
+  margin-right: 3px;
+}
+
+.movie-search-dropdowns:hover {
+  background-color: #939191;
+}
+
+.movie-search-dropdowns-active {
+  background-color: #939191;
+}
