@@ -38,10 +38,12 @@ export default function LoginForm() {
           type="text"
           placeholder="Password..."
         />
-        <button>Login</button>
+        <button className="no-border">Login</button>
         <div>Or</div>
-        <Link to="/register">
-          <button type="button">Register</button>
+        <Link className="login-link" to="/register">
+          <button className="border" type="button">
+            Register
+          </button>
         </Link>
       </form>
     </div>

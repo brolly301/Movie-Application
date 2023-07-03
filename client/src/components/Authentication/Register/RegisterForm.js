@@ -53,8 +53,8 @@ export default function RegisterForm() {
           placeholder="Password..."
         />
         <input type="text" placeholder="Confirm Password..." />
-        <button>Register</button>
-        <button>Have an account? Login here.</button>
+        <button className="no-border">Register</button>
+        <button className="border">Have an account? Login here.</button>
       </form>
     </div>
   );
