@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  color: white;
+  text-align: center;
+}
+
+.profile-details-container > h1 {
+  margin: 0;
 }
 
 .profile-details-container > input {

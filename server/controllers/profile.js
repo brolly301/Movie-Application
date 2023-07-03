@@ -14,6 +14,8 @@ exports.editProfileDetails = async (req, res) => {
 };
 
 exports.getBookingDetails = async (req, res) => {
-  const bookings = await Booking.find({ email: req.user.email });
+  const bookings = await Booking.find({ email: req.user.email }).populate(
+    "movieID"
+  );
   res.send(bookings);
 };

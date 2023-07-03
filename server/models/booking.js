@@ -15,7 +15,7 @@ const BookingSchema = new Schema({
     type: String,
   },
   movieID: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Movie",
   },
 });

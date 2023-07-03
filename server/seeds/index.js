@@ -5,6 +5,7 @@ const comingSoon = require("./comingSoon");
 const Movie = require("../models/movie");
 const Show = require("../models/show");
 const ComingSoon = require("../models/comingSoon");
+const Bookings = require("../models/booking");
 require("dotenv").config();
 
 mongoose.set("strictQuery", false);
@@ -23,6 +24,7 @@ mongoose
 const seedDatabase = async () => {
   await Movie.deleteMany({});
   await ComingSoon.deleteMany({});
+  await Bookings.deleteMany({});
   await Movie.insertMany(movies);
   await ComingSoon.insertMany(comingSoon);
 

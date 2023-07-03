@@ -8,5 +8,10 @@ export default function BookingDetailsList({}) {
     return <BookingDetailsShow booking={booking} />;
   });
 
-  return <div>{renderedList}</div>;
+  return (
+    <div className="booking-details-list">
+      <h1>Bookings</h1>
+      {renderedList}
+    </div>
+  );
 }

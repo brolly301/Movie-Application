@@ -14,6 +14,7 @@ export default function ProfileDetails() {
 
   let content = (
     <div className="profile-details-container">
+      <h1>Profile Details</h1>
       <input type="text" value={userData.firstName} readOnly />
       <input type="text" value={userData.surname} readOnly />
       <input type="text" value={userData.email} readOnly />

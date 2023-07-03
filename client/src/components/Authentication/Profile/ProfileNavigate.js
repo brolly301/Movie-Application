@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ProfileDetails from "./ProfileDetails";
 import LoginDetails from "./LoginDetails";
-import BookingDetailsShow from "./BookingDetailsShow";
 import LoyaltyPoints from "./LoyaltyPoints";
 import "../../../CSS/Authentication/ProfileNav.css";
 import BookingDetailsList from "./BookingDetailsList";

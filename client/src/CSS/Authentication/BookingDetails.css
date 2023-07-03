@@ -1,0 +1,60 @@
+/* .booking-details-container {
+  width: 100%;
+  border: 1px solid black;
+} */
+
+.booking-details-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #d9d9d9;
+  margin-top: 20px;
+  color: black;
+  width: 420px;
+  border: 1px solid black;
+  padding-bottom: 15px;
+}
+
+.booking-details-container > img {
+  height: 120px;
+  width: 85px;
+  border-radius: 2%;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.booking-details-times-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.booking-details-times-container > h3 {
+  margin: 15px 0 10px 0;
+}
+
+.booking-details-list > h1 {
+  color: white;
+  text-align: center;
+}
+
+.booking-details-date-time {
+  display: flex;
+}
+
+.booking-details-time {
+  margin-left: 40px;
+}
+
+.booking-details-time > h4 {
+  margin: 0;
+}
+.booking-details-date > h4 {
+  margin: 0;
+}
+
+.booking-cancel-button {
+  margin-top: 10px;
+  color: white;
+  border: 1px solid black;
+  background-color: #f85050d9;
+}
