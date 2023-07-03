@@ -1,9 +1,35 @@
 .contact-container {
-  width: 500px;
+  width: 400px;
   margin: 0 auto;
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .contact-form-container {
   display: flex;
   flex-direction: column;
+}
+
+.contact-form-container > input {
+  width: 98%;
+  height: 30px;
+  background-color: #d9d9d9;
+  margin: 5px 0 5px 0;
+}
+
+.contact-form-container > textarea {
+  background-color: #d9d9d9;
+  margin: 5px 0 5px 0;
+}
+
+.contact-button {
+  all: unset;
+  width: 100%;
+  height: 35px;
+  background-color: #f85050d9;
+  color: white;
+  text-align: center;
+  border: 1px solid black;
+  margin: 10px 0 10px 0;
 }

@@ -9,12 +9,10 @@ export default function ContactUsForm() {
         <input type="text" placeholder="Enter first name..." />
         <input type="text" placeholder="Enter a Subject" />
         <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
+          cols="40"
+          rows="20"
           placeholder="Enter your message..."></textarea>
-        <button>Send your message</button>
+        <button className="contact-button">Send your message</button>
       </form>
     </div>
   );
