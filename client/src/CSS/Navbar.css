@@ -76,3 +76,12 @@
 .logout:hover {
   background-color: #111;
 }
+
+.auth-dropdown {
+  position: relative;
+  bottom: -50px;
+  left: -20px;
+  text-align: center;
+  margin: 10px;
+  border: 1px solid white;
+}

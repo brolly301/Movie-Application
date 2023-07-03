@@ -3,6 +3,7 @@ import { FaUser } from "react-icons/fa";
 import useUserContext from "../hooks/useUserContext";
 import "../CSS/Navbar.css";
 import { logout } from "../APIs/authentication";
+import AuthDropdown from "./Misc/AuthDropdown";
 
 export default function Navbar() {
   const { userData, setUserData } = useUserContext();
@@ -13,6 +14,44 @@ export default function Navbar() {
       user: null,
     });
   };
+
+  const loggedOutOptions = [
+    {
+      id: "1",
+      name: (
+        <Link className="nav-link" to="/login">
+          Login
+        </Link>
+      ),
+    },
+    {
+      id: "2",
+      name: (
+        <Link className="nav-link" to="/register">
+          Register
+        </Link>
+      ),
+    },
+  ];
+
+  const loggedInOptions = [
+    {
+      id: "1",
+      name: (
+        <Link className="nav-link" to="/account">
+          Profile
+        </Link>
+      ),
+    },
+    {
+      id: "2",
+      name: (
+        <Link onClick={handleLogout} className="nav-link">
+          Logout
+        </Link>
+      ),
+    },
+  ];
 
   return (
     <div className="nav-main">
@@ -81,9 +120,14 @@ export default function Navbar() {
         <Link to="/contactUs" className="nav-link-title">
           <h2 className="nav-contact">Contact</h2>
         </Link>
-        <Link to="/login">
+
+        <AuthDropdown
+          options={userData.user ? loggedInOptions : loggedOutOptions}
+        />
+
+        {/* <Link to="/login">
           <FaUser className="nav-user"></FaUser>
-        </Link>
+        </Link> */}
       </div>
       <div>
         <Outlet />

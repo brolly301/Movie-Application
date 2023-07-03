@@ -1,9 +1,11 @@
+/* Margin-top: auto is what pushes the footer to the bottom */
+
 .footer-container {
   display: flex;
   background-color: #7e7d7d;
   color: black;
   justify-content: center;
-  letter-spacing: 1px;
+  margin-top: auto;
 }
 
 .footer-container > div {
