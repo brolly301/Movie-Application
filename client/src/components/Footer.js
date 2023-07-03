@@ -5,25 +5,25 @@ export default function Footer() {
   return (
     <div className="footer-container">
       <div>
-        <h4>Socials</h4>
-        <h5>Insta Logo</h5>
-        <h5>Twitter Logo</h5>
-        <h5>Facebook Logo</h5>
+        <h3>Socials</h3>
+        <h4>Twitter</h4>
+        <h4>Instagram</h4>
+        <h4>Facebook</h4>
       </div>
       <div>
-        <h4>Account</h4>
-        <h5>Profile</h5>
-        <h5>Bookings</h5>
-        <h5>Loyalty</h5>
+        <h3>Account</h3>
+        <h4>Profile</h4>
+        <h4>Bookings</h4>
+        <h4>Loyalty</h4>
       </div>
       <div>
-        <h4>Explore</h4>
-        <h5>Book Movie</h5>
-        <h5>Browse Offers</h5>
-        <h5>Contact Us</h5>
+        <h3>Explore</h3>
+        <h4>Book Movie</h4>
+        <h4>Browse Offers</h4>
+        <h4>Contact Us</h4>
       </div>
-      <div>
-        <h4>Find Out Latest Deals</h4>
+      <div className="footer-subscribe">
+        <h3>Find Out Latest Deals</h3>
         <input type="text" placeholder="Enter email address..." />
         <button>Subscribe</button>
       </div>

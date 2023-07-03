@@ -6,8 +6,33 @@
   color: black;
   justify-content: center;
   margin-top: auto;
+  text-align: center;
 }
 
 .footer-container > div {
   padding: 0 60px 0 60px;
+}
+
+.footer-container > div > h3 {
+  text-decoration: underline;
+}
+
+.footer-subscribe {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-subscribe > input {
+  background-color: #d9d9d9;
+  height: 22px;
+}
+
+.footer-subscribe > button {
+  background-color: #f85050d9;
+  border: 1px solid black;
+  margin-top: 5px;
+  height: 25px;
+  letter-spacing: 1px;
+  font-weight: normal;
+  color: white;
 }
