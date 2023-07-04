@@ -55,6 +55,15 @@ const MovieSchema = new Schema({
       startTime: {
         type: String,
       },
+      seats: [
+        {
+          seatNumber: String,
+          reserved: {
+            type: Boolean,
+            default: false,
+          },
+        },
+      ],
     },
   ],
 });
