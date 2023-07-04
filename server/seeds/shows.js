@@ -4,10 +4,13 @@ const date = (days) => {
   return movieDate;
 };
 
+const seats = require("./seating");
+
 module.exports = [
   {
     date: date(0),
     startTime: "14.30pm",
+    seats: seats,
   },
   {
     date: date(0),
