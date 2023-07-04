@@ -85,37 +85,7 @@ export default function Navbar() {
             Loyalty
           </Link>
         </li>
-
-        {/* 
-        {!userData.user ? (
-          <>
-            <li className="nav-li">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-li">
-              <Link className="nav-link" to="/register">
-                Register
-              </Link>
-            </li>
-          </>
-        ) : (
-          <>
-            <li className="nav-li">
-              <Link className="nav-link" to="/account">
-                Profile
-              </Link>
-            </li>
-            <li className="nav-li">
-              <Link onClick={handleLogout} className="nav-link">
-                Logout
-              </Link>
-            </li>
-          </>
-        )} */}
       </ul>
-
       <div className="nav-link-container">
         <Link to="/contactUs" className="nav-link-title">
           <h2 className="nav-contact">Contact</h2>
@@ -124,10 +94,6 @@ export default function Navbar() {
         <AuthDropdown
           options={userData.user ? loggedInOptions : loggedOutOptions}
         />
-
-        {/* <Link to="/login">
-          <FaUser className="nav-user"></FaUser>
-        </Link> */}
       </div>
       <div>
         <Outlet />

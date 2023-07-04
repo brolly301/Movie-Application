@@ -1,0 +1,21 @@
+.seat-container {
+  width: 900px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.seat-position-container {
+  width: 70px;
+}
+
+.selected-seat {
+  width: 70px;
+  background-color: green;
+}
+
+.seat-position-container:hover {
+  background-color: green;
+}
