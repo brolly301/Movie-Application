@@ -23,20 +23,6 @@ export const getComingSoon = async () => {
   return await response.json();
 };
 
-export const getShows = async () => {
-  const response = await fetch(
-    `${process.env.REACT_APP_BASE_URL}/movies/shows`,
-    {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  return await response.json();
-};
-
 export const bookMovie = async ({
   startTime,
   startDate,
@@ -58,5 +44,19 @@ export const bookMovie = async ({
       body: JSON.stringify(booking),
     }
   );
+  return await response.json();
+};
+
+export const editMovie = async ({ title, showID, seatID } = {}) => {
+  const updatedMovie = { title, showID, seatID };
+
+  const response = await fetch(`${process.env.REACT_APP_BASE_URL}/movies`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedMovie),
+  });
   return await response.json();
 };

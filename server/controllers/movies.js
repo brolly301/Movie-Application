@@ -8,14 +8,30 @@ exports.getMovies = async (req, res) => {
   res.send(movies);
 };
 
+//need movieID, showID and seatID
+
+exports.editMovies = async (req, res) => {
+  const movies = await Movie.findOneAndUpdate(
+    {
+      title: req.body.title,
+      "shows._id": req.body.showID,
+      "shows.seats._id": req.body.seatID,
+    },
+    {
+      $set: { "shows.$.seats.$[v].reserved": true },
+    },
+    {
+      arrayFilters: [{ "v._id": req.body.seatID }],
+      upsert: true,
+      new: true,
+    }
+  );
+  res.send("Passed");
+};
+
 exports.getComingSoon = async (req, res) => {
   const movies = await ComingSoon.find({});
   res.send(movies);
-};
-
-exports.getShows = async (req, res) => {
-  const shows = await Show.find({});
-  res.send(shows);
 };
 
 exports.book = async (req, res) => {

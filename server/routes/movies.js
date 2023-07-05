@@ -1,17 +1,17 @@
 const express = require("express");
 const {
   getMovies,
-  getShows,
   getComingSoon,
   book,
+  editMovies,
 } = require("../controllers/movies");
 const router = express.Router();
 
 router.get("/", getMovies);
 
-router.get("/comingSoon", getComingSoon);
+router.patch("/", editMovies);
 
-router.get("/shows", getShows);
+router.get("/comingSoon", getComingSoon);
 
 router.post("/book", book);
 

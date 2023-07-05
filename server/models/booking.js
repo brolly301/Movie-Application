@@ -9,7 +9,7 @@ const BookingSchema = new Schema({
     type: String,
   },
   seatNumber: {
-    type: String,
+    type: [String],
   },
   email: {
     type: String,

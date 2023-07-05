@@ -1,6 +1,6 @@
 .seat-container {
   width: 900px;
-  height: 200px;
+  height: 100px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -8,11 +8,17 @@
 }
 
 .seat-position-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50px;
 }
 
 .selected-seat {
-  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
   background-color: green;
 }
 

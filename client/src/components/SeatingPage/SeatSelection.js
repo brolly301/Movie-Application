@@ -1,19 +1,20 @@
 import { useLocation } from "react-router-dom";
 import Seat from "./Seat";
 import "../../CSS/Seating/SeatSelection.css";
-import { useState } from "react";
 
-export default function SeatSelection() {
-  const [seats, setSeats] = useState([]);
-
+export default function SeatSelection({ seats, setSeats }) {
   const location = useLocation();
   const show = location.state.show;
 
-  //If active & push if not then pop
-
-  const handleSelection = (seat) => {
-    setSeats([...seats, seat]);
-    console.log(seats);
+  const handleSelection = (seat, active) => {
+    if (!active) {
+      setSeats([...seats, seat]);
+    } else {
+      const updatedSeats = seats.filter((seatNumber) => {
+        return seatNumber !== seat;
+      });
+      setSeats(updatedSeats);
+    }
   };
 
   const renderedList = show.seats?.map((seat) => {

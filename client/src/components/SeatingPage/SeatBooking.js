@@ -1,17 +1,25 @@
-import { bookMovie } from "../../APIs/movies";
+import { bookMovie, editMovie } from "../../APIs/movies";
 import useUserContext from "../../hooks/useUserContext";
 import { editUserDetails } from "../../APIs/profile";
 
-export default function SeatBooking({ movie, show }) {
+export default function SeatBooking({ movie, show, seats }) {
   const { userData, setUserData } = useUserContext();
+  //need to store seatNumber in booking model and document
+  //need to update the movieModel so that reserved is updated to true
+  //need to update the state of reserved seats to red
 
-  console.log(show);
   const handleBooking = () => {
     bookMovie({
       startTime: show.startTime,
       startDate: show.date,
       movieID: movie._id,
       email: userData.email,
+      seatNumber: seats,
+    });
+    editMovie({
+      title: "Inception",
+      showID: "64a59dfff8dcfe09e624bf23",
+      seatID: "64a59dfff8dcfe09e624bf26",
     });
 
     if (userData.user) {
