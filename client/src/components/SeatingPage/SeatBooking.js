@@ -17,9 +17,9 @@ export default function SeatBooking({ movie, show, seats }) {
       seatNumber: seats,
     });
     editMovie({
-      title: "Inception",
-      showID: "64a67f8fe3f1b8d0918ddd87",
-      seatID: ["B1", "B2"],
+      title: movie.title,
+      showID: show._id,
+      seatID: seats,
     });
 
     if (userData.user) {

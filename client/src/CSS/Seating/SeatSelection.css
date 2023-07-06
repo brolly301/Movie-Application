@@ -14,7 +14,7 @@
   width: 50px;
 }
 
-.selected-seat {
+.seat-position-container-selected {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,4 +24,12 @@
 
 .seat-position-container:hover {
   background-color: green;
+}
+
+.seat-position-container-reserved {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  background-color: red;
 }

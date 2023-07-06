@@ -15,7 +15,11 @@ export default function Seat({ seat, handleSelection }) {
   return (
     <div
       onClick={handleClick}
-      className={isActive ? "selected-seat" : "seat-position-container"}
+      className={
+        "seat-position-container" +
+        (isActive ? "-selected " : "") +
+        (seat.reserved ? "-reserved" : "")
+      }
       id={seat.seatNumber}
       src={SeatImage}>
       {seat.seatNumber}
