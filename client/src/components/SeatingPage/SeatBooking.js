@@ -18,8 +18,8 @@ export default function SeatBooking({ movie, show, seats }) {
     });
     editMovie({
       title: "Inception",
-      showID: "64a59dfff8dcfe09e624bf23",
-      seatID: "64a59dfff8dcfe09e624bf26",
+      showID: "64a67f8fe3f1b8d0918ddd87",
+      seatID: ["B1", "B2"],
     });
 
     if (userData.user) {

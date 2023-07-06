@@ -15,13 +15,13 @@ exports.editMovies = async (req, res) => {
     {
       title: req.body.title,
       "shows._id": req.body.showID,
-      "shows.seats._id": req.body.seatID,
     },
     {
       $set: { "shows.$.seats.$[v].reserved": true },
     },
     {
-      arrayFilters: [{ "v._id": req.body.seatID }],
+      arrayFilters: [{ "v.seatNumber": { $in: req.body.seatID } }],
+
       upsert: true,
       new: true,
     }
