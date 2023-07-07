@@ -6,8 +6,10 @@ export default function Seat({ seat, handleSelection }) {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = (e) => {
-    handleSelection(e.target.id, isActive);
-    setIsActive(!isActive);
+    if (!seat.reserved) {
+      handleSelection(e.target.id, isActive);
+      setIsActive(!isActive);
+    }
   };
 
   //Similar to set expanded index for
@@ -21,7 +23,8 @@ export default function Seat({ seat, handleSelection }) {
         (seat.reserved ? "-reserved" : "")
       }
       id={seat.seatNumber}
-      src={SeatImage}>
+      src={SeatImage}
+    >
       {seat.seatNumber}
     </div>
   );
