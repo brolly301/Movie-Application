@@ -4,10 +4,57 @@
   border: 1px solid black;
   margin: 0 auto;
   display: flex;
+  background-color: #d9d9d9;
 }
 
 .movie-details-section {
+  width: 600px;
   margin-left: 20px;
+}
+
+.movie-details-section > div {
+  display: flex;
+}
+
+.movie-details-column-1 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+.movie-details-column-2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie-details-column-1 > label {
+  font-size: 20px;
+}
+.movie-details-column-1 > h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #3b3b3b;
+}
+.movie-details-column-2 > label {
+  font-size: 20px;
+}
+.movie-details-column-2 > h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #3b3b3b;
+}
+
+.movie-details-description-label {
+  font-size: 20px;
+}
+
+.movie-details-description-p {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #3b3b3b;
 }
 
 .movie-times-list {

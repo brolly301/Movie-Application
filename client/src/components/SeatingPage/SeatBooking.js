@@ -37,6 +37,12 @@ export default function SeatBooking({ movie, show, seats }) {
       startDate: show.date,
       movieID: movie._id,
       email: userData.email,
+      seatNumber: seats,
+    });
+    editMovie({
+      title: movie.title,
+      showID: show._id,
+      seatID: seats,
     });
 
     if (userData.user) {
@@ -45,7 +51,6 @@ export default function SeatBooking({ movie, show, seats }) {
         loyaltyPoints: (userData.loyaltyPoints -= 100),
       });
       editUserDetails({ ...userData });
-      console.log(userData);
     }
   };
 
