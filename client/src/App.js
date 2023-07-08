@@ -15,11 +15,13 @@ import SeatingPage from "./pages/SeatingPage";
 import ContactUs from "./pages/ContactUs";
 import Footer from "./components/Footer";
 import LoyaltyPage from "./pages/LoyaltyPage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
       <Navbar />
+      <ToastContainer />
       <Routes>
         <Route path="/" index element={<HomePage />} />
         <Route path="/login" index element={<LoginPage />} />

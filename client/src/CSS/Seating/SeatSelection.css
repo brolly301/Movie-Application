@@ -1,25 +1,42 @@
 .seat-container {
-  width: 900px;
-  height: 100px;
+  width: 568px;
+  height: 500px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   border: 1px solid black;
 }
 
+.seat-screen {
+  width: 568px;
+  height: 50px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
 .seat-position-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  font-size: 18px;
+  width: 55px;
+  border: 1px solid black;
 }
 
 .seat-position-container-selected {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  font-size: 18px;
+
+  width: 55px;
   background-color: green;
+  border: 1px solid black;
 }
 
 .seat-position-container:hover {
@@ -30,6 +47,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  font-size: 18px;
+
+  width: 55px;
   background-color: red;
+  border: 1px solid black;
+}
+
+.seat-selection-key {
+  display: flex;
+  margin: 20px 0 20px 0;
+}
+
+.seat-list-container {
+  margin-left: 40px;
+}
+
+.seat-selection-key > label {
+  margin-right: 50px;
+}
+
+.seat-selection-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+
+.seat-selection-color:nth-of-type(2) {
+  background-color: rgb(61, 219, 100);
+}
+.seat-selection-color:nth-of-type(3) {
+  background-color: rgb(255, 68, 68);
 }

@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { register } from "../../../APIs/authentication";
+import { useNavigate } from "react-router-dom";
 import "../../../CSS/Authentication/RegisterForm.css";
 
 export default function RegisterForm() {
@@ -8,6 +10,8 @@ export default function RegisterForm() {
     password: "",
   });
 
+  const redirect = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -15,6 +19,8 @@ export default function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await register(formData);
+    toast.success("Welcome " + formData.email);
+    redirect("/");
   };
 
   return (

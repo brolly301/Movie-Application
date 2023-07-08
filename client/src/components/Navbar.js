@@ -4,6 +4,7 @@ import useUserContext from "../hooks/useUserContext";
 import "../CSS/Navbar.css";
 import { logout } from "../APIs/authentication";
 import AuthDropdown from "./Misc/AuthDropdown";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
   const { userData, setUserData } = useUserContext();
@@ -13,6 +14,7 @@ export default function Navbar() {
     setUserData({
       user: null,
     });
+    toast("Goodbye");
   };
 
   const loggedOutOptions = [

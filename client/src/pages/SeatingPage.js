@@ -1,7 +1,8 @@
-import SeatBooking from "../components/SeatingPage/SeatBooking";
 import SeatSelection from "../components/SeatingPage/SeatSelection";
+import SeatDetails from "../components/SeatingPage/SeatDetails";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import "../CSS/Seating/SeatPanel.css";
 
 export default function SeatingPage() {
   const location = useLocation();
@@ -11,9 +12,9 @@ export default function SeatingPage() {
   const [seats, setSeats] = useState([]);
 
   return (
-    <div>
+    <div className="seat-panel-container">
       <SeatSelection seats={seats} setSeats={setSeats} />
-      <SeatBooking seats={seats} movie={movie} show={show} />
+      <SeatDetails seats={seats} movie={movie} show={show} />
     </div>
   );
 }

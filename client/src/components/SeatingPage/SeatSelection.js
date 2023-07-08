@@ -27,5 +27,18 @@ export default function SeatSelection({ seats, setSeats }) {
     );
   });
 
-  return <div className="seat-container">{renderedList}</div>;
+  return (
+    <div className="seat-list-container">
+      <div className="seat-selection-key">
+        <span className="seat-selection-color" />
+        <label>Available</label>
+        <span className="seat-selection-color" />
+        <label>Selected</label>
+        <span className="seat-selection-color" />
+        <label>Reserved</label>
+      </div>
+      <div className="seat-container">{renderedList}</div>
+      <div className="seat-screen"> Screen</div>
+    </div>
+  );
 }
