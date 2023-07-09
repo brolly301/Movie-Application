@@ -44,3 +44,11 @@ button.border {
   border: 1px solid black;
   margin: 10px 0 10px 0;
 }
+
+.register-form-container > p {
+  color: red;
+  font-size: 14px;
+  margin: 5px 0 0px 0;
+  text-align: center;
+  font-weight: normal;
+}

@@ -22,7 +22,6 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     await login(formData);
     setUserData({ user: formData.email });
     toast.success("Welcome " + formData.email);
