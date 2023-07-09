@@ -1,5 +1,6 @@
 import useUserContext from "../../../hooks/useUserContext";
 import { editUserDetails } from "../../../APIs/profile";
+import { toast } from "react-toastify";
 
 export default function EditProfileDetails({ onEdit }) {
   const { userData, setUserData } = useUserContext();
@@ -7,6 +8,7 @@ export default function EditProfileDetails({ onEdit }) {
     e.preventDefault();
     onEdit();
     editUserDetails(userData);
+    toast.success("Profile details successfuly saved.");
   };
 
   const handleChange = (e) => {

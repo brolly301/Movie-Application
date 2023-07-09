@@ -19,3 +19,10 @@ exports.getBookingDetails = async (req, res) => {
   );
   res.send(bookings);
 };
+
+exports.deleteBooking = async (req, res) => {
+  const bookings = await Booking.findOneAndDelete({
+    _id: req.body.bookingID,
+  });
+  res.send(bookings);
+};

@@ -1,6 +1,13 @@
+import { deleteBooking } from "../../../APIs/profile";
 import "../../../CSS/Authentication/BookingDetails.css";
+import { toast } from "react-toastify";
 
 export default function BookingDetailsShow({ booking }) {
+  const handleClick = () => {
+    deleteBooking(booking._id);
+    toast.success("Booking successfully cancelled.");
+  };
+
   return (
     <div className="booking-details-container">
       <img src={booking.movieID.poster} alt="" />
@@ -17,7 +24,9 @@ export default function BookingDetailsShow({ booking }) {
             <h4>{booking.startTime}</h4>
           </div>
         </div>
-        <button className="booking-cancel-button">Cancel</button>
+        <button onClick={handleClick} className="booking-cancel-button">
+          Cancel
+        </button>
       </div>
 
       <div className="movie-showtimes-container"></div>

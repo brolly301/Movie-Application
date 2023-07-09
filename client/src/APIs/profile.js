@@ -35,3 +35,19 @@ export const getBookings = async () => {
   );
   return await response.json();
 };
+
+export const deleteBooking = async (bookingID) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/profile/booking`,
+    {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ bookingID }),
+    }
+  );
+  return await response.json();
+};

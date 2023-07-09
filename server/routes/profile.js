@@ -2,6 +2,7 @@ const express = require("express");
 const {
   editProfileDetails,
   getBookingDetails,
+  deleteBooking,
 } = require("../controllers/profile");
 const { userByID } = require("../middlewares/user");
 const { getLoggedInUser } = require("../controllers/authentication");
@@ -11,5 +12,7 @@ const router = express.Router();
 router.patch("/editUserDetails", verifyToken, userByID, editProfileDetails);
 
 router.get("/bookingDetails", verifyToken, userByID, getBookingDetails);
+
+router.delete("/booking", verifyToken, userByID, deleteBooking);
 
 module.exports = router;

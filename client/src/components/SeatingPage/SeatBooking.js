@@ -1,6 +1,7 @@
 import { bookMovie, editMovie } from "../../APIs/movies";
 import useUserContext from "../../hooks/useUserContext";
 import { editUserDetails } from "../../APIs/profile";
+import { toast } from "react-toastify";
 
 export default function SeatBooking({ movie, show, seats }) {
   const { userData, setUserData } = useUserContext();
@@ -29,6 +30,7 @@ export default function SeatBooking({ movie, show, seats }) {
       });
       editUserDetails({ ...userData });
     }
+    toast("Booking confirmed. Check your account for booking details.");
   };
 
   const handleFreeBooking = () => {
@@ -52,6 +54,7 @@ export default function SeatBooking({ movie, show, seats }) {
       });
       editUserDetails({ ...userData });
     }
+    toast("Free Booking confirmed. Check your account for booking details.");
   };
 
   return (
