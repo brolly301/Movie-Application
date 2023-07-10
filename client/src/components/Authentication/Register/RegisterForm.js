@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { register } from "../../../APIs/authentication";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Validation from "./Validation";
 import "../../../CSS/Authentication/RegisterForm.css";
 
@@ -85,7 +85,11 @@ export default function RegisterForm() {
           placeholder="Confirm Password..."
         />
         <button className="no-border">Register</button>
-        <button className="border">Have an account? Login here.</button>
+        <Link style={{ textDecoration: "none" }} to={"/login"}>
+          <button type="button" className="border">
+            Have an account? Login here.
+          </button>
+        </Link>
       </form>
     </div>
   );

@@ -1,6 +1,25 @@
 const nodemailer = require("nodemailer");
 
 exports.sendContactForm = (req, res) => {
+  const { email, subject, message } = req.body;
+
+  if (!email) {
+    return res.status(401).json({
+      error: "Please provide an email address.",
+    });
+  }
+
+  if (!subject) {
+    return res.status(401).json({
+      error: "Please enter a subject.",
+    });
+  }
+  if (!message) {
+    return res.status(401).json({
+      error: "Please enter a message.",
+    });
+  }
+
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -10,10 +29,10 @@ exports.sendContactForm = (req, res) => {
   });
 
   const options = {
-    from: req.body.email,
+    from: email,
     to: "marcrobertjohn@gmail.com",
-    subject: req.body.subject,
-    html: req.body.message,
+    subject: subject,
+    html: message,
   };
 
   transporter.sendMail(options, function (err, info) {
@@ -21,7 +40,7 @@ exports.sendContactForm = (req, res) => {
       console.log(err);
     }
     res.send.JSON({
-      message: "Successful",
+      message: "Message successfully sent.",
     });
   });
 };

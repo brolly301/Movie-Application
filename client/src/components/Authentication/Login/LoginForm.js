@@ -13,6 +13,7 @@ export default function LoginForm() {
     email: "",
     password: "",
   });
+  const [error, setError] = useState();
 
   const redirect = useNavigate();
 
@@ -24,7 +25,7 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       const res = await login(formData);
-      if (res.error) toast(res.error);
+      if (res.error) setError(res.error);
       else {
         setUserData({ user: formData.email });
         toast.success(res.message);
@@ -40,6 +41,7 @@ export default function LoginForm() {
       <h1>Login</h1>
       <h3>Please enter your login details to continue.</h3>
       <form className="login-form-main" onSubmit={handleSubmit}>
+        {error && <p>{error}</p>}
         <input
           onChange={handleChange}
           name="email"
