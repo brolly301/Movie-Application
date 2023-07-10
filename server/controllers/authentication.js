@@ -7,6 +7,11 @@ exports.login = async (req, res) => {
   //Check if user exists
   const user = await User.findOne({ email: email });
 
+  if (!user) {
+    return res.status(401).json({
+      error: "User not found",
+    });
+  }
   //Check if user details match those in the database
   if (!user.authenticate(password)) {
     return res.status(401).json({
@@ -22,7 +27,7 @@ exports.login = async (req, res) => {
   res.cookie("jwt", token, { expire: new Date() + 1, httpOnly: true });
 
   res.status(200).json({
-    message: "Login successful",
+    message: "Login successful. Welcome " + user.firstName,
     email: user.email,
   });
 };

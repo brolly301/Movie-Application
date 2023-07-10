@@ -22,10 +22,17 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(formData);
-    setUserData({ user: formData.email });
-    toast.success("Welcome " + formData.email);
-    redirect("/");
+    try {
+      const res = await login(formData);
+      if (res.error) toast(res.error);
+      else {
+        setUserData({ user: formData.email });
+        toast.success(res.message);
+        redirect("/");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
