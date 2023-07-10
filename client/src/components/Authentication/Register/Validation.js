@@ -39,7 +39,9 @@ export default function Validation(values) {
     errors.password = "Password format is not valid.";
   }
 
-  if (values.confirmPassword !== values.password) {
+  if (values.confirmPassword === "") {
+    errors.confirmPassword = "Password confirmation is required.";
+  } else if (values.confirmPassword !== values.password) {
     errors.confirmPassword = "Passwords do not match.";
   }
 

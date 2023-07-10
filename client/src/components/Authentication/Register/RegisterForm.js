@@ -29,9 +29,12 @@ export default function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     handleValidation();
-    // await register(formData);
-    // toast.success("Welcome " + formData.email);
-    // redirect("/");
+    const res = await register(formData);
+    if (res.error) console.log(res.error);
+    else {
+      toast.success(res.message);
+      redirect("/");
+    }
   };
 
   return (

@@ -28,9 +28,19 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
+  const emailExists = await User.findOne({ email: req.body.email });
+
+  if (emailExists) {
+    return res.status(403).json({
+      error: "Email already taken.",
+    });
+  }
+
   const newUser = new User(req.body);
-  res.send(newUser);
   await newUser.save();
+  res.status(201).json({
+    message: "Sign up successful. Welcome" + req.body.firstName,
+  });
 };
 
 exports.logout = async (req, res) => {
