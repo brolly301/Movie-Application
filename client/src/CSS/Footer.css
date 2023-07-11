@@ -7,6 +7,7 @@
   justify-content: center;
   margin-top: auto;
   text-align: center;
+  width: 100%;
 }
 
 .footer-container > div {
@@ -24,6 +25,7 @@
 .footer-subscribe {
   display: flex;
   flex-direction: column;
+  width: 200px;
 }
 
 .footer-subscribe > input {
@@ -39,4 +41,10 @@
   letter-spacing: 1px;
   font-weight: normal;
   color: white;
+}
+
+@media (max-width: 800px) {
+  .footer-container {
+    flex-direction: column;
+  }
 }

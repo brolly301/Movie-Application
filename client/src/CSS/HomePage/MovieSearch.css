@@ -40,3 +40,9 @@
 .movie-search-dropdowns-active {
   background-color: #939191;
 }
+
+@media (max-width: 840px) {
+  .movie-search-container {
+    flex-direction: column;
+  }
+}

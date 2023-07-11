@@ -1,13 +1,19 @@
 import { Link, Outlet } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
 import useUserContext from "../hooks/useUserContext";
 import "../CSS/Navbar.css";
 import { logout } from "../APIs/authentication";
 import AuthDropdown from "./Misc/AuthDropdown";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 export default function Navbar() {
   const { userData, setUserData } = useUserContext();
+  const [active, setActive] = useState(false);
+
+  const handleClick = (e) => {
+    setActive(!active);
+  };
 
   const handleLogout = async (e) => {
     await logout();
@@ -60,7 +66,7 @@ export default function Navbar() {
       <Link className="nav-link-title" to="/">
         <h1 className="nav-title">Movie Dome</h1>
       </Link>
-      <ul className="nav-ul">
+      <ul className={active ? "nav-ul-open" : "nav-ul"}>
         <li className="nav-li">
           <Link className="nav-link" to="/showtimes">
             What's On?
@@ -96,8 +102,11 @@ export default function Navbar() {
         <AuthDropdown
           options={userData.user ? loggedInOptions : loggedOutOptions}
         />
+        <div>
+          <GiHamburgerMenu onClick={handleClick} className={"nav-menu-icon"} />
+        </div>
       </div>
-      <div>
+      <div style={{ display: "none" }}>
         <Outlet />
       </div>
     </div>

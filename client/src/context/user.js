@@ -20,15 +20,11 @@ export function UserContextProvider({ children }) {
     movieID: [],
   });
 
-  // getBookings().then((res) => {
-  //   console.log(res.startTime);
-  // });
-
   useEffect(() => {
     const data = getBookings().then((res) => {
       setBookingDetails(res);
     });
-  }, [userData.user]);
+  }, [userData.user, userData.loyaltyPoints]);
 
   useEffect(() => {
     const data = getUser().then((res) => {
