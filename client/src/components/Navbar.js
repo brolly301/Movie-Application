@@ -98,7 +98,6 @@ export default function Navbar() {
         <Link to="/contactUs" className="nav-link-title">
           <h2 className="nav-contact">Contact</h2>
         </Link>
-
         <AuthDropdown
           options={userData.user ? loggedInOptions : loggedOutOptions}
         />

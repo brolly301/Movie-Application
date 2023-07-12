@@ -20,7 +20,8 @@ export default function AuthDropdown({ options }) {
       <div
         className="auth-dropdown"
         key={option.id}
-        onClick={() => handleSelected(option)}>
+        onClick={() => handleSelected(option)}
+      >
         <div>{option.name}</div>
       </div>
     );
@@ -29,7 +30,7 @@ export default function AuthDropdown({ options }) {
   return (
     <div>
       <FaUser className="nav-user" onClick={handleClick} />
-      {isOpen && <div>{renderedOptions}</div>}
+      {isOpen && <div className="auth-list">{renderedOptions}</div>}
     </div>
   );
 }

@@ -33,3 +33,18 @@
 .loyalty-text-container > h1 {
   text-align: center;
 }
+
+@media (max-width: 790px) {
+  .loyalty-icons-container {
+    flex-direction: column;
+  }
+
+  .loyalty-container {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .loyalty-text-container {
+    padding: 0 13px 0 13px;
+  }
+}
