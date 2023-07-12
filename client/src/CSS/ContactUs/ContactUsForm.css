@@ -1,9 +1,11 @@
 .contact-container {
-  width: 400px;
+  display: flex;
+  width: 100%;
   margin: 0 auto;
   color: white;
   text-align: center;
-  margin-bottom: 40px;
+  justify-content: center;
+  margin-bottom: 2.5rem;
 }
 
 .contact-form-container {
@@ -13,31 +15,31 @@
 
 .contact-form-container > input {
   width: 98%;
-  height: 30px;
+  height: 1.875rem;
   background-color: #d9d9d9;
-  margin: 5px 0 5px 0;
+  margin: 0.3125rem 0 0.3125rem 0;
 }
 
 .contact-form-container > textarea {
   background-color: #d9d9d9;
-  margin: 5px 0 5px 0;
+  margin: 0.3125rem 0 0.3125rem 0;
 }
 
 .contact-button {
   all: unset;
   width: 100%;
-  height: 35px;
+  height: 2.1875rem;
   background-color: #f85050d9;
   color: white;
   text-align: center;
-  border: 1px solid black;
-  margin: 10px 0 10px 0;
+  border: 0.0625rem solid black;
+  margin: 0.625rem 0 0.625rem 0;
 }
 
 .contact-form-container > p {
   color: #f85050d9;
-  font-size: 16px;
-  margin: 5px 0 0px 0;
+  font-size: 1rem;
+  margin: 0.3125rem 0 0rem 0;
   text-align: center;
   font-weight: normal;
 }

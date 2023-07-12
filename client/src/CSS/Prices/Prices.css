@@ -1,8 +1,11 @@
 .prices-table-container {
+  width: 26rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .prices-table-container > table {
-  width: 500px;
+  width: 100%;
   text-align: center;
   background-color: #d9d9d9;
   margin-bottom: 20px;
@@ -18,6 +21,7 @@
 }
 
 .prices-page-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
