@@ -24,7 +24,8 @@ export default function MovieCarousel({ movies }) {
           gap: "30px",
           autoplay: true,
           interval: 5000,
-        }}>
+        }}
+      >
         {renderedList}
       </Splide>
     </div>

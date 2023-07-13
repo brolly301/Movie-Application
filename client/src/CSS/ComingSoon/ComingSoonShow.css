@@ -1,13 +1,14 @@
 .comingSoon-container {
   width: 31rem;
-  height: 100%;
-  border: 0.0625rem solid black;
+  height: 26rem;
+  border: 0.1rem solid black;
   margin: 0 auto;
   display: flex;
   margin-bottom: 1.25rem;
   background-color: #d9d9d9;
   margin-top: 1.25rem;
-  padding-right: 0.625rem;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .comingSoon-poster {
@@ -16,6 +17,7 @@
   border-radius: 2%;
   margin-top: 0.9375rem;
   margin-left: 1.25rem;
+  border: 0.1rem solid black;
 }
 
 .comingSoon-details {
@@ -23,6 +25,7 @@
 }
 
 .comingSoon-list {
+  height: 100%;
   margin: 0 auto;
   width: 68rem;
   display: flex;
@@ -33,15 +36,140 @@
   color: white;
   text-align: center;
 }
+.comingSoon-show-button {
+  width: 12rem;
+  height: 40px;
+  margin: 5px 0 5px 0;
+  background-color: #f85050e9;
+  color: white;
+  font-size: 18px;
+  margin-left: 1.2rem;
+  margin-top: 20px;
+}
 
+.comingSoon-show-button-2 {
+  display: none;
+}
+
+.comingSoon-details-column-1 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+.comingSoon-details-column-2 {
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.comingSoon-details-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.comingSoon-details-column-2 > label {
+  font-size: 20px;
+}
+
+.comingSoon-details-column-2 > h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #3b3b3b;
+}
+.comingSoon-details-column-1 > label {
+  font-size: 20px;
+}
+
+.comingSoon-details-column-1 > h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #3b3b3b;
+}
+
+.comingSoon-poster_title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-title-hidden {
+  display: none;
+}
 @media (max-width: 1090px) {
   .comingSoon-list {
     flex-direction: column;
     width: 100%;
   }
 
+  .comingSoon-details-column-2 {
+    display: flex;
+  }
+
+  .comingSoon-hidden {
+    display: none;
+  }
+
+  .comingSoon-details {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .comingSoon-title {
+    justify-content: center;
+  }
+
+  .comingSoon-poster {
+    margin-left: 0;
+  }
+
   .comingSoon-container {
     flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .comingSoon-show-button {
+    display: none;
+  }
+
+  .comingSoon-show-button-2 {
+    width: 17rem;
+    height: 40px;
+    margin: 5px 0 5px 0;
+    background-color: #f85050e9;
+    color: white;
+    font-size: 18px;
+    margin: 20px 0 20px 0;
+    display: block;
+  }
+
+  .movie-title-hidden {
+    display: block;
+    text-align: center;
+    margin: 0;
+    margin-top: 25px;
+  }
+
+  .movie-title {
+    display: none;
+  }
+
+  .comingSoon-poster {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 550px) {
+  .comingSoon-container {
     width: 100%;
+  }
+
+  .comingSoon-container {
+    flex-direction: column;
+    align-items: center;
   }
 }
