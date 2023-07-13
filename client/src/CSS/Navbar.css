@@ -85,15 +85,16 @@
 }
 
 /* Needs absolute but with a column */
+
 .auth-list {
+  position: fixed;
   display: flex;
   flex-direction: column;
-}
-.auth-dropdown {
-  position: absolute;
-  text-align: center;
-  margin: 10px;
   border: 1px solid white;
+}
+
+.auth-dropdown {
+  text-align: center;
 }
 
 @media (max-width: 1280px) {

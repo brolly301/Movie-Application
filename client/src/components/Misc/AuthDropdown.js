@@ -22,7 +22,7 @@ export default function AuthDropdown({ options }) {
         key={option.id}
         onClick={() => handleSelected(option)}
       >
-        <div>{option.name}</div>
+        <div className="auth-option">{option.name}</div>
       </div>
     );
   });
