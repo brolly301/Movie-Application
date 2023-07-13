@@ -2,11 +2,14 @@
 
 .footer-container {
   display: flex;
-  background-color: #7e7d7d;
-  color: black;
+  color: white;
   justify-content: center;
   margin-top: auto;
   text-align: center;
+  width: 100%;
+}
+
+.footer-hr {
   width: 100%;
 }
 
@@ -19,7 +22,12 @@
 }
 .footer-link {
   text-decoration: none;
-  color: black;
+  color: white;
+  transition: all 0.5s ease-in;
+}
+
+.footer-link:hover {
+  color: #f85050d9;
 }
 
 .footer-subscribe {
