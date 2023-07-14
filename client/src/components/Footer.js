@@ -7,7 +7,7 @@ export default function Footer() {
   const { userData } = useUserContext();
 
   return (
-    <div>
+    <div className="footer-main">
       <hr></hr>
 
       <div className="footer-container">
@@ -21,20 +21,17 @@ export default function Footer() {
           <h3>Account</h3>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}
-          >
+            to={userData.user ? "/account" : "/login"}>
             <h4>Profile</h4>
           </Link>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}
-          >
+            to={userData.user ? "/account" : "/login"}>
             <h4>Bookings</h4>
           </Link>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}
-          >
+            to={userData.user ? "/account" : "/login"}>
             <h4>Loyalty</h4>
           </Link>
         </div>
