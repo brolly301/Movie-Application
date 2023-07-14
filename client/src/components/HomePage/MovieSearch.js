@@ -70,6 +70,7 @@ export default function MovieSearch() {
         handleSelectedTime={handleSelectedTime}
       />
       <Link
+        style={{ textDecoration: "none" }}
         to={`showtimes/${formData.movie?._id}/seating`}
         state={{ movie: formData.movie, show: formData }}
       >

@@ -2,35 +2,51 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 30px;
+  height: 100%;
   margin-bottom: 30px;
 }
 
 .movie-search-input {
-  padding: 10px;
-  margin: 0 2px 0 2px;
+  all: unset;
+  width: 200px;
   background-color: #d9d9d9;
+  color: black;
+  border: 1px solid black;
+  height: 40px;
+  padding-left: 10px;
+  margin: 0 2px 0 2px;
 }
 
 .movie-search-dropdowns {
-  padding: 5px;
+  position: relative;
   background-color: #d9d9d9;
+  padding: 10px 10px 10px 10px;
+  margin: 0 3px 0 3px;
 }
 
 .movie-search-book-button {
+  all: unset;
+  text-align: center;
+  text-decoration: none;
   background-color: #f85050;
   color: white;
-  width: 110px;
+  width: 100px;
   padding: 10px;
+  height: 20px;
   margin-left: 5px;
+  font-size: 18px;
 }
 
 .movie-search-quick-button {
+  all: unset;
   background-color: #f85050;
   color: white;
-  width: 110px;
+  width: 100px;
+  height: 20px;
   padding: 10px;
-  margin-right: 3px;
+  font-size: 18px;
+  margin-right: 4px;
+  text-align: center;
 }
 
 .movie-search-dropdowns:hover {
@@ -39,6 +55,15 @@
 
 .movie-search-dropdowns-active {
   background-color: #939191;
+}
+
+.movie-dropdown-icon-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 15px;
+}
+
+.movie-dropdown-icons {
 }
 
 @media (max-width: 840px) {

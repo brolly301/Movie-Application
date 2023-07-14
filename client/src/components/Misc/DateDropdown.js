@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 export default function DateDropdown({
   options,
@@ -42,13 +43,22 @@ export default function DateDropdown({
 
   return (
     <div>
-      <input
+      <button
         onClick={handleClick}
         type="text"
-        placeholder={selected || "Choose Date..."}
         readOnly
         className="movie-search-input"
-      />
+      >
+        <span className="movie-dropdown-icon-container">
+          {selected || "Choose Date..."}
+          {isOpen ? (
+            <GoChevronLeft className="movie-dropdown-icons" />
+          ) : (
+            <GoChevronDown className="movie-dropdown-icons" />
+          )}
+        </span>
+      </button>
+
       {isOpen && <div>{renderedOptions}</div>}
     </div>
   );

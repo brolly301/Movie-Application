@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 export default function MovieDropdown({
   options,
   selectedMovie,
   handleSelectedMovie,
 }) {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
+  console.log(selected);
   const handleClick = (e) => {
     setIsOpen(!isOpen);
   };
@@ -33,13 +35,22 @@ export default function MovieDropdown({
 
   return (
     <div>
-      <input
-        className="movie-search-input"
+      <button
         onClick={handleClick}
         type="text"
-        placeholder={selected?.title || "Choose Movie..."}
         readOnly
-      />
+        className="movie-search-input"
+      >
+        <span className="movie-dropdown-icon-container">
+          {selected?.title || "Choose Movie..."}
+          {isOpen ? (
+            <GoChevronLeft className="movie-dropdown-icons" />
+          ) : (
+            <GoChevronDown className="movie-dropdown-icons" />
+          )}
+        </span>
+      </button>
+
       {isOpen && <div>{renderedOptions}</div>}
     </div>
   );

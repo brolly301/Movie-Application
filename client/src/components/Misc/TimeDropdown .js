@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 export default function TimeDropdown({
   options,
@@ -47,13 +48,22 @@ export default function TimeDropdown({
 
   return (
     <div>
-      <input
-        className="movie-search-input"
+      <button
         onClick={handleClick}
         type="text"
-        placeholder={selected || "Choose Time..."}
         readOnly
-      />
+        className="movie-search-input"
+      >
+        <span className="movie-dropdown-icon-container">
+          {selected || "Choose Time..."}
+          {isOpen ? (
+            <GoChevronLeft className="movie-dropdown-icons" />
+          ) : (
+            <GoChevronDown className="movie-dropdown-icons" />
+          )}
+        </span>
+      </button>
+
       {isOpen && <div>{renderedOptions}</div>}
     </div>
   );
