@@ -21,17 +21,20 @@ export default function Footer() {
           <h3>Account</h3>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}>
+            to={userData.user ? "/account" : "/login"}
+          >
             <h4>Profile</h4>
           </Link>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}>
+            to={userData.user ? "/account" : "/login"}
+          >
             <h4>Bookings</h4>
           </Link>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}>
+            to={userData.user ? "/account" : "/login"}
+          >
             <h4>Loyalty</h4>
           </Link>
         </div>
@@ -49,7 +52,11 @@ export default function Footer() {
         </div>
         <div className="footer-subscribe">
           <h3>Find Out Latest Deals</h3>
-          <input type="text" placeholder="Enter email address..." />
+          <input
+            className="footer-input"
+            type="text"
+            placeholder="Enter email address..."
+          />
           <button>Subscribe</button>
         </div>
       </div>
