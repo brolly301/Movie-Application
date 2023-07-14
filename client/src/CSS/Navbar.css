@@ -15,7 +15,6 @@
   font-size: 2.875rem;
   color: #f85050d9;
   text-shadow: 1px 1px 20px #f85050d9;
-
   text-decoration: none;
 }
 
@@ -90,6 +89,8 @@
 
 .auth-list {
   position: fixed;
+  right: 42px;
+  top: 90px;
   display: flex;
   flex-direction: column;
   border: 1px solid white;
@@ -97,6 +98,7 @@
 
 .auth-dropdown {
   text-align: center;
+  padding: 10px 0 10px 0;
 }
 
 @media (max-width: 1280px) {
@@ -107,6 +109,11 @@
   .nav-link {
     padding: 5px 0;
     margin: 0px 20px;
+  }
+
+  .auth-list {
+    right: 0;
+    top: 110px;
   }
 }
 
