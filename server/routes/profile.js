@@ -7,9 +7,16 @@ const {
 const { userByID } = require("../middlewares/user");
 const { getLoggedInUser } = require("../controllers/authentication");
 const { verifyToken } = require("../middlewares/authentication");
+const { editProfileValidator } = require("../middlewares/validation");
 const router = express.Router();
 
-router.patch("/editUserDetails", verifyToken, userByID, editProfileDetails);
+router.patch(
+  "/editUserDetails",
+  verifyToken,
+  userByID,
+  editProfileValidator,
+  editProfileDetails
+);
 
 router.get("/bookingDetails", verifyToken, userByID, getBookingDetails);
 

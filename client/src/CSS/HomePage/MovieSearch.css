@@ -68,7 +68,7 @@
 .movie-dropdown-icons {
 }
 
-@media (max-width: 840px) {
+@media (max-width: 920px) {
   .movie-search-container {
     flex-direction: column;
     align-items: center;
