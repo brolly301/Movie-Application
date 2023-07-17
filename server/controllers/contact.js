@@ -3,23 +3,6 @@ const nodemailer = require("nodemailer");
 exports.sendContactForm = (req, res) => {
   const { email, subject, message } = req.body;
 
-  if (!email) {
-    return res.status(401).json({
-      error: "Please provide an email address.",
-    });
-  }
-
-  if (!subject) {
-    return res.status(401).json({
-      error: "Please enter a subject.",
-    });
-  }
-  if (!message) {
-    return res.status(401).json({
-      error: "Please enter a message.",
-    });
-  }
-
   res.status(200).json({
     message: "Success",
   });
@@ -37,6 +20,38 @@ exports.sendContactForm = (req, res) => {
     to: "marcrobertjohn@gmail.com",
     subject: subject,
     html: message,
+  };
+
+  transporter.sendMail(options, function (err, info) {
+    if (err) {
+      console.log(err);
+    }
+    res.send.JSON({
+      message: "Message successfully sent.",
+    });
+  });
+};
+
+exports.sendNewsletter = (req, res) => {
+  const { email } = req.body;
+
+  res.status(200).json({
+    message: "Success",
+  });
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "marcrobertjohn@gmail.com",
+      pass: "qklbtfcwnloxeckw",
+    },
+  });
+
+  const options = {
+    from: "marcrobertjohn@gmail.com",
+    to: email,
+    subject: "Newsletter Signup",
+    html: "Thank you for signing up to our newsletter.",
   };
 
   transporter.sendMail(options, function (err, info) {

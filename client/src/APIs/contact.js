@@ -15,3 +15,19 @@ export const sendContactForm = async ({ email, subject, message } = {}) => {
   );
   return await response.json();
 };
+
+export const sendNewsletter = async (email) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_BASE_URL}/communication/newsletter`,
+    {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    }
+  );
+  return await response.json();
+};

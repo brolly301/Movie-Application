@@ -3,6 +3,7 @@ import "../CSS/Footer.css";
 import { Link } from "react-router-dom";
 import useUserContext from "../hooks/useUserContext";
 import { toast } from "react-toastify";
+import { sendNewsletter } from "../APIs/contact";
 
 export default function Footer() {
   const { userData } = useUserContext();
@@ -13,9 +14,13 @@ export default function Footer() {
     console.log(email);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.success("You have successfully been added to our newsletter.");
+    const res = await sendNewsletter(email);
+    if (res.error) toast(res.error);
+    else {
+      toast.success("You have successfully been added to our newsletter.");
+    }
   };
 
   return (

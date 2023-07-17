@@ -74,3 +74,12 @@ exports.contactUsValidator = (req, res, next) => {
 
   errors(req, res, next);
 };
+
+exports.newsletterValidation = (req, res, next) => {
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+  req.check("email", "Email is required!").notEmpty();
+  req.check("email", "Email incorrect format").matches(emailRegex);
+
+  errors(req, res, next);
+};
