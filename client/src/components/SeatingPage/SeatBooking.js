@@ -10,61 +10,69 @@ export default function SeatBooking({ movie, show, seats }) {
   //need to update the state of reserved seats to red
 
   const handleBooking = () => {
-    bookMovie({
-      startTime: show.startTime,
-      startDate: show.date,
-      movieID: movie._id,
-      email: userData.email,
-      seatNumber: seats,
-    });
-    editMovie({
-      title: movie.title,
-      showID: show._id,
-      seatID: seats,
-    });
-
-    if (userData.user) {
-      setUserData({
-        ...userData,
-        loyaltyPoints: (userData.loyaltyPoints += 20),
+    if (seats < 1) {
+      toast.error("Please choose a seat before proceeding.");
+    } else {
+      bookMovie({
+        startTime: show.startTime,
+        startDate: show.date,
+        movieID: movie._id,
+        email: userData.email,
+        seatNumber: seats,
       });
-      editUserDetails({ ...userData });
+      editMovie({
+        title: movie.title,
+        showID: show._id,
+        seatID: seats,
+      });
+
+      if (userData.user) {
+        setUserData({
+          ...userData,
+          loyaltyPoints: (userData.loyaltyPoints += 20),
+        });
+        editUserDetails({ ...userData });
+      }
+      toast("Booking confirmed. Check your account for booking details.");
     }
-    toast("Booking confirmed. Check your account for booking details.");
   };
 
   const handleFreeBooking = () => {
-    bookMovie({
-      startTime: show.startTime,
-      startDate: show.date,
-      movieID: movie._id,
-      email: userData.email,
-      seatNumber: seats,
-    });
-    editMovie({
-      title: movie.title,
-      showID: show._id,
-      seatID: seats,
-    });
-
-    if (userData.user) {
-      setUserData({
-        ...userData,
-        loyaltyPoints: (userData.loyaltyPoints -= 100),
+    if (seats < 1) {
+      toast.error("Please choose a seat before proceeding.");
+    } else {
+      bookMovie({
+        startTime: show.startTime,
+        startDate: show.date,
+        movieID: movie._id,
+        email: userData.email,
+        seatNumber: seats,
       });
-      editUserDetails({ ...userData });
+      editMovie({
+        title: movie.title,
+        showID: show._id,
+        seatID: seats,
+      });
+
+      if (userData.user) {
+        setUserData({
+          ...userData,
+          loyaltyPoints: (userData.loyaltyPoints -= 100),
+        });
+        editUserDetails({ ...userData });
+      }
+      toast("Free Booking confirmed. Check your account for booking details.");
     }
-    toast("Free Booking confirmed. Check your account for booking details.");
   };
 
   return (
-    <div>
+    <div className="seat-booking-container">
       <button className="seat-booking-button" onClick={handleBooking}>
         Book
       </button>
       {userData.loyaltyPoints >= 100 && (
-        <button onClick={handleFreeBooking}>
-          Free Booking (Loyalty Points)
+        <button className="seat-freeBooking-button" onClick={handleFreeBooking}>
+          Free Booking (Loyalty)
         </button>
       )}
     </div>

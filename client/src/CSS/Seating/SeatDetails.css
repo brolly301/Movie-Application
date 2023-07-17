@@ -21,6 +21,12 @@
   justify-content: center;
 }
 
+.seat-booking-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .seat-booking-button {
   width: 200px;
   height: 30px;
@@ -28,4 +34,14 @@
   color: white;
   font-size: 17px;
   background-color: #f85050d9;
+}
+
+.seat-freeBooking-button {
+  width: 200px;
+  height: 30px;
+  border: 1px solid rgb(255, 255, 255);
+  color: white;
+  font-size: 17px;
+  background-color: #333;
+  margin-top: 10px;
 }
