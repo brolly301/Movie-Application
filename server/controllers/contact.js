@@ -20,6 +20,10 @@ exports.sendContactForm = (req, res) => {
     });
   }
 
+  res.status(200).json({
+    message: "Success",
+  });
+
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {

@@ -20,13 +20,18 @@ export default function ContactUsForm() {
     setErrors(Validation(formData));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     handleValidation();
-    const res = sendContactForm(formData);
+    const res = await sendContactForm(formData);
     if (res.error) toast(res.error);
     else {
-      toast(res.message);
+      toast("Your message has been successfully sent.");
+      setFormData({
+        email: "",
+        subject: "",
+        message: "",
+      });
     }
   };
 
@@ -37,6 +42,7 @@ export default function ContactUsForm() {
         {errors.email && <p>{errors.email}</p>}
         <input
           onChange={handleChange}
+          value={formData.email}
           type="text"
           name="email"
           placeholder="Enter an email address..."
@@ -44,6 +50,7 @@ export default function ContactUsForm() {
         {errors.subject && <p>{errors.subject}</p>}
         <input
           onChange={handleChange}
+          value={formData.subject}
           name="subject"
           type="text"
           placeholder="Enter a Subject..."
@@ -51,11 +58,11 @@ export default function ContactUsForm() {
         {errors.message && <p>{errors.message}</p>}
         <textarea
           onChange={handleChange}
+          value={formData.message}
           name="message"
           cols="40"
           rows="20"
-          placeholder="Enter your message..."
-        ></textarea>
+          placeholder="Enter your message..."></textarea>
         <button className="contact-button">Send your message</button>
       </form>
     </div>

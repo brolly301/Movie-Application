@@ -57,3 +57,20 @@ exports.editProfileValidator = (req, res, next) => {
 
   errors(req, res, next);
 };
+
+exports.contactUsValidator = (req, res, next) => {
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  const subjectRegex = /^.{1,30}$/;
+  const messageRegex = /^.{1,800}$/;
+
+  req.check("email", "Email is required!").notEmpty();
+  req.check("email", "Email incorrect format").matches(emailRegex);
+
+  req.check("subject", "Subject is required!").notEmpty();
+  req.check("subject", "Subject incorrect format").matches(subjectRegex);
+
+  req.check("message", "Message is required!").notEmpty();
+  req.check("message", "Message incorrect format").matches(messageRegex);
+
+  errors(req, res, next);
+};

@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS/Footer.css";
 import { Link } from "react-router-dom";
 import useUserContext from "../hooks/useUserContext";
+import { toast } from "react-toastify";
 
 export default function Footer() {
   const { userData } = useUserContext();
+  const [email, setEmail] = useState("");
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+    console.log(email);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success("You have successfully been added to our newsletter.");
+  };
 
   return (
     <div className="footer-main">
       <hr></hr>
-
       <div className="footer-container">
         <div>
           <h3>Socials</h3>
@@ -21,20 +32,17 @@ export default function Footer() {
           <h3>Account</h3>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}
-          >
+            to={userData.user ? "/account" : "/login"}>
             <h4>Profile</h4>
           </Link>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}
-          >
+            to={userData.user ? "/account" : "/login"}>
             <h4>Bookings</h4>
           </Link>
           <Link
             className="footer-link"
-            to={userData.user ? "/account" : "/login"}
-          >
+            to={userData.user ? "/account" : "/login"}>
             <h4>Loyalty</h4>
           </Link>
         </div>
@@ -52,12 +60,15 @@ export default function Footer() {
         </div>
         <div className="footer-subscribe">
           <h3>Find Out Latest Deals</h3>
-          <input
-            className="footer-input"
-            type="text"
-            placeholder="Enter email address..."
-          />
-          <button>Subscribe</button>
+          <form on onSubmit={handleSubmit}>
+            <input
+              onChange={handleChange}
+              className="footer-input"
+              type="text"
+              placeholder="Enter email address..."
+            />
+            <button className="">Subscribe</button>
+          </form>
         </div>
       </div>
     </div>
