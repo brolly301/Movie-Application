@@ -39,6 +39,7 @@ export default function MovieSearch() {
     setDate(date);
   };
 
+  //This needs to be set in either the date or time dropdown to set the startTime to the specific show instead of all the shows
   const handleSetMovie = (movie) => {
     setSelectedMovie({
       movie: movie,
