@@ -2,19 +2,25 @@ import "../../CSS/Movies/MovieDetails.css";
 import MovieTimesList from "./MovieTimesList";
 import MovieDatesList from "../ShowtimesPage/MovieDatesList";
 
-export default function MovieDetails({ movie }) {
+export default function MovieDetails({ movie, link }) {
+  let movie_dates;
+  if (link === "now-showing") {
+    movie_dates = <MovieDatesList />;
+  }
+
   return (
     <div>
-      <div>
-        <MovieDatesList />
-      </div>
+      <div>{movie_dates}</div>
       <div>
         <MovieTimesList movie={movie} />
       </div>
       <div className="movie-details-container">
-        <img className="movie-poster" src={movie.poster} alt="" />
+        <div className="movie-column-container">
+          <h1 className="movie-hidden-title">{movie.title}</h1>
+          <img className="movie-poster" src={movie.poster} alt="" />
+        </div>
         <div className="movie-details-section">
-          <h1>{movie.title}</h1>
+          <h1 className="movie-shown-title">{movie.title}</h1>
           <div>
             <div className="movie-details-column-1">
               <label>Running Time:</label>

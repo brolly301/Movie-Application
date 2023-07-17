@@ -8,7 +8,7 @@ export default function ComingSoonShowPage() {
 
   return (
     <div>
-      <MovieDetails movie={movie} />
+      <MovieDetails movie={movie} link="coming-soon" />
     </div>
   );
 }

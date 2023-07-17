@@ -8,7 +8,7 @@ export default function MoviePage() {
 
   return (
     <div>
-      <MovieDetails movie={movie} />
+      <MovieDetails movie={movie} link="now-showing" />
     </div>
   );
 }

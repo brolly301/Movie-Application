@@ -1,9 +1,10 @@
 .movie-details-container {
   width: 900px;
-  height: 700px;
+  height: 100%;
   border: 1px solid black;
   margin: 0 auto;
   display: flex;
+  padding-bottom: 250px;
   background-color: #d9d9d9;
 }
 
@@ -60,4 +61,55 @@
 .movie-times-list {
   display: flex;
   justify-content: center;
+}
+
+.movie-hidden-title {
+  display: none;
+}
+
+@media (max-width: 910px) {
+  .movie-details-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .movie-column-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .movie-hidden-title {
+    display: block;
+  }
+
+  .movie-shown-title {
+    display: none;
+  }
+
+  .movie-details-section {
+    width: 100%;
+  }
+
+  .movie-details-column-1 {
+    width: 100%;
+    padding: 0 20px 0 20px;
+  }
+  .movie-details-column-2 {
+    width: 100%;
+    padding: 0 20px 0 20px;
+  }
+
+  .movie-details-description-label {
+    padding-left: 20px;
+  }
+
+  .movie-details-description-p {
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-right: 20px;
+  }
 }
