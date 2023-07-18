@@ -7,6 +7,7 @@
   margin-bottom: 20px;
   background-color: #d9d9d9;
   margin-top: 20px;
+  transition: all 0.5s ease;
 }
 
 .movie-poster {
@@ -41,14 +42,46 @@
 .movie-showtimes-container {
   position: absolute;
   margin-left: 600px;
+  transition: all 0.5s ease;
 }
 
 .movie-page-title {
   color: white;
 }
 
+.movie-poster-details {
+  display: flex;
+  transition: all 0.5s ease;
+}
+
 @media (max-width: 860px) {
   .movie-showtimes-container {
-    display: none;
+    margin-left: 500px;
+  }
+
+  .movie-poster-details {
+    margin-left: 30px;
+  }
+
+  .movie-container {
+    width: 90%;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 720px) {
+  .movie-showtimes-container {
+    position: relative;
+    /* display: flex; */
+    margin-left: 300px;
+  }
+  .movie-container {
+    height: 100%;
+    justify-content: center;
+  }
+
+  .movie-poster {
+    width: 160px;
+    height: 240px;
   }
 }

@@ -15,15 +15,17 @@ export default function MovieShow({ movie, link }) {
 
   return (
     <div className="movie-container">
-      <img className="movie-poster" src={movie.poster} alt="" />
-      <div className="movie-details">
-        <h1>{movie.title}</h1>
-        <h2>Rated: {movie.rated}</h2>
-        <h3>Running Time: {movie.runtime}</h3>
-        <h3>Date: {date}</h3>
-        <Link state={{ movie: movie }} to={`/${link}/${movie._id}`}>
-          <button className="movie-show-button">More Details</button>
-        </Link>
+      <div className="movie-poster-details">
+        <img className="movie-poster" src={movie.poster} alt="" />
+        <div className="movie-details">
+          <h1>{movie.title}</h1>
+          <h2>Rated: {movie.rated}</h2>
+          <h3>Running Time: {movie.runtime}</h3>
+          <h3>Date: {date}</h3>
+          <Link state={{ movie: movie }} to={`/${link}/${movie._id}`}>
+            <button className="movie-show-button">More Details</button>
+          </Link>
+        </div>
       </div>
       <div className="movie-showtimes-container">
         <MovieShowShowtimes

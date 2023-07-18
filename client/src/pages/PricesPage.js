@@ -6,8 +6,14 @@ export default function PricesPage() {
   return (
     <div className="prices-page-container">
       <h1 className="prices-title">Prices</h1>
-      <TicketPriceTable />
-      <FoodPriceTable />
+      <div className="prices-page-table-container">
+        <h3 className="prices-table-heading">Tickets:</h3>
+        <TicketPriceTable />
+      </div>
+      <div className="prices-page-table-container">
+        <h3 className="prices-table-heading">Food & DRinks:</h3>
+        <FoodPriceTable />
+      </div>
     </div>
   );
 }

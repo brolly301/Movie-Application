@@ -9,9 +9,7 @@ export default function ShowtimesPage() {
       <h1 className="movie-page-title" style={{ textAlign: "center" }}>
         What's On - Currently Showing
       </h1>
-      <div style={{ textAlign: "center" }}>
-        <MovieDatesList />
-      </div>
+      <div style={{ textAlign: "center" }}>{/* <MovieDatesList /> */}</div>
       <MovieList />
     </div>
   );
