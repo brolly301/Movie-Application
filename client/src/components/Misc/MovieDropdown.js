@@ -5,6 +5,7 @@ export default function MovieDropdown({
   options,
   selectedMovie,
   handleSelectedMovie,
+  active,
 }) {
   const [selected, setSelected] = useState();
   const [isOpen, setIsOpen] = useState(false);
@@ -34,12 +35,12 @@ export default function MovieDropdown({
   });
 
   return (
-    <div>
+    <div className="movie-input-container">
       <button
         onClick={handleClick}
         type="text"
         readOnly
-        className="movie-search-input"
+        className={active ? "movie-search-input" : "movie-display-hidden"}
       >
         <span className="movie-dropdown-icon-container">
           {selected?.title || "Choose Movie..."}

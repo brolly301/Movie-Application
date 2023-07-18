@@ -9,6 +9,7 @@ import "../../CSS/HomePage/MovieSearch.css";
 export default function MovieSearch() {
   const { movies } = useMovieContext();
   const [date, setDate] = useState();
+  const [active, setActive] = useState(false);
 
   const [formData, setFormData] = useState({
     movie: null,
@@ -48,34 +49,47 @@ export default function MovieSearch() {
     });
   };
 
+  const handleClick = (e) => {
+    setActive(!active);
+  };
+
   return (
     <div className="movie-search-container">
-      <div>
-        <button className="movie-search-quick-button">Quick Book</button>
-      </div>
+      <button onClick={handleClick} className="movie-search-quick-button">
+        Quick Book
+      </button>
       <MovieDropdown
         options={movies}
         selectedMovie={handleSetMovie}
         handleSelectedMovie={handleSelectedMovie}
+        active={active}
       />
       <DateDropdown
         options={selectedMovie.dates}
         handleDate={handleDate}
         movie={selectedMovie.movie}
         handleSelectedDate={handleSelectedDate}
+        active={active}
       />
       <TimeDropdown
         options={selectedMovie.startTime}
         date={date}
         movie={selectedMovie.movie}
         handleSelectedTime={handleSelectedTime}
+        active={active}
       />
       <Link
-        style={{ textDecoration: "none" }}
+        className="movie-book-link"
         to={`showtimes/${formData.movie?._id}/seating`}
         state={{ movie: formData.movie, show: formData }}
       >
-        <button className="movie-search-book-button">Book</button>
+        <button
+          className={
+            active ? "movie-search-book-button" : "movie-display-hidden"
+          }
+        >
+          Book
+        </button>
       </Link>
     </div>
   );

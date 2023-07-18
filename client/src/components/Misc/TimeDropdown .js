@@ -6,6 +6,7 @@ export default function TimeDropdown({
   date,
   movie,
   handleSelectedTime,
+  active,
 }) {
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -47,12 +48,12 @@ export default function TimeDropdown({
   });
 
   return (
-    <div>
+    <div className="movie-input-container">
       <button
         onClick={handleClick}
         type="text"
         readOnly
-        className="movie-search-input"
+        className={active ? "movie-search-input" : "movie-display-hidden"}
       >
         <span className="movie-dropdown-icon-container">
           {selected || "Choose Time..."}

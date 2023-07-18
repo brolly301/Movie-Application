@@ -65,7 +65,12 @@
   margin-right: 15px;
 }
 
-.movie-dropdown-icons {
+.movie-display-hidden {
+  display: none;
+}
+
+.movie-book-link {
+  text-decoration: none;
 }
 
 @media (max-width: 920px) {
@@ -75,17 +80,42 @@
   }
 
   .movie-search-book-button {
-    width: 290px;
+    width: 90%;
     margin: 0;
   }
 
   .movie-search-quick-button {
-    width: 290px;
+    width: 90%;
     margin: 0;
-    border-bottom: 0;
+    margin-bottom: 5px;
+    transition: all 0.5s ease;
+  }
+
+  .movie-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   .movie-search-input {
-    width: 300px;
+    width: 91%;
+    margin: 5px 0 5px 0;
+    transition: all 0.5s ease;
+  }
+
+  .movie-book-link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .movie-search-container {
+    width: 100%;
+  }
+
+  .movie-search-book-button {
+    transition: all 0.5s ease;
+    margin-top: 5px;
   }
 }
