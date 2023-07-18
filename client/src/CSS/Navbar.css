@@ -141,21 +141,28 @@
   .nav-link {
     display: block;
     margin: 12px 0;
-    padding: 0px 25px;
+    padding: 0px 35px;
   }
 
   .nav-ul-open {
     position: absolute;
     right: 2%;
     top: 100px;
-    width: 270px;
-    height: 39vh;
+    width: 200px;
+    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border-radius: 10px;
     transition: all 0.5s ease;
-    background-color: grey;
+    background-color: #333;
+    border: 1px solid white;
+  }
+
+  .navbar-hr {
+    position: relative;
+    right: 0px;
+    width: 238px;
   }
 }
 

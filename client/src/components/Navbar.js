@@ -66,6 +66,7 @@ export default function Navbar() {
       <Link className="nav-link-title" to="/">
         <h1 className="nav-title">Movie Dome</h1>
       </Link>
+
       <ul className={active ? "nav-ul-open" : "nav-ul"}>
         <li className="nav-li">
           <Link className="nav-link" to="/showtimes">
