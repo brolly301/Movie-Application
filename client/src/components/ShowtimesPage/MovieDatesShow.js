@@ -10,12 +10,11 @@ export default function MovieDatesShow({ date }) {
   const formattedDate = date.substring(4, 10);
 
   return (
-    <div>
+    <div className="movie-date-show">
       <button
         className="movie-date-button"
         onClick={handleClick}
-        value={formattedDate}
-      >
+        value={formattedDate}>
         {formattedDate}
       </button>
     </div>
