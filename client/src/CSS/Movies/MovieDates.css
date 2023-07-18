@@ -23,14 +23,12 @@
 }
 
 .movie-times-list {
-  display: flex;
   justify-content: center;
-  overflow-x: scroll;
-  width: 900px;
 }
 
 @media (max-width: 860px) {
   .movie-times-list {
     width: 90%;
+    overflow-x: scroll;
   }
 }
