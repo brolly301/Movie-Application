@@ -46,3 +46,9 @@
 .movie-page-title {
   color: white;
 }
+
+@media (max-width: 860px) {
+  .movie-showtimes-container {
+    display: none;
+  }
+}
