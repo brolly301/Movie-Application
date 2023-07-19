@@ -13,7 +13,9 @@ const ComingSoonShow = ({ movie, link }) => {
         </Link>
       </div>
       <div className="comingSoon-details">
-        <h1 className="movie-title">{movie.title}</h1>
+        <h1 className="movie-title">
+          {movie.title} <img src={movie.rated} className="movie-rating-icon" />
+        </h1>
         <div className="comingSoon-details-row">
           <div className="comingSoon-details-column-1">
             <label>Genre:</label>

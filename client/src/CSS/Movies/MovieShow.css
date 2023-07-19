@@ -54,6 +54,12 @@
   transition: all 0.5s ease;
 }
 
+.movie-rating-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
 @media (max-width: 860px) {
   .movie-showtimes-container {
     margin-left: 500px;

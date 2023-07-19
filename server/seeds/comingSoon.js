@@ -2,7 +2,8 @@ module.exports = [
   {
     title: "The Godfather",
     year: "1972",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "24 Mar 1972",
     runtime: "175 min",
     genre: "Crime, Drama",
@@ -22,7 +23,7 @@ module.exports = [
   {
     title: "Star Wars: Episode IV - A New Hope",
     year: "1977",
-    rated: "PG",
+    rated: "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766380/pg-13_gkz7rg.png",
     released: "25 May 1977",
     runtime: "121 min",
     genre: "Action, Adventure, Fantasy",
@@ -41,7 +42,8 @@ module.exports = [
   {
     title: "Donnie Darko",
     year: "2001",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "19 Jan 2001",
     runtime: "113 min",
     genre: "Drama, Mystery, Sci-Fi",
@@ -60,7 +62,8 @@ module.exports = [
   {
     title: "The Shawshank Redemption",
     year: "1994",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "14 Oct 1994",
     runtime: "142 min",
     genre: "Drama",
@@ -79,7 +82,8 @@ module.exports = [
   {
     title: "12 years a Slave",
     year: "2013",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "08 Nov 2013",
     runtime: "134 min",
     genre: "Biography, Drama, History",
@@ -98,7 +102,7 @@ module.exports = [
   {
     title: "Spider-Man 2",
     year: "2004",
-    rated: "PG-13",
+    rated: "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766380/pg-13_gkz7rg.png",
     released: "30 Jun 2004",
     runtime: "127 min",
     genre: "Action, Adventure, Sci-Fi",
@@ -117,7 +121,7 @@ module.exports = [
   {
     title: "Batman Begins",
     year: "2005",
-    rated: "PG-13",
+    rated: "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/12A_shupya.png",
     released: "15 Jun 2005",
     runtime: "140 min",
     genre: "Action, Crime, Drama",
@@ -135,7 +139,8 @@ module.exports = [
   {
     title: "Blade Runner",
     year: "1982",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "25 Jun 1982",
     runtime: "117 min",
     genre: "Action, Drama, Sci-Fi",

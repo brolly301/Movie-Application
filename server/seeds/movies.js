@@ -10,7 +10,8 @@ module.exports = [
   {
     title: "Inception",
     year: "2010",
-    rated: "PG-13",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/12A_shupya.png",
     released: "16 Jul 2010",
     runtime: "148 mins",
     genre: "Action, Adventure, Sci-Fi",
@@ -29,7 +30,8 @@ module.exports = [
   {
     title: "The Dark Knight",
     year: "2008",
-    rated: "PG-13",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/12A_shupya.png",
     released: "18 Jul 2008",
     runtime: "152 mins",
     genre: "Action, Crime, Drama",
@@ -49,7 +51,8 @@ module.exports = [
   {
     title: "Pulp Fiction",
     year: "1994",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "14 Oct 1994",
     runtime: "154 mins",
     genre: "Crime, Drama",
@@ -68,7 +71,8 @@ module.exports = [
   {
     title: "Fight Club",
     year: "1999",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "15 Oct 1999",
     runtime: "139 mins",
     genre: "Drama",
@@ -87,7 +91,8 @@ module.exports = [
   {
     title: "The Matrix",
     year: "1999",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "31 Mar 1999",
     runtime: "136 mins",
     genre: "Action, Sci-Fi",
@@ -106,7 +111,8 @@ module.exports = [
   {
     title: "Interstellar",
     year: "2014",
-    rated: "PG-13",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766380/pg-13_gkz7rg.png",
     released: "07 Nov 2014",
     runtime: "169 mins",
     genre: "Adventure, Drama, Sci-Fi",
@@ -125,7 +131,8 @@ module.exports = [
   {
     title: "American Psycho",
     year: "2000",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "14 Apr 2000",
     runtime: "102 mins",
     genre: "Crime, Drama, Horror",
@@ -144,7 +151,8 @@ module.exports = [
   {
     title: "Trainspotting",
     year: "1996",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "09 Aug 1996",
     runtime: "93 mins",
     genre: "Drama",
@@ -163,7 +171,8 @@ module.exports = [
   {
     title: "The Departed",
     year: "2006",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "06 Oct 2006",
     runtime: "151 mins",
     genre: "Crime, Drama, Thriller",
@@ -182,7 +191,8 @@ module.exports = [
   {
     title: "The Wolf of Wall Street",
     year: "2013",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "25 Dec 2013",
     runtime: "180 mins",
     genre: "Biography, Comedy, Crime",
@@ -201,7 +211,8 @@ module.exports = [
   {
     title: "Django Unchained",
     year: "2012",
-    rated: "R",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766702/18_odndxr.png",
     released: "25 Dec 2012",
     runtime: "165 mins",
     genre: "Drama, Western",
@@ -220,7 +231,8 @@ module.exports = [
   {
     title: "Avengers: Infinity War",
     year: "2018",
-    rated: "PG-13",
+    rated:
+      "https://res.cloudinary.com/dtcoefjmm/image/upload/v1689766380/pg-13_gkz7rg.png",
     released: "27 Apr 2018",
     runtime: "149 mins",
     genre: "Action, Adventure, Sci-Fi",
