@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import MovieTimes from "../MoviePage/MovieTimes";
 import useMovieContext from "../../hooks/useMovieContext";
 import MovieShowShowtimes from "./MovieShowShowtimes";
-import PG from "../../images/pg-13.png";
 
 export default function MovieShow({ movie, link }) {
   const { date } = useMovieContext();

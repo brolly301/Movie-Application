@@ -10,7 +10,6 @@
 
 .movie-details-section {
   width: 600px;
-  margin-left: 20px;
 }
 
 .movie-details-section > div {
@@ -62,11 +61,26 @@
   display: none;
 }
 
+.movie-date-time-container {
+  width: 54%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 @media (max-width: 910px) {
   .movie-details-container {
-    width: 100%;
+    width: 95%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    margin-right: 7px;
+  }
+
+  .movie-poster {
+    margin: 0;
   }
 
   .movie-column-container {
@@ -86,7 +100,8 @@
   }
 
   .movie-details-section {
-    width: 100%;
+    width: 90%;
+    margin: 0;
   }
 
   .movie-details-column-1 {
@@ -99,12 +114,14 @@
   }
 
   .movie-details-description-label {
+    width: 100%;
+
     padding-left: 20px;
   }
 
   .movie-details-description-p {
+    width: 100%;
     padding-left: 20px;
-    padding-right: 10px;
     margin-right: 20px;
   }
 }
