@@ -15,7 +15,11 @@ const MovieDatesList = () => {
     return <MovieDatesShow date={date} />;
   });
 
-  return <div className="movie-times-list">{renderedList}</div>;
+  return (
+    <div className="movie-times-list">
+      <span style={{ display: "flex" }}>{renderedList}</span>
+    </div>
+  );
 };
 
 export default MovieDatesList;

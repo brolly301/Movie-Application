@@ -11,6 +11,10 @@ export default function MovieSearch() {
   const [date, setDate] = useState();
   const [active, setActive] = useState(false);
 
+  if (window.innerWidth < "920px") {
+    setActive(!active);
+  }
+
   const [formData, setFormData] = useState({
     movie: null,
     date: null,
@@ -81,13 +85,11 @@ export default function MovieSearch() {
       <Link
         className="movie-book-link"
         to={`showtimes/${formData.movie?._id}/seating`}
-        state={{ movie: formData.movie, show: formData }}
-      >
+        state={{ movie: formData.movie, show: formData }}>
         <button
           className={
             active ? "movie-search-book-button" : "movie-display-hidden"
-          }
-        >
+          }>
           Book
         </button>
       </Link>
