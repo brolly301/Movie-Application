@@ -1,6 +1,6 @@
 .banner-container {
   background-color: #f85050;
-  height: 70px;
+  height: 4rem;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 100%;
@@ -10,5 +10,6 @@
 .banner-container > h2 {
   color: white;
   font-size: 30px;
-  letter-spacing: 2px;
+  padding-left: 150px;
+  line-height: 20px;
 }

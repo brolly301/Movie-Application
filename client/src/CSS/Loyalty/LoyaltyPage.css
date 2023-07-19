@@ -12,7 +12,7 @@
   justify-content: center;
 }
 
-.loyalty-button-container > button {
+.loyalty-button {
   width: 220px;
   height: 40px;
   font-size: 18px;
@@ -20,6 +20,10 @@
   background-color: #f85050;
   color: white;
   margin: 30px 0 50px 0;
+}
+
+.loyalty-link {
+  text-decoration: none;
 }
 
 .loyalty-icons-container {

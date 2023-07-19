@@ -3,6 +3,7 @@ import LoyaltyIcon from "../components/LoyaltyPage/LoyaltyIcon";
 import Popcorn from "../images/popcorn.png";
 import Food from "../images/food.png";
 import Ticket from "../images/ticket.png";
+import { Link } from "react-router-dom";
 import "../CSS/Loyalty/LoyaltyPage.css";
 
 export default function LoyaltyPage() {
@@ -31,7 +32,9 @@ export default function LoyaltyPage() {
         </LoyaltyIcon>
       </div>
       <div className="loyalty-button-container">
-        <button>Get Started</button>
+        <Link className="loyalty-link" to="/login">
+          <button className="loyalty-button">Get Started</button>
+        </Link>
       </div>
     </div>
   );
