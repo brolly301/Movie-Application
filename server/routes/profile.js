@@ -8,7 +8,10 @@ const {
 const { userByID } = require("../middlewares/user");
 const { getLoggedInUser } = require("../controllers/authentication");
 const { verifyToken } = require("../middlewares/authentication");
-const { editProfileValidator } = require("../middlewares/validation");
+const {
+  editProfileValidator,
+  editLoginValidator,
+} = require("../middlewares/validation");
 const router = express.Router();
 
 router.patch(
@@ -23,6 +26,12 @@ router.get("/bookingDetails", verifyToken, userByID, getBookingDetails);
 
 router.delete("/booking", verifyToken, userByID, deleteBooking);
 
-router.patch("/editLoginDetails", verifyToken, userByID, editLoginDetails);
+router.patch(
+  "/editLoginDetails",
+  verifyToken,
+  userByID,
+  editLoginValidator,
+  editLoginDetails
+);
 
 module.exports = router;

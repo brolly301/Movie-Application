@@ -2,12 +2,12 @@ const express = require("express");
 const { sendContactForm, sendNewsletter } = require("../controllers/contact");
 const {
   contactUsValidator,
-  newsletterValidation,
+  newsletterValidator,
 } = require("../middlewares/validation");
 const router = express.Router();
 
 router.post("/contactUs", contactUsValidator, sendContactForm);
 
-router.post("/newsletter", newsletterValidation, sendNewsletter);
+router.post("/newsletter", newsletterValidator, sendNewsletter);
 
 module.exports = router;
