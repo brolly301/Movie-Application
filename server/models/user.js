@@ -38,6 +38,13 @@ UserSchema.virtual("password").set(function (password) {
   this.hashedPassword = this.encryptPassword(password);
 });
 
+UserSchema.pre("findByIdAndUpdate", function (password, next) {
+  this._password = password;
+  this.salt = uuidv1();
+  this.hashedPassword = this.encryptPassword(password);
+  next();
+});
+
 //The encrypt password method is used in the virtual above to firstly create the Hmac using the sha256 hasing method, then updates the password variable with this
 //hashed code. The digest method is used to generate this hash value after its been applied through the update method
 UserSchema.methods = {

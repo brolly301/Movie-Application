@@ -3,6 +3,7 @@ const {
   editProfileDetails,
   getBookingDetails,
   deleteBooking,
+  editLoginDetails,
 } = require("../controllers/profile");
 const { userByID } = require("../middlewares/user");
 const { getLoggedInUser } = require("../controllers/authentication");
@@ -15,11 +16,14 @@ router.patch(
   verifyToken,
   userByID,
   editProfileValidator,
-  editProfileDetails
+  editProfileDetails,
+  editLoginDetails
 );
 
 router.get("/bookingDetails", verifyToken, userByID, getBookingDetails);
 
 router.delete("/booking", verifyToken, userByID, deleteBooking);
+
+router.patch("/editLoginDetails", verifyToken, userByID, editLoginDetails);
 
 module.exports = router;

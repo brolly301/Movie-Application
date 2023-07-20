@@ -6,10 +6,13 @@ import { logout } from "../APIs/authentication";
 import AuthDropdown from "./Misc/AuthDropdown";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { userData, setUserData } = useUserContext();
   const [active, setActive] = useState(false);
+
+  const redirect = useNavigate();
 
   const handleClick = (e) => {
     setActive(!active);
@@ -20,6 +23,7 @@ export default function Navbar() {
     setUserData({
       user: null,
     });
+    redirect("/");
     toast("Goodbye");
   };
 
