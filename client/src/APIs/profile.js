@@ -21,19 +21,19 @@ export const editUserDetails = async ({
   return await response.json();
 };
 
-export const editLoginDetails = async () => {
-  // const updatedUser = { email };
+export const editLoginDetails = async ({ email, password } = {}) => {
+  const updatedUser = { email, password };
 
   const response = await fetch(
     `${process.env.REACT_APP_BASE_URL}/profile/editLoginDetails`,
     {
       method: "PATCH",
-      // credentials: "include",
+      credentials: "include",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: "hey" }),
+      body: JSON.stringify(updatedUser),
     }
   );
   return await response.json();

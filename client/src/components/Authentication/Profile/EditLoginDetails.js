@@ -6,12 +6,16 @@ import Validation from "./ProfileDetailsValidation";
 
 export default function EditLoginDetails({ onEdit }) {
   const { userData, setUserData } = useUserContext();
+  const [formData, setFormData] = useState({
+    email: userData.email,
+    password: "",
+  });
   const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // handleValidation();
-    const res = await editLoginDetails();
+    const res = await editLoginDetails(formData);
     if (res.error) toast(res.error);
     else {
       onEdit();
@@ -28,6 +32,7 @@ export default function EditLoginDetails({ onEdit }) {
       ...userData,
       [e.target.id]: e.target.value,
     });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -37,17 +42,18 @@ export default function EditLoginDetails({ onEdit }) {
         {/* {errors.firstName && <p>{errors.firstName}</p>} */}
         <input
           onChange={handleChange}
+          name="email"
           id="email"
           type="text"
-          defaultValue={userData.email}
+          value={userData.email}
         />
         {/* {errors.surname && <p>{errors.surname}</p>} */}
-        {/* <input
+        <input
           onChange={handleChange}
-          id="password"
           type="password"
-          defaultValue="Hello"
-        /> */}
+          name="password"
+          // defaultValue="Hello"
+        />
         <button className="no-border" type="submit">
           Save
         </button>

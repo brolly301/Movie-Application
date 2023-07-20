@@ -3,9 +3,17 @@ export const register = async ({
   firstName,
   surname,
   phoneNumber,
+  confirmPassword,
   password,
 } = {}) => {
-  const user = { email, firstName, surname, phoneNumber, password };
+  const user = {
+    email,
+    firstName,
+    surname,
+    phoneNumber,
+    confirmPassword,
+    password,
+  };
   const response = await fetch(`${process.env.REACT_APP_BASE_URL}/register`, {
     method: "POST",
 

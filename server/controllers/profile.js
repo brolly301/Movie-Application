@@ -19,21 +19,32 @@ exports.editLoginDetails = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const salt = uuidv1();
-    const updatedPassword = crypto
-      .createHmac("sha256", salt)
-      .update(password)
-      .digest("hex");
+    if (!password || password === "") {
+      const user = await User.findByIdAndUpdate(req.user._id, {
+        email: email,
+      });
+      res.status(200).json({
+        message: "Edit successful",
+        user,
+      });
+    } else {
+      const salt = uuidv1();
+      const updatedPassword = crypto
+        .createHmac("sha256", salt)
+        .update(password)
+        .digest("hex");
 
-    const user = await User.findByIdAndUpdate(req.user._id, {
-      email: email,
-      salt: salt,
-      hashedPassword: updatedPassword,
-    });
-    res.status(200).json({
-      message: "Edit successful",
-      user,
-    });
+      const user = await User.findByIdAndUpdate(req.user._id, {
+        email: email,
+        salt: salt,
+        hashedPassword: updatedPassword,
+      });
+
+      res.status(200).json({
+        message: "Edit successful",
+        user,
+      });
+    }
   } catch (err) {
     res.send(err);
   }
