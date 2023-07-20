@@ -14,10 +14,15 @@
 }
 
 .register-form-container > input {
-  width: 18.75rem;
-  height: 1.875rem;
+  all: unset;
+  text-align: left;
+  width: 295px;
+  height: 33px;
   background-color: #d9d9d9;
-  margin: 0.1875rem 0 0.1875rem 0;
+  margin: 5px 0 5px 0;
+  padding-left: 10px;
+  color: black;
+  border: 1px solid black;
 }
 
 .register-container > h1 {

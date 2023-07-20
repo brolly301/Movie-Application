@@ -15,14 +15,29 @@
 
 .contact-form-container > input {
   width: 98%;
-  height: 1.875rem;
+
+  all: unset;
+  text-align: left;
+
+  height: 33px;
   background-color: #d9d9d9;
-  margin: 0.3125rem 0 0.3125rem 0;
+  margin: 5px 0 5px 0;
+  padding-left: 10px;
+  color: black;
+  border: 1px solid black;
 }
 
 .contact-form-container > textarea {
+  width: 98%;
+
+  all: unset;
+  text-align: left;
+  height: 300px;
   background-color: #d9d9d9;
-  margin: 0.3125rem 0 0.3125rem 0;
+  margin: 5px 0 5px 0;
+  padding-left: 10px;
+  color: black;
+  border: 1px solid black;
 }
 
 .contact-button {
