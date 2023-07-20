@@ -1,5 +1,7 @@
 const User = require("../models/user");
 const Booking = require("../models/booking");
+const uuidv1 = require("uuidv1");
+const crypto = require("crypto");
 
 exports.editProfileDetails = async (req, res) => {
   try {
@@ -14,8 +16,20 @@ exports.editProfileDetails = async (req, res) => {
 };
 
 exports.editLoginDetails = async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const user = await User.findByIdAndUpdate(req.user._id, { ...req.body });
+    const salt = uuidv1();
+    const updatedPassword = crypto
+      .createHmac("sha256", salt)
+      .update(password)
+      .digest("hex");
+
+    const user = await User.findByIdAndUpdate(req.user._id, {
+      email: email,
+      salt: salt,
+      hashedPassword: updatedPassword,
+    });
     res.status(200).json({
       message: "Edit successful",
       user,

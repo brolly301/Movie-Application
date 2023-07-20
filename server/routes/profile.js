@@ -16,8 +16,7 @@ router.patch(
   verifyToken,
   userByID,
   editProfileValidator,
-  editProfileDetails,
-  editLoginDetails
+  editProfileDetails
 );
 
 router.get("/bookingDetails", verifyToken, userByID, getBookingDetails);
