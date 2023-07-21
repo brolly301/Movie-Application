@@ -2,7 +2,7 @@ import useUserContext from "../../../hooks/useUserContext";
 import { editLoginDetails, editUserDetails } from "../../../APIs/profile";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import Validation from "./ProfileDetailsValidation";
+import Validation from "./LoginDetailsValidation";
 
 export default function EditLoginDetails({ onEdit }) {
   const { userData, setUserData } = useUserContext();
@@ -14,7 +14,7 @@ export default function EditLoginDetails({ onEdit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // handleValidation();
+    handleValidation();
     const res = await editLoginDetails(formData);
     if (res.error) toast(res.error);
     else {
@@ -24,7 +24,7 @@ export default function EditLoginDetails({ onEdit }) {
   };
 
   const handleValidation = (e) => {
-    setErrors(Validation(userData));
+    setErrors(Validation(formData));
   };
 
   const handleChange = (e) => {
@@ -39,7 +39,7 @@ export default function EditLoginDetails({ onEdit }) {
     <div>
       <form onSubmit={handleSubmit} className="profile-details-container">
         <h1>Edit Login Details</h1>
-        {/* {errors.firstName && <p>{errors.firstName}</p>} */}
+        {errors.email && <p>{errors.email}</p>}
         <input
           onChange={handleChange}
           name="email"
@@ -47,7 +47,7 @@ export default function EditLoginDetails({ onEdit }) {
           type="text"
           value={userData.email}
         />
-        {/* {errors.surname && <p>{errors.surname}</p>} */}
+        {errors.password && <p>{errors.password}</p>}
         <input
           onChange={handleChange}
           type="password"
