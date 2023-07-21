@@ -63,3 +63,35 @@ exports.sendNewsletter = (req, res) => {
     });
   });
 };
+
+exports.sendNotification = (req, res) => {
+  const { email, movie } = req.body;
+
+  res.status(200).json({
+    message: "Success",
+  });
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "marcrobertjohn@gmail.com",
+      pass: "qklbtfcwnloxeckw",
+    },
+  });
+
+  const options = {
+    from: "marcrobertjohn@gmail.com",
+    to: email,
+    subject: `${movie.title} Notification`,
+    html: `Thank you for signing up for notifications for ${movie.title}, you will be contacted shortly before this movie is released.`,
+  };
+
+  transporter.sendMail(options, function (err, info) {
+    if (err) {
+      console.log(err);
+    }
+    res.send.JSON({
+      message: "Message successfully sent.",
+    });
+  });
+};

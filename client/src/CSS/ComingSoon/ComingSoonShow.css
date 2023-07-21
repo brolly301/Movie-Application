@@ -47,6 +47,18 @@
   margin-top: 20px;
 }
 
+.comingSoon-show-notified-button {
+  width: 12rem;
+  height: 40px;
+  margin: 5px 0 5px 0;
+  background-color: #333;
+  color: white;
+  font-size: 18px;
+  border: 1px solid white;
+  margin-left: 1.2rem;
+  margin-top: 20px;
+}
+
 .comingSoon-show-button-2 {
   display: none;
 }
