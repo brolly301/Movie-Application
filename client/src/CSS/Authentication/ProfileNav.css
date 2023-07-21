@@ -9,6 +9,7 @@
 .profile-nav-container > button {
   color: white;
   background-color: #f85050d9;
+  font-size: 1rem;
   padding: 10px 35px 10px 35px;
 }
 

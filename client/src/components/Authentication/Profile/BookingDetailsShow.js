@@ -8,12 +8,21 @@ export default function BookingDetailsShow({ booking }) {
     toast.success("Booking successfully cancelled.");
   };
 
+  console.log(booking);
+
   return (
     <div className="booking-details-container">
       <img src={booking.movieID.poster} alt="" />
 
       <div className="booking-details-times-container">
-        <h3>{booking.movieID.title}</h3>
+        <h3>
+          {booking.movieID.title}{" "}
+          <img
+            className="booking-title-icon"
+            src={booking.movieID.rated}
+            alt=""
+          />
+        </h3>
         <div className="booking-details-date-time">
           <div className="booking-details-date">
             <h4>Date:</h4>
@@ -22,6 +31,10 @@ export default function BookingDetailsShow({ booking }) {
           <div className="booking-details-time">
             <h4>Time:</h4>
             <h4>{booking.startTime}</h4>
+          </div>
+          <div className="booking-details-time">
+            <h4>Seats:</h4>
+            <h4>{booking.seatNumber?.map((seat) => `${seat} `)}</h4>
           </div>
         </div>
         <button onClick={handleClick} className="booking-cancel-button">
