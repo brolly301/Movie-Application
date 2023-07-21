@@ -13,18 +13,46 @@ export default function MovieShow({ movie, link }) {
     }
   });
 
+  const actors = "movie.actors";
+  const genre = "movie.genre";
+
+  const splitActors = () =>
+    movie.actors.split(",").map((value) => {
+      return value.trim();
+    });
+  const splitGenres = () =>
+    movie.genre.split(",").map((value) => {
+      return value.trim();
+    });
+  const splitDirectors = () =>
+    movie.director.split(",").map((value) => {
+      return value.trim();
+    });
+
   return (
     <div className="movie-container">
       <div className="movie-poster-details">
         <img className="movie-poster" src={movie.poster} alt="" />
         <div className="movie-details">
           <h1>
-            {movie.title}{" "}
+            {movie.title}
             <img src={movie.rated} className="movie-rating-icon" />
           </h1>
+          <div style={{ display: "flex" }}>
+            <div className="movie-show-details-column-1">
+              <label>Running Time:</label>
+              <h3>{movie.runtime}</h3>
+              <label>Starring:</label>
+              <h3>{splitActors()[0]}</h3>
+            </div>
+            <div className="movie-show-details-column-2">
+              <label>Genre:</label>
+              <h3>{splitGenres()[0]}</h3>
+              <label>Director:</label>
+              <h3>{splitDirectors()[0]}</h3>
+            </div>
+          </div>
 
-          <h3>Running Time: {movie.runtime}</h3>
-          <h3>Date: {date}</h3>
           <Link state={{ movie: movie }} to={`/${link}/${movie._id}`}>
             <button className="movie-show-button">More Details</button>
           </Link>

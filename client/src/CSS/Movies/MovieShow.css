@@ -31,11 +31,12 @@
 }
 
 .movie-show-button {
-  width: 130px;
+  width: 250px;
   height: 40px;
   margin: 5px 0 5px 0;
-  background-color: #f85050e9;
+  background-color: #333;
   color: white;
+  border: 1px solid white;
   font-size: 18px;
 }
 
@@ -55,9 +56,41 @@
 }
 
 .movie-rating-icon {
-  width: 30px;
-  height: 30px;
+  width: 33px;
+  height: 33px;
   margin-left: 10px;
+}
+
+.movie-show-details-column-1 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+.movie-show-details-column-2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 10px;
+  justify-content: space-between;
+}
+
+.movie-show-details-column-2 > label {
+  font-size: 20px;
+}
+.movie-show-details-column-2 > h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #3b3b3b;
+}
+.movie-show-details-column-1 > label {
+  font-size: 20px;
+}
+.movie-show-details-column-1 > h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #3b3b3b;
 }
 
 @media (max-width: 860px) {
