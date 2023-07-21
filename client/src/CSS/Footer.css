@@ -1,12 +1,15 @@
 /* Margin-top: auto is what pushes the footer to the bottom */
 
+.footer-main {
+  margin-top: auto;
+  width: 100%;
+}
+
 .footer-container {
   display: flex;
   color: white;
   justify-content: center;
-  margin-top: auto;
   text-align: center;
-  width: 100%;
 }
 
 .footer-hr {
