@@ -9,7 +9,7 @@ import "../../CSS/HomePage/MovieSearch.css";
 export default function MovieSearch() {
   const { movies } = useMovieContext();
   const [date, setDate] = useState();
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
 
   const [formData, setFormData] = useState({
     movie: null,
@@ -81,13 +81,11 @@ export default function MovieSearch() {
       <Link
         className="movie-book-link"
         to={`showtimes/${formData.movie?._id}/seating`}
-        state={{ movie: formData.movie, show: formData }}
-      >
+        state={{ movie: formData.movie, show: formData }}>
         <button
           className={
             active ? "movie-search-book-button" : "movie-display-hidden"
-          }
-        >
+          }>
           Book
         </button>
       </Link>
