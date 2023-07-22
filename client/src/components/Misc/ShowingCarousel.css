@@ -1,0 +1,12 @@
+.showing-carousel-container {
+  width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.showing-carousel-image {
+  height: 250px;
+  margin: 0 auto;
+}
