@@ -1,11 +1,49 @@
 .special-offers-home-container {
   display: flex;
+  width: 75%;
+  margin: 0 auto;
+  color: white;
+  margin-bottom: 50px;
   justify-content: space-evenly;
 }
 
-.special-offers-home-container > div > img {
+.special-offer-home-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.special-offer-home-container > h3 {
+  font-size: 24px;
+  margin: 20px 0 10px 0;
+}
+
+.special-offers-home-image {
   width: 300px;
   height: 300px;
+  border: 1px solid white;
+}
+
+.special-offers-home-button {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 5px 0;
+  background-color: #333;
+  color: white;
+  border: 1px solid white;
+  font-size: 18px;
+  transition: all 0.5s ease;
+}
+
+.special-offers-home-button:hover {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 5px 0;
+  background-color: #f85050;
+  color: white;
+  border: 1px solid black;
+  font-size: 18px;
+  transition: all 0.5s ease;
 }
 
 @media (max-width: 800px) {

@@ -4,14 +4,13 @@
   text-align: center;
   margin: 0 auto;
   margin-top: 30px;
-  overflow: hidden;
   margin-bottom: 30px;
 }
 
 .movie-scene-carousel-image {
   height: 440px;
-  width: 100%;
+  width: 75%;
   object-fit: cover;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 3px solid black;
 }
