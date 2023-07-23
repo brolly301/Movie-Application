@@ -1,5 +1,5 @@
 .movie-scene-carousel-container {
-  width: 100%;
+  width: 94%;
   /* height: 20%; */
   text-align: center;
   margin: 0 auto;
@@ -14,3 +14,31 @@
   margin: 0 auto;
   border: 3px solid black;
 }
+
+@media (max-width: 910px) {
+  .movie-scene-carousel-container {
+    width: 95%;
+  }
+
+  .movie-scene-carousel-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 875px) {
+  .movie-scene-carousel-image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .movie-scene-carousel-image {
+    height: 250px;
+  }
+}
+
+/* @media (max-width: 500px) {
+  .movie-scene-carousel-container {
+    width: 40%;
+  }
+} */

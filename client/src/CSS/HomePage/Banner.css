@@ -8,8 +8,15 @@
 }
 
 .banner-container > h2 {
+  position: absolute;
   color: white;
   font-size: 30px;
-  padding-left: 240px;
+  padding-left: 18%;
   line-height: 20px;
+}
+
+@media (max-width: 1560px) {
+  .banner-container > h2 {
+    padding-left: 10%;
+  }
 }

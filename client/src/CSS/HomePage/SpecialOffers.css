@@ -1,6 +1,7 @@
 .special-offers-home-container {
   display: flex;
   width: 75%;
+  flex-wrap: wrap;
   margin: 0 auto;
   color: white;
   margin-bottom: 50px;
@@ -11,6 +12,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin: 0 15px 0 15px;
 }
 
 .special-offer-home-container > h3 {
@@ -45,9 +47,9 @@
   font-size: 18px;
   transition: all 0.5s ease;
 }
-
+/* 
 @media (max-width: 800px) {
   .special-offers-home-container {
     flex-direction: column;
   }
-}
+} */

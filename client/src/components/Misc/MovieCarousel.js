@@ -14,6 +14,73 @@ export default function MovieCarousel({ movies }) {
     arrows: true,
     autoplay: true,
     autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 1260,
+        settings: {
+          dots: true,
+          infinite: "true",
+          speed: 500,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          arrows: true,
+          autoplay: true,
+          autoplaySpeed: 4000,
+        },
+      },
+      {
+        breakpoint: 1060,
+        settings: {
+          dots: true,
+          infinite: "true",
+          speed: 500,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          arrows: true,
+          autoplay: true,
+          autoplaySpeed: 4000,
+        },
+      },
+      {
+        breakpoint: 910,
+        settings: {
+          dots: true,
+          infinite: "true",
+          speed: 500,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true,
+          autoplay: true,
+          autoplaySpeed: 4000,
+        },
+      },
+      {
+        breakpoint: 660,
+        settings: {
+          dots: true,
+          infinite: "true",
+          speed: 500,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true,
+          autoplay: true,
+          autoplaySpeed: 4000,
+        },
+      },
+      {
+        breakpoint: 450,
+        settings: {
+          dots: false,
+          infinite: "true",
+          speed: 500,
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
+          arrows: true,
+          autoplay: true,
+          autoplaySpeed: 4000,
+        },
+      },
+    ],
   };
 
   const renderedList = movies.map((movie) => {

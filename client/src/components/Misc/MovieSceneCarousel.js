@@ -36,9 +36,9 @@ export default function MovieSceneCarousel() {
   const setting = {
     infinite: "true",
     speed: 500,
+    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
     autoplay: true,
     autoplaySpeed: 4000,
   };
