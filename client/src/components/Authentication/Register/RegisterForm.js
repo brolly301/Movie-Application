@@ -74,14 +74,14 @@ export default function RegisterForm() {
         <input
           name="password"
           onChange={handleChange}
-          type="text"
+          type="password"
           placeholder="Password..."
         />
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         <input
           name="confirmPassword"
           onChange={handleChange}
-          type="text"
+          type="password"
           placeholder="Confirm Password..."
         />
         <button className="no-border">Register</button>

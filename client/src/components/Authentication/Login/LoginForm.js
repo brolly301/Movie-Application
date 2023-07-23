@@ -51,7 +51,7 @@ export default function LoginForm() {
         <input
           onChange={handleChange}
           name="password"
-          type="text"
+          type="password"
           placeholder="Password..."
         />
         <button className="no-border">Login</button>
