@@ -13,9 +13,9 @@ export default function HomePage() {
       <MovieSearch />
       <MovieSceneCarousel />
       <Banner>Now Showing</Banner>
-      <MovieCarousel movies={movies} />
+      <MovieCarousel movies={movies} link={"showtimes"} />
       <Banner>Coming Soon</Banner>
-      <MovieCarousel movies={comingSoon} />
+      <MovieCarousel movies={comingSoon} link={"comingSoon"} />
       <Banner>Special Offers & Deals</Banner>
       <SpecialOffers />
     </div>

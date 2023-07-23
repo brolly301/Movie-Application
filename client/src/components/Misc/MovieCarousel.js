@@ -1,10 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ShowingCarousel.css";
 
-export default function MovieCarousel({ movies }) {
+export default function MovieCarousel({ movies, link }) {
   const setting = {
     dots: true,
     infinite: "true",
@@ -86,7 +87,9 @@ export default function MovieCarousel({ movies }) {
   const renderedList = movies.map((movie) => {
     return (
       <div>
-        <img className="showing-carousel-image" src={movie?.poster} />
+        <Link state={{ movie: movie }} to={`/${link}/${movie?._id}`}>
+          <img className="showing-carousel-image" src={movie?.poster} />
+        </Link>
       </div>
     );
   });
