@@ -9,7 +9,7 @@
   justify-content: center;
 }
 
-.booking-details-container > img {
+.booking-details-image {
   height: 7.5rem;
   width: 5.3125rem;
   border-radius: 2%;
@@ -22,8 +22,11 @@
   margin-left: 0.9375rem;
 }
 
-.booking-details-times-container > h3 {
+.booking-details-title {
   margin: 0.9375rem 0 0.625rem 0;
+}
+.booking-details-title-hidden {
+  display: none;
 }
 
 .booking-details-list {
@@ -84,4 +87,57 @@
   border: 1px solid white;
   margin: 10px 0 10px 0;
   width: 300px;
+}
+
+.booking-details-image-hidden {
+  display: none;
+}
+
+.booking-details-hidden {
+  /* display: none; */
+}
+
+@media (max-width: 460px) {
+  .booking-details-list {
+    width: 80%;
+  }
+
+  .booking-details-date-time {
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: left;
+    align-items: start;
+  }
+  .booking-details-time > h4 {
+    text-align: left;
+    justify-content: left;
+    align-items: start;
+  }
+  .booking-details-image {
+    display: none;
+  }
+
+  .booking-details-image-hidden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7.5rem;
+    width: 5.3125rem;
+    border-radius: 2%;
+    margin-bottom: 25px;
+  }
+  .booking-details-title {
+    display: none;
+  }
+
+  .booking-details-title-hidden {
+    display: flex;
+  }
+
+  .booking-details-hidden {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
