@@ -9,7 +9,7 @@ export default function MovieDetails({ movie, link }) {
   }
 
   return (
-    <div>
+    <div className="movie-details-main-container">
       <div className="movie-details-container">
         <div className="movie-column-container">
           <h1 className="movie-hidden-title">{movie.title}</h1>

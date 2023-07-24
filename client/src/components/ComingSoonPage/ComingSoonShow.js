@@ -45,7 +45,8 @@ const ComingSoonShow = ({ movie, link }) => {
             <h3 className="comingSoon-hidden">13th February 2009</h3>
             <button
               onClick={handleClick}
-              className="comingSoon-show-notified-button">
+              className="comingSoon-show-notified-button"
+            >
               Get notified
             </button>
           </div>
@@ -59,10 +60,13 @@ const ComingSoonShow = ({ movie, link }) => {
         <Link
           style={{ textDecoration: "none" }}
           state={{ movie: movie }}
-          to={`/${link}/${movie._id}`}>
+          to={`/${link}/${movie._id}`}
+        >
           <button className="comingSoon-show-button-2">More Details</button>
         </Link>
-        <button className="comingSoon-show-button-2">Get notified</button>
+        <button className="comingSoon-show-notified-button-hidden">
+          Get notified
+        </button>
       </div>
     </div>
   );
