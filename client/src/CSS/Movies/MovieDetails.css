@@ -69,6 +69,14 @@
   margin: 0 auto;
 }
 
+.movie-details-poster {
+  height: 300px;
+  width: 220px;
+  border-radius: 2%;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
 @media (max-width: 910px) {
   .movie-details-container {
     width: 95%;
@@ -79,7 +87,7 @@
     margin-right: 7px;
   }
 
-  .movie-poster {
+  .movie-details-poster {
     margin: 0;
   }
 

@@ -31,6 +31,13 @@ export default function MovieShow({ movie, link }) {
 
   return (
     <div className="movie-container">
+      <div className="movie-details-hidden">
+        <h1 className="movie-show-title-hidden">
+          {movie.title}
+          <img src={movie.rated} className="movie-rating-icon" />
+        </h1>
+        <img className="movie-poster-hidden" src={movie.poster} alt="" />
+      </div>
       <div className="movie-poster-details">
         <img className="movie-poster" src={movie.poster} alt="" />
         <div className="movie-details">
@@ -38,7 +45,7 @@ export default function MovieShow({ movie, link }) {
             {movie.title}
             <img src={movie.rated} className="movie-rating-icon" />
           </h1>
-          <div style={{ display: "flex" }}>
+          <div className="movie-show-details-container ">
             <div className="movie-show-details-column-1">
               <label>Running Time:</label>
               <h3>{movie.runtime}</h3>

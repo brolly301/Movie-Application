@@ -19,7 +19,7 @@ export default function MovieDetails({ movie, link }) {
       <div className="movie-details-container">
         <div className="movie-column-container">
           <h1 className="movie-hidden-title">{movie.title}</h1>
-          <img className="movie-poster" src={movie.poster} alt="" />
+          <img className="movie-details-poster" src={movie.poster} alt="" />
         </div>
         <div className="movie-details-section">
           <h1 className="movie-shown-title">{movie.title}</h1>
