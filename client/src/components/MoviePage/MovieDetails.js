@@ -10,12 +10,6 @@ export default function MovieDetails({ movie, link }) {
 
   return (
     <div>
-      <div className="movie-date-time-container">
-        <div>{movie_dates}</div>
-        <div>
-          <MovieTimesList movie={movie} />
-        </div>
-      </div>
       <div className="movie-details-container">
         <div className="movie-column-container">
           <h1 className="movie-hidden-title">{movie.title}</h1>
@@ -42,6 +36,11 @@ export default function MovieDetails({ movie, link }) {
           </label>
           <p className="movie-details-description-p">{movie.plot}</p>
         </div>
+      </div>
+      <div className="movie-date-time-container">
+        {movie_dates}
+
+        <MovieTimesList movie={movie} />
       </div>
     </div>
   );

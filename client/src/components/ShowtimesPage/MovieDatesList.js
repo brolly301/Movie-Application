@@ -16,7 +16,12 @@ const MovieDatesList = () => {
   });
 
   return (
-    <div className="movie-times-list">
+    <div
+      className={
+        document.URL.includes("/showtimes/")
+          ? "new-movies-times-list"
+          : "movie-times-list"
+      }>
       <span style={{ display: "flex" }}>{renderedList}</span>
     </div>
   );

@@ -10,6 +10,7 @@
 
 .movie-details-section {
   width: 600px;
+  margin-left: 20px;
 }
 
 .movie-details-section > div {
@@ -62,11 +63,14 @@
 }
 
 .movie-date-time-container {
-  width: 54%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
 }
 
 .movie-details-poster {
@@ -77,6 +81,10 @@
   margin-left: 20px;
 }
 
+.new-movies-times-list {
+  width: 900px;
+}
+
 @media (max-width: 910px) {
   .movie-details-container {
     width: 95%;
@@ -84,7 +92,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-right: 7px;
+    /* margin-right: 7px; */
   }
 
   .movie-details-poster {
@@ -131,5 +139,14 @@
     width: 100%;
     padding-left: 20px;
     margin-right: 20px;
+  }
+
+  .new-movies-times-list {
+    width: 95%;
+    overflow-x: scroll;
+  }
+
+  .movie-date-time-container {
+    width: 100%;
   }
 }

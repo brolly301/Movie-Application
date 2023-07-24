@@ -11,5 +11,14 @@ export default function MovieTimesList({ movie }) {
     }
   });
 
-  return <div className="movie-times-list">{renderedList}</div>;
+  return (
+    <div
+      className={
+        document.URL.includes("/showtimes/")
+          ? "new-movies-times-list"
+          : "movie-times-list"
+      }>
+      {renderedList}
+    </div>
+  );
 }
