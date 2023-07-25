@@ -1,8 +1,16 @@
 .seat-panel-container {
-  width: 1200px;
-  height: 650px;
+  width: 70%;
+  height: 100%;
   background-color: #d9d9d9;
   margin: 0 auto;
   margin-bottom: 30px;
   display: flex;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 1000px) {
+  .seat-panel-container {
+    flex-direction: column;
+    width: 100%;
+  }
 }

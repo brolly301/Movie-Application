@@ -9,7 +9,7 @@ import "../../CSS/HomePage/MovieSearch.css";
 export default function MovieSearch() {
   const { movies } = useMovieContext();
   const [date, setDate] = useState();
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(window.innerWidth < 920 ? false : true);
 
   const [formData, setFormData] = useState({
     movie: null,
@@ -50,7 +50,9 @@ export default function MovieSearch() {
   };
 
   const handleClick = (e) => {
-    setActive(!active);
+    if (window.innerWidth <= 920) {
+      setActive(!active);
+    }
   };
 
   return (

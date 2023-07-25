@@ -2,12 +2,15 @@ import { bookMovie, editMovie } from "../../APIs/movies";
 import useUserContext from "../../hooks/useUserContext";
 import { editUserDetails } from "../../APIs/profile";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function SeatBooking({ movie, show, seats }) {
   const { userData, setUserData } = useUserContext();
   //need to store seatNumber in booking model and document
   //need to update the movieModel so that reserved is updated to true
   //need to update the state of reserved seats to red
+
+  const redirect = useNavigate();
 
   const handleBooking = () => {
     if (seats < 1) {
@@ -34,6 +37,9 @@ export default function SeatBooking({ movie, show, seats }) {
         editUserDetails({ ...userData });
       }
       toast("Booking confirmed. Check your account for booking details.");
+      redirect(`/showtimes/${movie._id}/confirmation`, {
+        state: { movie: movie },
+      });
     }
   };
 
