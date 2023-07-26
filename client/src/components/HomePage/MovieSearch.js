@@ -15,6 +15,7 @@ export default function MovieSearch() {
     movie: null,
     date: null,
     startTime: null,
+    seats: null,
   });
 
   const [selectedMovie, setSelectedMovie] = useState({
@@ -25,14 +26,16 @@ export default function MovieSearch() {
 
   const handleSelectedMovie = (option) => {
     setFormData({ ...formData, movie: option });
-    console.log(formData);
   };
   const handleSelectedDate = (option) => {
     setFormData({ ...formData, date: option });
-    console.log(formData);
   };
   const handleSelectedTime = (option) => {
-    setFormData({ ...formData, startTime: option });
+    setFormData({
+      ...formData,
+      startTime: option.startTime,
+      seats: option.seats,
+    });
     console.log(formData);
   };
 
@@ -83,7 +86,11 @@ export default function MovieSearch() {
       <Link
         className="movie-book-link"
         to={`showtimes/${formData.movie?._id}/seating`}
-        state={{ movie: formData.movie, show: formData }}>
+        state={{
+          movie: formData.movie,
+          show: formData,
+          seats: formData.seats,
+        }}>
         <button
           className={
             active ? "movie-search-book-button" : "movie-display-hidden"

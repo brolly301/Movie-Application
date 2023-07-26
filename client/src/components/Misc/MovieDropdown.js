@@ -10,7 +10,6 @@ export default function MovieDropdown({
   const [selected, setSelected] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(selected);
   const handleClick = (e) => {
     setIsOpen(!isOpen);
   };
@@ -27,8 +26,7 @@ export default function MovieDropdown({
       <div
         className="movie-search-dropdowns"
         key={option._id}
-        onClick={() => handleSelected(option)}
-      >
+        onClick={() => handleSelected(option)}>
         {option.title}
       </div>
     );
@@ -40,8 +38,7 @@ export default function MovieDropdown({
         onClick={handleClick}
         type="text"
         readOnly
-        className={active ? "movie-search-input" : "movie-display-hidden"}
-      >
+        className={active ? "movie-search-input" : "movie-display-hidden"}>
         <span className="movie-dropdown-icon-container">
           {selected?.title || "Choose Movie..."}
           {isOpen ? (

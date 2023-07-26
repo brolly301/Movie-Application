@@ -20,7 +20,7 @@ export default function TimeDropdown({
   };
 
   const handleSelected = (option) => {
-    setSelected(option);
+    setSelected(option?.startTime);
     setIsOpen(!isOpen);
     handleSelectedTime(option);
   };
@@ -29,7 +29,7 @@ export default function TimeDropdown({
     ...new Set(
       options?.map((show) => {
         if (show.date.substring(4, 10) === date) {
-          return show.startTime;
+          return show;
         }
       })
     ),
@@ -40,9 +40,8 @@ export default function TimeDropdown({
       <div
         className="movie-search-dropdowns"
         key={Math.floor(Math.random() * 10000)}
-        onClick={() => handleSelected(option)}
-      >
-        {option}
+        onClick={() => handleSelected(option)}>
+        {option?.startTime}
       </div>
     );
   });
@@ -53,8 +52,7 @@ export default function TimeDropdown({
         onClick={handleClick}
         type="text"
         readOnly
-        className={active ? "movie-search-input" : "movie-display-hidden"}
-      >
+        className={active ? "movie-search-input" : "movie-display-hidden"}>
         <span className="movie-dropdown-icon-container">
           {selected || "Choose Time..."}
           {isOpen ? (
