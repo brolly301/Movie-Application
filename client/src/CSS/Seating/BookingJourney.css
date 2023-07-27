@@ -1,0 +1,25 @@
+.booking-journey-container {
+  display: flex;
+  justify-content: end;
+  margin-right: 30px;
+  margin-bottom: 0;
+}
+
+.booking-journey-ul {
+  display: flex;
+  list-style: none;
+}
+
+.booking-journey-ul > li {
+  font-size: 20px;
+}
+
+.booking-journey-active {
+  color: red;
+}
+
+.booking-journey-icon {
+  position: relative;
+  color: black;
+  bottom: -2px;
+}

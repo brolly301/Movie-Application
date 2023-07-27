@@ -4,8 +4,11 @@
   background-color: #d9d9d9;
   margin: 0 auto;
   margin-bottom: 30px;
-  display: flex;
   padding-bottom: 20px;
+}
+
+.seat-panel-flex {
+  display: flex;
 }
 
 @media (max-width: 1000px) {
