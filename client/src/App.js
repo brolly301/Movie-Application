@@ -15,6 +15,7 @@ import SeatingPage from "./pages/SeatingPage";
 import ContactUs from "./pages/ContactUs";
 import Footer from "./components/Footer";
 import LoyaltyPage from "./pages/LoyaltyPage";
+import TicketsPage from "./pages/TicketsPage";
 import BookingConfirmation from "./pages/BookingConfirmationPage";
 import { ToastContainer } from "react-toastify";
 
@@ -37,6 +38,7 @@ function App() {
         <Route path="/showtimes" index element={<ShowtimesPage />} />
         <Route path="/showtimes/:id" index element={<MoviePage />} />
         <Route path="/showtimes/:id/seating" index element={<SeatingPage />} />
+        <Route path="/showtimes/:id/tickets" index element={<TicketsPage />} />
         <Route
           path="/showtimes/:id/confirmation"
           index

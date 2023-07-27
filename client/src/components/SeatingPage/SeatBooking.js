@@ -37,8 +37,8 @@ export default function SeatBooking({ movie, show, seats }) {
         editUserDetails({ ...userData });
       }
       toast("Booking confirmed. Check your account for booking details.");
-      redirect(`/showtimes/${movie._id}/confirmation`, {
-        state: { movie: movie },
+      redirect(`/showtimes/${movie._id}/tickets`, {
+        state: { movie: movie, show: show, seats: seats },
       });
     }
   };

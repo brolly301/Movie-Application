@@ -1,0 +1,33 @@
+.ticket-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  width: 90%;
+  border: 1px solid #333;
+}
+
+.ticket-type {
+  font-size: 18px;
+}
+.ticket-price {
+  font-size: 18px;
+}
+.ticket-button-container {
+}
+
+.ticket-button-container > span {
+  font-size: 18px;
+}
+
+.ticket-button-container > button {
+  all: unset;
+  margin: 0 5px 0 5px;
+  font-size: 18px;
+  border: 1px solid black;
+  padding: 1px 7px 1px 7px;
+}
+
+.ticket-button-container > button:hover {
+  background-color: #8a8989;
+}
