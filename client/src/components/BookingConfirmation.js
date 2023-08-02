@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../CSS/Seating/BookingConfirmation.css";
 
 export default function BookingConfirmation() {
@@ -80,7 +80,11 @@ export default function BookingConfirmation() {
         out to us anytime. Thank you for choosing MovieDome. We look forward to
         serving you again!
       </p>
-      <button>Back to Homepage</button>
+      <Link to={"/"} className="booking-confirmation-link">
+        <button className="booking-confirmation-button">
+          Back to Homepage
+        </button>
+      </Link>
     </div>
   );
 }
