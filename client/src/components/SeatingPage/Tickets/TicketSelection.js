@@ -7,6 +7,7 @@ export default function TicketSelection({
   onCreate,
   onRemove,
   onDelete,
+  totalTickets,
   seats,
   ticketData,
   setTicketData,
@@ -51,6 +52,7 @@ export default function TicketSelection({
         onDelete={onDelete}
         seats={seats}
         ticketData={ticketData}
+        totalTickets={totalTickets}
         setTicketData={setTicketData}
       />
     );

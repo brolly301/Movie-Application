@@ -12,6 +12,11 @@ export default function TicketsPage() {
 
   const [ticketData, setTicketData] = useState([]);
 
+  const totalTickets = ticketData?.reduce(
+    (total, ticket) => (total += ticket.quantity),
+    0
+  );
+
   const addProduct = (id, product, price) => {
     const createProduct = [
       ...ticketData,
@@ -66,6 +71,7 @@ export default function TicketsPage() {
           onCreate={addProduct}
           onRemove={removeQuantity}
           onDelete={deleteTicket}
+          totalTickets={totalTickets}
         />
         <SeatDetails seats={seats} movie={movie} show={show} />
       </div>

@@ -8,29 +8,30 @@ export default function Ticket({
   onEdit,
   onRemove,
   onDelete,
-  quantity,
   onCreate,
   seats,
   ticketData,
-  setTicketData,
+  totalTickets,
   id,
 }) {
   const [counter, setCounter] = useState(0);
 
   const handleIncrease = () => {
-    if (counter < seats.length) {
-      setCounter((counter) => counter + 1);
+    if (seats.length !== totalTickets) {
+      if (counter < seats.length) {
+        setCounter((counter) => counter + 1);
 
-      if (ticketData.length <= 0) {
-        onCreate(id, product, price);
-      } else {
-        ticketData?.map((ticket) => {
-          if (ticket.id !== id) {
-            onCreate(id, product, price);
-          } else {
-            onEdit(id);
-          }
-        });
+        if (ticketData.length <= 0) {
+          onCreate(id, product, price);
+        } else {
+          ticketData?.map((ticket) => {
+            if (ticket.id !== id) {
+              onCreate(id, product, price);
+            } else {
+              onEdit(id);
+            }
+          });
+        }
       }
     }
   };
