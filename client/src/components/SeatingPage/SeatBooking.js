@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useTicketContext from "../../hooks/useTicketContext";
 
-export default function SeatBooking({ movie, show, seats, tickets }) {
+export default function SeatBooking({ movie, show, seats, tickets, extras }) {
   const { userData, setUserData } = useUserContext();
   const { totalTickets } = useTicketContext();
   const redirect = useNavigate();
@@ -33,6 +33,7 @@ export default function SeatBooking({ movie, show, seats, tickets }) {
         email: userData.email,
         seatNumber: seats,
         tickets: tickets,
+        extras: extras,
       });
       editMovie({
         title: movie.title,

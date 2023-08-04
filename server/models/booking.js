@@ -25,7 +25,7 @@ const BookingSchema = new Schema({
       quantity: Number,
     },
   ],
-  tickets: [
+  extras: [
     {
       product: String,
       price: String,

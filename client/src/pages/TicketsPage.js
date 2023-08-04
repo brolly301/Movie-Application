@@ -4,6 +4,8 @@ import SeatDetails from "../components/SeatingPage/SeatDetails";
 import { useLocation } from "react-router-dom";
 import TicketSelection from "../components/SeatingPage/Tickets/TicketSelection";
 import useTicketContext from "../hooks/useTicketContext";
+import ExtraSelection from "../components/SeatingPage/Extras/ExtraSelection";
+import useExtraContext from "../hooks/useExtraContext";
 
 export default function TicketsPage() {
   const location = useLocation();
@@ -12,14 +14,19 @@ export default function TicketsPage() {
   const seats = location.state.seats;
 
   const { ticketData } = useTicketContext();
+  const { extraData } = useExtraContext();
+
+  console.log(extraData);
 
   return (
     <div className="seat-panel-container">
       <BookingJourney />
       <div className="seat-panel-flex">
         <TicketSelection seats={seats} />
+        <ExtraSelection seats={seats} />
         <SeatDetails
           tickets={ticketData}
+          extras={extraData}
           seats={seats}
           movie={movie}
           show={show}

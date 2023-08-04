@@ -2,7 +2,7 @@ import React from "react";
 import SeatBooking from "./SeatBooking";
 import "../../CSS/Seating/SeatDetails.css";
 
-const SeatDetails = ({ seats, movie, show, tickets }) => {
+const SeatDetails = ({ seats, movie, show, tickets, extras }) => {
   return (
     <div className="seat-details-container">
       <h1>{movie.title}</h1>
@@ -23,6 +23,7 @@ const SeatDetails = ({ seats, movie, show, tickets }) => {
       <div className="seat-numbers-header">
         <h2>{seats.length} Seats Selected</h2>
         <SeatBooking
+          extras={extras}
           tickets={tickets}
           seats={seats}
           movie={movie}
