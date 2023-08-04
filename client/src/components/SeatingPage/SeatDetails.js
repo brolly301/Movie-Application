@@ -2,7 +2,7 @@ import React from "react";
 import SeatBooking from "./SeatBooking";
 import "../../CSS/Seating/SeatDetails.css";
 
-const SeatDetails = ({ seats, movie, show }) => {
+const SeatDetails = ({ seats, movie, show, tickets }) => {
   return (
     <div className="seat-details-container">
       <h1>{movie.title}</h1>
@@ -22,7 +22,12 @@ const SeatDetails = ({ seats, movie, show }) => {
       <hr />
       <div className="seat-numbers-header">
         <h2>{seats.length} Seats Selected</h2>
-        <SeatBooking seats={seats} movie={movie} show={show} />
+        <SeatBooking
+          tickets={tickets}
+          seats={seats}
+          movie={movie}
+          show={show}
+        />
       </div>
     </div>
   );

@@ -18,6 +18,20 @@ const BookingSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Movie",
   },
+  tickets: [
+    {
+      product: String,
+      price: String,
+      quantity: Number,
+    },
+  ],
+  tickets: [
+    {
+      product: String,
+      price: String,
+      quantity: Number,
+    },
+  ],
 });
 
 module.exports = mongoose.model("Booking", BookingSchema);

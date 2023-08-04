@@ -3,18 +3,28 @@ import useUserContext from "../../hooks/useUserContext";
 import { editUserDetails } from "../../APIs/profile";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import useTicketContext from "../../hooks/useTicketContext";
 
-export default function SeatBooking({ movie, show, seats }) {
+export default function SeatBooking({ movie, show, seats, tickets }) {
   const { userData, setUserData } = useUserContext();
-  //need to store seatNumber in booking model and document
-  //need to update the movieModel so that reserved is updated to true
-  //need to update the state of reserved seats to red
-
+  const { totalTickets } = useTicketContext();
   const redirect = useNavigate();
 
-  const handleBooking = () => {
+  const handleRedirect = () => {
     if (seats < 1) {
       toast.error("Please choose a seat before proceeding.");
+    } else {
+      redirect(`/showtimes/${movie._id}/tickets`, {
+        state: { movie: movie, show: show, seats: seats },
+      });
+    }
+  };
+
+  const handleBooking = () => {
+    if (totalTickets !== seats.length) {
+      toast.error(
+        `Please choose another ${seats.length - tickets.length} tickets`
+      );
     } else {
       bookMovie({
         startTime: show.startTime,
@@ -22,6 +32,7 @@ export default function SeatBooking({ movie, show, seats }) {
         movieID: movie._id,
         email: userData.email,
         seatNumber: seats,
+        tickets: tickets,
       });
       editMovie({
         title: movie.title,
@@ -37,9 +48,6 @@ export default function SeatBooking({ movie, show, seats }) {
         editUserDetails({ ...userData });
       }
       toast("Booking confirmed. Check your account for booking details.");
-      redirect(`/showtimes/${movie._id}/tickets`, {
-        state: { movie: movie, show: show, seats: seats },
-      });
     }
   };
 
@@ -73,7 +81,12 @@ export default function SeatBooking({ movie, show, seats }) {
 
   return (
     <div className="seat-booking-container">
-      <button className="seat-booking-button" onClick={handleBooking}>
+      <button
+        className="seat-booking-button"
+        onClick={
+          document.URL.includes("tickets") ? handleBooking : handleRedirect
+        }
+      >
         Book
       </button>
       {userData.loyaltyPoints >= 100 && (
