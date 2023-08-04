@@ -4,13 +4,16 @@ import App from "./App";
 import { MovieProvider } from "./context/movies";
 import { BrowserRouter } from "react-router-dom";
 import { UserContextProvider } from "./context/user";
+import { TicketProvider } from "./context/tickets";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <UserContextProvider>
-    <MovieProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </MovieProvider>
-  </UserContextProvider>
+  <TicketProvider>
+    <UserContextProvider>
+      <MovieProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </MovieProvider>
+    </UserContextProvider>
+  </TicketProvider>
 );

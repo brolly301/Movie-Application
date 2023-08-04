@@ -1,20 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import "../../../CSS/Seating/Tickets/Ticket.css";
+import useTicketContext from "../../../hooks/useTicketContext";
 
-export default function Ticket({
-  product,
-  price,
-  onEdit,
-  onRemove,
-  onDelete,
-  onCreate,
-  seats,
-  ticketData,
-  totalTickets,
-  id,
-}) {
+export default function Ticket({ product, price, seats, id }) {
   const [counter, setCounter] = useState(0);
+
+  const {
+    addProduct,
+    addQuantity,
+    removeQuantity,
+    deleteTicket,
+    ticketData,
+    totalTickets,
+  } = useTicketContext();
 
   const handleIncrease = () => {
     if (seats.length !== totalTickets) {
@@ -22,13 +21,13 @@ export default function Ticket({
         setCounter((counter) => counter + 1);
 
         if (ticketData.length <= 0) {
-          onCreate(id, product, price);
+          addProduct(id, product, price);
         } else {
           ticketData?.map((ticket) => {
             if (ticket.id !== id) {
-              onCreate(id, product, price);
+              addProduct(id, product, price);
             } else {
-              onEdit(id);
+              addQuantity(id);
             }
           });
         }
@@ -40,9 +39,9 @@ export default function Ticket({
       setCounter((counter) => counter - 1);
 
       if (counter <= 1) {
-        onDelete(id);
+        deleteTicket(id);
       } else {
-        onRemove(id);
+        removeQuantity(id);
       }
     }
   };

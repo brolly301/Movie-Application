@@ -2,16 +2,7 @@ import React from "react";
 import Ticket from "./Ticket";
 import "../../../CSS/Seating/Tickets/TicketSelection.css";
 
-export default function TicketSelection({
-  onEdit,
-  onCreate,
-  onRemove,
-  onDelete,
-  totalTickets,
-  seats,
-  ticketData,
-  setTicketData,
-}) {
+export default function TicketSelection({ seats }) {
   const ticketsData = [
     {
       id: 1,
@@ -46,14 +37,7 @@ export default function TicketSelection({
         price={option.price}
         quantity={option.quantity}
         id={option.id}
-        onEdit={onEdit}
-        onCreate={onCreate}
-        onRemove={onRemove}
-        onDelete={onDelete}
         seats={seats}
-        ticketData={ticketData}
-        totalTickets={totalTickets}
-        setTicketData={setTicketData}
       />
     );
   });
