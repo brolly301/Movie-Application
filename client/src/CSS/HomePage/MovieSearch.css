@@ -18,10 +18,21 @@
 }
 
 .movie-search-dropdowns {
-  position: relative;
   background-color: #d9d9d9;
   padding: 10px 10px 10px 10px;
   margin: 0 3px 0 3px;
+  width: 100%;
+}
+
+.movie-input-container {
+  position: relative;
+  width: 214px;
+}
+
+.dropdown-list {
+  position: absolute;
+  z-index: 100;
+  width: 89%;
 }
 
 .movie-search-book-button {
@@ -92,10 +103,22 @@
   }
 
   .movie-input-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .movie-search-dropdowns {
+    margin: 0;
+  }
+
+  .dropdown-list {
+    position: absolute;
+    width: 90%;
+    left: 3.5%;
+    top: 100%;
+    justify-content: center;
   }
 
   .movie-search-input {
@@ -117,5 +140,9 @@
   .movie-search-book-button {
     transition: all 0.5s ease-in-out;
     margin-top: 5px;
+  }
+
+  .movie-search-dropdowns {
+    width: 100%;
   }
 }

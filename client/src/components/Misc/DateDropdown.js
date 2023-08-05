@@ -60,7 +60,7 @@ export default function DateDropdown({
         </span>
       </button>
 
-      {isOpen && <div>{renderedOptions}</div>}
+      {isOpen && <div className="dropdown-list">{renderedOptions}</div>}
     </div>
   );
 }

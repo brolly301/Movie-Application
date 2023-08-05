@@ -26,7 +26,8 @@ export default function MovieDropdown({
       <div
         className="movie-search-dropdowns"
         key={option._id}
-        onClick={() => handleSelected(option)}>
+        onClick={() => handleSelected(option)}
+      >
         {option.title}
       </div>
     );
@@ -38,7 +39,8 @@ export default function MovieDropdown({
         onClick={handleClick}
         type="text"
         readOnly
-        className={active ? "movie-search-input" : "movie-display-hidden"}>
+        className={active ? "movie-search-input" : "movie-display-hidden"}
+      >
         <span className="movie-dropdown-icon-container">
           {selected?.title || "Choose Movie..."}
           {isOpen ? (
@@ -49,7 +51,7 @@ export default function MovieDropdown({
         </span>
       </button>
 
-      {isOpen && <div>{renderedOptions}</div>}
+      {isOpen && <div className="dropdown-list">{renderedOptions}</div>}
     </div>
   );
 }

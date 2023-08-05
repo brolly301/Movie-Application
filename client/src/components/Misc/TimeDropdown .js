@@ -40,7 +40,8 @@ export default function TimeDropdown({
       <div
         className="movie-search-dropdowns"
         key={Math.floor(Math.random() * 10000)}
-        onClick={() => handleSelected(option)}>
+        onClick={() => handleSelected(option)}
+      >
         {option?.startTime}
       </div>
     );
@@ -52,7 +53,8 @@ export default function TimeDropdown({
         onClick={handleClick}
         type="text"
         readOnly
-        className={active ? "movie-search-input" : "movie-display-hidden"}>
+        className={active ? "movie-search-input" : "movie-display-hidden"}
+      >
         <span className="movie-dropdown-icon-container">
           {selected || "Choose Time..."}
           {isOpen ? (
@@ -63,7 +65,7 @@ export default function TimeDropdown({
         </span>
       </button>
 
-      {isOpen && <div>{renderedOptions}</div>}
+      {isOpen && <div className="dropdown-list">{renderedOptions}</div>}
     </div>
   );
 }
