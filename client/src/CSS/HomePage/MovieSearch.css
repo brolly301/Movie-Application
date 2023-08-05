@@ -111,12 +111,13 @@
   }
   .movie-search-dropdowns {
     margin: 0;
+    padding-right: 0;
   }
 
   .dropdown-list {
     position: absolute;
-    width: 90%;
-    left: 3.5%;
+    width: 91%;
+    left: 4%;
     top: 100%;
     justify-content: center;
   }
@@ -144,5 +145,11 @@
 
   .movie-search-dropdowns {
     width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .movie-search-dropdowns {
+    padding-right: 0;
   }
 }
