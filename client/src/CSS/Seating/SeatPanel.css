@@ -11,6 +11,11 @@
   display: flex;
 }
 
+.seat-tickets-extras {
+  width: 1600px;
+  margin-right: 115px;
+}
+
 @media (max-width: 1000px) {
   .seat-panel-container {
     flex-direction: column;

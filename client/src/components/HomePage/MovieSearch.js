@@ -24,6 +24,8 @@ export default function MovieSearch() {
     startTime: [],
   });
 
+  console.log(formData);
+
   const handleSelectedMovie = (option) => {
     setFormData({ ...formData, movie: option });
   };

@@ -22,8 +22,10 @@ export default function TicketsPage() {
     <div className="seat-panel-container">
       <BookingJourney />
       <div className="seat-panel-flex">
-        <TicketSelection seats={seats} />
-        <ExtraSelection seats={seats} />
+        <div className="seat-tickets-extras">
+          <TicketSelection seats={seats} />
+          <ExtraSelection seats={seats} />
+        </div>
         <SeatDetails
           tickets={ticketData}
           extras={extraData}

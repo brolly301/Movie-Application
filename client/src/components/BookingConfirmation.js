@@ -1,11 +1,27 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../CSS/Seating/BookingConfirmation.css";
+import useTicketContext from "../hooks/useTicketContext";
 
 export default function BookingConfirmation() {
   const location = useLocation();
-  const movie = location.state.movie;
+  const { movie, show, seats, tickets, extras, totalTickets } = location.state;
 
+  const ticketList = tickets.map((ticket) => {
+    return (
+      <p>
+        {ticket.quantity}X {ticket.product}
+      </p>
+    );
+  });
+
+  const extraList = extras.map((extra) => {
+    return (
+      <p>
+        {extra.quantity}X {extra.product}
+      </p>
+    );
+  });
   return (
     <div className="booking-confirmation-container">
       <h1 className="booking-confirmation-heading">
@@ -20,7 +36,9 @@ export default function BookingConfirmation() {
         <h2 className="booking-confrimation-content-header">Booking Details</h2>
         <hr />
         <div className="booking-confirmation-date-id">
-          <span>Thursday, 27th July 2023 - 17.45pm</span>
+          <span>
+            {show.date.substring(0, 14)} - {show.startTime}
+          </span>
           <span>Id: Basdf32324352</span>
         </div>
         <hr />
@@ -37,7 +55,7 @@ export default function BookingConfirmation() {
             </div>
             <div className="booking-confirmation-row-content">
               <label>Seats:</label>
-              <p>A1 B3 B2</p>
+              <p>{seats.map((seat) => ` ${seat}`)}</p>
             </div>
             <div className="booking-confirmation-row-content">
               <label>Screen:</label>
@@ -47,7 +65,7 @@ export default function BookingConfirmation() {
           <div className="booking-confrmation-content-row2">
             <div className="booking-confirmation-row-content">
               <label>Ticket Type:</label>
-              <p>2x Standard</p>
+              <div className="booking-confirmation-extras">{ticketList}</div>
             </div>
             <div className="booking-confirmation-row-content">
               <label>Price:</label>
@@ -56,8 +74,7 @@ export default function BookingConfirmation() {
             <div className="booking-confirmation-row-content">
               <label>Extras:</label>
               <div className="booking-confirmation-extras">
-                <p>1x Regular Drink</p>
-                <p>1x Regular Popcron</p>
+                {extras.length > 0 ? extraList : <p>None</p>}
               </div>
             </div>
           </div>

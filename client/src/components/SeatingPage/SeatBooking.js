@@ -7,7 +7,7 @@ import useTicketContext from "../../hooks/useTicketContext";
 
 export default function SeatBooking({ movie, show, seats, tickets, extras }) {
   const { userData, setUserData } = useUserContext();
-  const { totalTickets } = useTicketContext();
+  const { totalTickets, setTicketData } = useTicketContext();
   const redirect = useNavigate();
 
   const handleRedirect = () => {
@@ -26,6 +26,9 @@ export default function SeatBooking({ movie, show, seats, tickets, extras }) {
         `Please choose another ${seats.length - tickets.length} tickets`
       );
     } else {
+      //This needs fixed for quick book, to do with updating bookMovie and editMovie
+      //Look at whats being passed through before book is pressed for movietimes and
+      //movie search components, but it will all be on seat details
       bookMovie({
         startTime: show.startTime,
         startDate: show.date,
@@ -49,6 +52,17 @@ export default function SeatBooking({ movie, show, seats, tickets, extras }) {
         editUserDetails({ ...userData });
       }
       toast("Booking confirmed. Check your account for booking details.");
+      redirect(`/showtimes/${movie._id}/confirmation`, {
+        state: {
+          movie: movie,
+          show: show,
+          seats: seats,
+          tickets: tickets,
+          extras: extras,
+          totalTickets: totalTickets,
+        },
+      });
+      setTicketData([]);
     }
   };
 
