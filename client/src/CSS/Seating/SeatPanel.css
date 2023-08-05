@@ -27,3 +27,12 @@
     margin-right: 0;
   }
 }
+
+@media (max-width: 900px) {
+  .seat-tickets-extras {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}

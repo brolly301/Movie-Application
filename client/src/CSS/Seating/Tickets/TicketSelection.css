@@ -15,6 +15,7 @@
 
 @media (max-width: 900px) {
   .ticket-selection-main {
+    width: 90%;
     margin-left: 0;
   }
 }

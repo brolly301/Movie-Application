@@ -65,9 +65,20 @@
 
 @media (max-width: 900px) {
   .seat-details-container {
-    width: 100%;
+    width: 81%;
     margin-left: 0;
     margin-right: 0;
-    padding: 0;
+  }
+}
+
+@media (max-width: 580px) {
+  .seat-details-container {
+    width: 77%;
+  }
+}
+
+@media (max-width: 450px) {
+  .seat-details-container {
+    width: 75%;
   }
 }
