@@ -18,7 +18,7 @@ export default function TicketSelection({ seats }) {
     },
     {
       id: 3,
-      product: "Seniors (60 & Older)",
+      product: "Seniors (60+)",
       price: 7.5,
       quantity: 1,
     },

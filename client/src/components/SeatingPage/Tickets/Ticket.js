@@ -48,8 +48,10 @@ export default function Ticket({ product, price, seats, id }) {
 
   return (
     <div className="ticket-container">
-      <span className="ticket-type">{product}</span>
-      <span className="ticket-price">£{price}</span>
+      <div className="ticket-price-type-container">
+        <span className="ticket-type">{product}</span>
+        <span className="ticket-price">£{price.toFixed(2)}</span>
+      </div>
       <span className="ticket-button-container">
         <button onClick={handleDecrease}>-</button>
         <span>{counter}</span>

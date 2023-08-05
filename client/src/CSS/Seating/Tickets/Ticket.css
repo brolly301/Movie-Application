@@ -32,3 +32,9 @@
 .ticket-button-container > button:hover {
   background-color: #8a8989;
 }
+
+.ticket-price-type-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
