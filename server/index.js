@@ -18,11 +18,11 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("Database Connected"))
   .catch((err) =>
-    console.log("Database not connected. Check Mongo URI." + err)
+    console.log("Database not connected. Check Mongo URI." + err),
   );
 
 const sessionOptions = {
-  secret: "Test",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
@@ -37,7 +37,7 @@ app.use(session(sessionOptions));
 
 //middlewares
 app.use(morgan("dev"));
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: process.env.CLIENT_ORIGIN, credentials: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(mongoSanitize());
 app.use(express.json());
@@ -55,6 +55,6 @@ app.use("/movies", movieRoutes);
 app.use("/communication", communicationRoutes);
 
 //Listener
-app.listen(process.env.port, () =>
-  console.log(`Running on Server ${process.env.port}`)
+app.listen(process.env.PORT, () =>
+  console.log(`Running on Server ${process.env.PORT}`),
 );

@@ -10,14 +10,14 @@ exports.sendContactForm = (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "marcrobertjohn@gmail.com",
-      pass: "qklbtfcwnloxeckw",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_APP_PASSWORD,
     },
   });
 
   const options = {
     from: email,
-    to: "marcrobertjohn@gmail.com",
+    to: process.env.EMAIL_USER,
     subject: subject,
     html: message,
   };
@@ -42,13 +42,13 @@ exports.sendNewsletter = (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "marcrobertjohn@gmail.com",
-      pass: "qklbtfcwnloxeckw",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_APP_PASSWORD,
     },
   });
 
   const options = {
-    from: "marcrobertjohn@gmail.com",
+    from: process.env.EMAIL_USER,
     to: email,
     subject: "Newsletter Signup",
     html: "Thank you for signing up to our newsletter.",
@@ -74,13 +74,13 @@ exports.sendNotification = (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "marcrobertjohn@gmail.com",
-      pass: "qklbtfcwnloxeckw",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_APP_PASSWORD,
     },
   });
 
   const options = {
-    from: "marcrobertjohn@gmail.com",
+    from: process.env.EMAIL_USER,
     to: email,
     subject: `${movie.title} Notification`,
     html: `Thank you for signing up for notifications for ${movie.title}, you will be contacted shortly before this movie is released.`,
