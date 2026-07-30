@@ -2,35 +2,37 @@ import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 
 export default function AuthDropdown({ options }) {
-  const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = (e) => {
-    setIsOpen(!isOpen);
-    console.log("Clicked");
+  const toggleDropdown = () => {
+    setIsOpen((current) => !current);
   };
 
-  const handleSelected = (option) => {
-    setSelected(option);
-    setIsOpen(!isOpen);
+  const closeDropdown = () => {
+    setIsOpen(false);
   };
 
   const renderedOptions = options?.map((option) => {
     return (
-      <div
-        className="auth-dropdown"
-        key={option.id}
-        onClick={() => handleSelected(option)}
-      >
-        <div className="auth-option">{option.name}</div>
-      </div>
+      <li className="auth-dropdown" key={option.id} onClick={closeDropdown}>
+        {option.name}
+      </li>
     );
   });
 
   return (
-    <div>
-      <FaUser className="nav-user" onClick={handleClick} />
-      {isOpen && <div className="auth-list">{renderedOptions}</div>}
+    <div className="auth-container">
+      <button
+        type="button"
+        className="nav-user-button"
+        onClick={toggleDropdown}
+        aria-label="Open account menu"
+        aria-expanded={isOpen}
+      >
+        <FaUser className="nav-user-icon" aria-hidden="true" />
+      </button>
+
+      {isOpen && <ul className="auth-list">{renderedOptions}</ul>}
     </div>
   );
 }

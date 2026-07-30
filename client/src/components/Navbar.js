@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import useUserContext from "../hooks/useUserContext";
 import "../CSS/Navbar.css";
@@ -14,11 +14,16 @@ export default function Navbar() {
 
   const redirect = useNavigate();
 
-  const handleClick = (e) => {
-    setActive(!active);
-  };
+  const toggleMenu = () => {
+  setActive((current) => !current);
+};
+
+const closeMenu = () => {
+ setActive(false)
+}
 
   const handleLogout = async (e) => {
+  closeMenu()
     await logout();
     setUserData({
       user: null,
@@ -31,7 +36,7 @@ export default function Navbar() {
     {
       id: "1",
       name: (
-        <Link className="nav-link" to="/login">
+        <Link className="nav-link" to="/login"  onClick={closeMenu}>
           Login
         </Link>
       ),
@@ -39,7 +44,7 @@ export default function Navbar() {
     {
       id: "2",
       name: (
-        <Link className="nav-link" to="/register">
+        <Link className="nav-link" to="/register" onClick={closeMenu}>
           Register
         </Link>
       ),
@@ -50,7 +55,7 @@ export default function Navbar() {
     {
       id: "1",
       name: (
-        <Link className="nav-link" to="/account">
+        <Link className="nav-link" to="/account" onClick={closeMenu}>
           Profile
         </Link>
       ),
@@ -58,9 +63,13 @@ export default function Navbar() {
     {
       id: "2",
       name: (
-        <Link onClick={handleLogout} className="nav-link">
-          Logout
-        </Link>
+      <button
+  type="button"
+  onClick={handleLogout}
+  className="nav-link auth-action"
+>
+  Logout
+</button>
       ),
     },
   ];
@@ -71,48 +80,53 @@ export default function Navbar() {
         <h1 className="nav-title">Movie Dome</h1>
       </Link>
 
-      <ul className={active ? "nav-ul-open" : "nav-ul"}>
+      <ul className={active ? "nav-ul-open" : "nav-ul"}  id="primary-navigation">
         <li className="nav-li">
-          <Link className="nav-link" to="/showtimes">
+          <Link className="nav-link" to="/showtimes" onClick={closeMenu}>
             What's On?
           </Link>
         </li>
         <li className="nav-li">
-          <Link className="nav-link" to="/comingSoon">
+          <Link className="nav-link" to="/comingSoon" onClick={closeMenu}>
             Coming Soon
           </Link>
         </li>
         <li className="nav-li">
-          <Link className="nav-link" to="/prices">
+          <Link className="nav-link" to="/prices" onClick={closeMenu}>
             Prices
           </Link>
         </li>
 
         <li className="nav-li">
-          <Link className="nav-link" to="/specialOffers">
+          <Link className="nav-link" to="/specialOffers" onClick={closeMenu}> 
             Special Offers
           </Link>
         </li>
         <li className="nav-li">
-          <Link className="nav-link" to="/loyalty">
+          <Link className="nav-link" to="/loyalty" onClick={closeMenu}>
             Loyalty
           </Link>
         </li>
       </ul>
       <div className="nav-link-container">
-        <Link to="/contactUs" className="nav-link-title">
+        <Link to="/contactUs" className="nav-link-title" onClick={closeMenu}>
           <h2 className="nav-contact">Contact</h2>
         </Link>
         <AuthDropdown
           options={userData.user ? loggedInOptions : loggedOutOptions}
         />
-        <div>
-          <GiHamburgerMenu onClick={handleClick} className={"nav-menu-icon"} />
-        </div>
+        <button
+  type="button"
+  className="nav-menu-button"
+  onClick={toggleMenu}
+  aria-label="Toggle navigation menu"
+  aria-expanded={active}
+  aria-controls="primary-navigation"
+>
+  <GiHamburgerMenu className="nav-menu-icon" aria-hidden="true" />
+</button>
       </div>
-      <div style={{ display: "none" }}>
-        <Outlet />
-      </div>
+   
     </div>
   );
 }
