@@ -9,59 +9,108 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function LoginForm() {
   const { setUserData } = useUserContext();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const redirect = useNavigate();
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+
+    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.email.trim() || !formData.password) {
+      setError("Enter your email address and password.");
+      return;
+    }
+    setIsSubmitting(true);
     try {
       const res = await login(formData);
-      if (res.error) setError(res.error);
-      else {
-        setUserData({ user: formData.email });
-        toast.success(res.message);
-        redirect("/");
+
+      if (res.error) {
+        setError(res.error);
+        return;
       }
-    } catch (err) {
-      console.log(err);
+
+      setUserData((current) => ({
+        ...current,
+        user: formData.email,
+        email: formData.email,
+      }));
+
+      toast.success(res.message || "Welcome back.");
+      navigate("/");
+    } catch (error) {
+      setError("Login failed. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="login-form-container">
-      <h1>Login</h1>
-      <h3>Please enter your login details to continue.</h3>
-      <form className="login-form-main" onSubmit={handleSubmit}>
-        {error && <p>{error}</p>}
-        <input
-          onChange={handleChange}
-          name="email"
-          type="text"
-          placeholder="Email Address..."
-        />
-        <input
-          onChange={handleChange}
-          name="password"
-          type="password"
-          placeholder="Password..."
-        />
-        <button className="no-border">Login</button>
-        <div>Or</div>
-        <Link className="login-link" to="/register">
-          <button className="border" type="button">
-            Register
+    <main className="auth-page">
+      <section className="auth-card">
+        <header className="auth-header">
+          <span>Welcome back</span>
+          <h1>Log in</h1>
+          <p>Enter your account details to continue.</p>
+        </header>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          {error && (
+            <p className="auth-form-error" role="alert">
+              {error}
+            </p>
+          )}
+          <div className="auth-field">
+            <label htmlFor="login-email">Email address</label>
+            <input
+              id="login-email"
+              name="email"
+              type="email"
+              value={formData.email}
+              autoComplete="email"
+              placeholder="you@example.com"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="auth-field">
+            <label htmlFor="login-password">Password</label>
+            <input
+              id="login-password"
+              name="password"
+              type="password"
+              value={formData.password}
+              autoComplete="current-password"
+              placeholder="Enter your password"
+              onChange={handleChange}
+            />
+          </div>
+          <button
+            type="submit"
+            className="auth-primary-button"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Logging in..." : "Log in"}
           </button>
-        </Link>
-      </form>
-    </div>
+        </form>
+        <div className="auth-switch">
+          <span>New to Movie Dome?</span>
+          <Link to="/register">Create an account</Link>
+        </div>
+      </section>
+    </main>
   );
 }

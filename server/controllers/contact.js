@@ -1,11 +1,13 @@
 const nodemailer = require("nodemailer");
 
-exports.sendContactForm = (req, res) => {
+exports.sendContactForm = async (req, res) => {
   const { email, subject, message } = req.body;
 
-  res.status(200).json({
-    message: "Success",
-  });
+  if (!email || !subject || !message) {
+    return res.status(400).json({
+      error: "Email, subject and message are required.",
+    });
+  }
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -22,14 +24,19 @@ exports.sendContactForm = (req, res) => {
     html: message,
   };
 
-  transporter.sendMail(options, function (err, info) {
-    if (err) {
-      console.log(err);
-    }
-    res.send.JSON({
+  try {
+    await transporter.sendMail(options);
+
+    return res.status(200).json({
       message: "Message successfully sent.",
     });
-  });
+  } catch (error) {
+    console.error("Contact email failed:", error.message);
+
+    return res.status(500).json({
+      error: "Your message could not be sent.",
+    });
+  }
 };
 
 exports.sendNewsletter = async (req, res) => {

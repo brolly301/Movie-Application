@@ -1,64 +1,173 @@
-.login-form-container {
-  display: flex;
-  flex-direction: column;
+.auth-page {
+  display: grid;
+  place-items: center;
   width: 100%;
-  margin: 0 auto;
-  align-items: center;
+  min-height: calc(100vh - 180px);
+  padding: 3rem 1rem 5rem;
+}
+
+.auth-card {
+  width: min(100%, 420px);
+  padding: 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-large);
+}
+
+.auth-card-wide {
+  width: min(100%, 620px);
+}
+
+.auth-header {
+  margin-bottom: 1.75rem;
   text-align: center;
-  color: white;
 }
 
-.login-form-main {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+.auth-header > span {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.login-form-main > p {
-  color: #f85050d9;
-  font-size: 16px;
-  margin: 5px 0 0px 0;
-  text-align: center;
-  font-weight: normal;
-}
-
-.login-form-main > input {
-  all: unset;
-  text-align: left;
-  width: 295px;
-  height: 33px;
-  background-color: #d9d9d9;
-  margin: 5px 0 5px 0;
-  padding-left: 10px;
-  color: black;
-  border: 1px solid black;
-}
-
-.login-form-container > h1 {
+.auth-header h1 {
   margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
 }
 
-button.no-border {
-  all: unset;
-  width: 305px;
-  height: 30px;
-  color: white;
+.auth-header p {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.auth-field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.auth-field {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.auth-field label {
+  color: var(--color-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.auth-field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.7rem 0.75rem;
+  color: var(--color-text);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  outline: 0;
+}
+
+.auth-field input::placeholder {
+  color: #70727a;
+}
+
+.auth-field input:focus {
+  border-color: var(--color-accent);
+}
+
+.auth-field input[aria-invalid="true"] {
+  border-color: var(--color-accent);
+}
+
+.auth-field-hint {
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+}
+
+.auth-field-error,
+.auth-form-error {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 0.72rem;
+}
+
+.auth-form-error {
+  padding: 0.75rem;
+  background: rgba(239, 75, 80, 0.1);
+  border: 1px solid rgba(239, 75, 80, 0.25);
+  border-radius: var(--radius-small);
   text-align: center;
-  border: 1px solid white;
-  margin: 10px 0px 10px 0px;
 }
 
-button.border {
-  all: unset;
-  width: 305px;
-  height: 30px;
-  background-color: #f85050d9;
+.auth-primary-button {
+  min-height: 46px;
+  margin-top: 0.25rem;
+  padding: 0.7rem 1rem;
   color: white;
-  text-align: center;
-  border: 1px solid black;
-  margin: 10px 0 10px 0;
+  background: var(--color-accent);
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+  font-weight: 700;
 }
 
-.login-link {
-  text-decoration: none;
+.auth-primary-button:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.auth-primary-button:disabled {
+  opacity: 0.55;
+}
+
+.auth-primary-button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+.auth-switch {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.auth-switch a {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.auth-switch a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 520px) {
+  .auth-page {
+    display: block;
+    padding-top: 2rem;
+  }
+
+  .auth-card {
+    padding: 1.25rem;
+  }
+
+  .auth-field-row {
+    grid-template-columns: 1fr;
+  }
 }

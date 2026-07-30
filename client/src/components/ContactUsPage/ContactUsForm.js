@@ -12,59 +12,109 @@ export default function ContactUsForm() {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  const handleValidation = (e) => {
-    setErrors(Validation(formData));
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+
+    setErrors((current) => ({
+      ...current,
+      [name]: "",
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleValidation();
-    const res = await sendContactForm(formData);
-    if (res.error) toast(res.error);
-    else {
+    const validationErrors = Validation(formData);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const res = await sendContactForm(formData);
+      if (res.error) {
+        toast.error(res.error);
+        return;
+      }
+
       toast("Your message has been successfully sent.");
       setFormData({
         email: "",
         subject: "",
         message: "",
       });
+    } catch (e) {
+      toast.error("Your message could not be sent. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="contact-container">
       <form className="contact-form-container" onSubmit={handleSubmit}>
-        <h1>Contact Us</h1>
-        {errors.email && <p>{errors.email}</p>}
+       <div className="contact-field">
+        <label htmlFor="contact-email">Email address</label>
         <input
-          onChange={handleChange}
-          value={formData.email}
-          type="text"
+          id="contact-email"
           name="email"
-          placeholder="Enter an email address..."
-        />
-        {errors.subject && <p>{errors.subject}</p>}
-        <input
+          type="email"
+          value={formData.email}
+          placeholder="you@example.com"
           onChange={handleChange}
-          value={formData.subject}
+        />
+        {errors.email && (
+          <p id="contact-email-error" className="contact-error">
+            {errors.email}
+          </p>
+        )}
+      </div>
+      <div className="contact-field">
+        <label htmlFor="contact-subject">Subject</label>
+        <input
+          id="contact-subject"
           name="subject"
           type="text"
-          placeholder="Enter a Subject..."
-        />
-        {errors.message && <p>{errors.message}</p>}
-        <textarea
+          value={formData.subject}
+          placeholder="How can we help?"
           onChange={handleChange}
-          value={formData.message}
+        />
+        {errors.subject && (
+          <p id="contact-subject-error" className="contact-error">
+            {errors.subject}
+          </p>
+        )}
+      </div>
+      <div className="contact-field">
+        <label htmlFor="contact-message">Message</label>
+        <textarea
+          id="contact-message"
           name="message"
-          cols="40"
-          rows="20"
-          placeholder="Enter your message..."></textarea>
-        <button className="contact-button">Send your message</button>
+          rows="8"
+          value={formData.message}
+          placeholder="Enter your message"
+          onChange={handleChange}
+        />
+        {errors.message && (
+          <p id="contact-message-error" className="contact-error">
+            {errors.message}
+          </p>
+        )}
+      </div>
+      <button
+        type="submit"
+        className="contact-button"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Sending..." : "Send message"}
+      </button>
       </form>
-    </div>
   );
 }
