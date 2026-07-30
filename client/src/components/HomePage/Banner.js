@@ -1,11 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../CSS/HomePage/Banner.css";
 
-const Banner = ({ children, ...rest }) => {
+const Banner = ({ children, label = "View all", link }) => {
   return (
-    <div {...rest} className="banner-container">
+    <header className="banner-container">
       <h2>{children}</h2>
-    </div>
+      {link && (
+        <Link className="banner-link" to={link}>
+          {label}
+        </Link>
+      )}
+    </header>
   );
 };
 

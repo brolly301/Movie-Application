@@ -12,11 +12,11 @@ export default function HomePage() {
     <div>
       <MovieSearch />
       <MovieSceneCarousel />
-      <Banner>Now Showing</Banner>
+      <Banner link="/showtimes">Now Showing</Banner>
       <MovieCarousel movies={movies} link={"showtimes"} />
-      <Banner>Coming Soon</Banner>
+      <Banner link="/comingSoon">Coming Soon</Banner>
       <MovieCarousel movies={comingSoon} link={"comingSoon"} />
-      <Banner>Special Offers & Deals</Banner>
+      <Banner link="/specialOffers">Special Offers & Deals</Banner>
       <SpecialOffers />
     </div>
   );
