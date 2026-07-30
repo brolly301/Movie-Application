@@ -7,24 +7,35 @@ export default function LoginDetails() {
 
   const [showEdit, setShowEdit] = useState(false);
 
-  const handleEdit = () => {
-    setShowEdit(!showEdit);
-  };
-
-  let content = (
-    <div className="profile-details-container">
-      <h1>Login Details</h1>
-      <input readOnly type="text" defaultValue={userData.email} />
-      <input readOnly type="password" placeholder="***********" />
-      <button onClick={handleEdit} className="no-border">
-        Edit
-      </button>
-    </div>
-  );
-
-  if (showEdit) {
-    content = <EditLoginDetails onEdit={handleEdit} />;
+   if (showEdit) {
+    return <EditLoginDetails onEdit={() => setShowEdit(false)} />;
   }
 
-  return <div>{content}</div>;
+   return (
+    <div className="profile-details-container">
+      <header className="profile-section-header">
+        <div>
+          <h2>Login & security</h2>
+          <p>Manage the details used to access your account.</p>
+        </div>
+        <button
+          type="button"
+          className="profile-secondary-button"
+          onClick={() => setShowEdit(true)}
+        >
+          Edit login
+        </button>
+      </header>
+      <dl className="profile-details-list">
+        <div>
+          <dt>Email address</dt>
+          <dd>{userData.email || "Not provided"}</dd>
+        </div>
+        <div>
+          <dt>Password</dt>
+          <dd>••••••••••••</dd>
+        </div>
+      </dl>
+    </div>
+  );
 }

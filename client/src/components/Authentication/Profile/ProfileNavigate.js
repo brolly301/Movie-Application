@@ -5,31 +5,51 @@ import LoyaltyPoints from "./LoyaltyPoints";
 import "../../../CSS/Authentication/ProfileNav.css";
 import BookingDetailsList from "./BookingDetailsList";
 
-export default function ProfileNavigate() {
-  const [content, setContent] = useState(<LoginDetails />);
+const tabs = [
+  { id: "profile", label: "Profile" },
+  { id: "login", label: "Login & security" },
+  { id: "bookings", label: "Bookings" },
+  { id: "loyalty", label: "Loyalty" },
+];
 
-  const handleClick = (e) => {
-    setContent(<ProfileDetails />);
-  };
-  const handleClick1 = (e) => {
-    setContent(<LoginDetails />);
-  };
-  const handleClick2 = (e) => {
-    setContent(<BookingDetailsList />);
-  };
-  const handleClick3 = (e) => {
-    setContent(<LoyaltyPoints />);
+export default function ProfileNavigate() {
+  const [activeTab, setActiveTab] = useState("profile");
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "login":
+        return <LoginDetails />;
+      case "bookings":
+        return <BookingDetailsList />;
+      case "loyalty":
+        return <LoyaltyPoints />;
+      default:
+        return <ProfileDetails />;
+    }
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-nav-container">
-        <button onClick={handleClick}>Profile</button>
-        <button onClick={handleClick1}>Login</button>
-        <button onClick={handleClick2}>Bookings</button>
-        <button onClick={handleClick3}>Loyalty</button>
+    <main className="profile-container">
+      <header className="profile-header">
+        <h1>Your account</h1>
+        <p>Manage your details, bookings and Movie Dome rewards.</p>
+      </header>
+      <div className="profile-layout">
+        <nav className="profile-nav-container" aria-label="Account sections">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              className={activeTab === tab.id ? "profile-nav-active" : ""}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+
+        <section className="profile-content">{renderContent()}</section>
       </div>
-      <div className="profile-content">{content}</div>
-    </div>
+    </main>
   );
 }

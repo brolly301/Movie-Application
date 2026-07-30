@@ -4,8 +4,7 @@ import BookingDetailsShow from "./BookingDetailsShow";
 
 export default function BookingDetailsList({}) {
   const { bookingDetails } = useUserContext();
-
-  console.log(bookingDetails);
+  const bookings = Array.isArray(bookingDetails) ? bookingDetails : [];
 
   const renderedList = bookingDetails.map((booking) => {
     return <BookingDetailsShow booking={booking} />;
@@ -13,18 +12,27 @@ export default function BookingDetailsList({}) {
 
   return (
     <div className="booking-details-list">
-      <h1>Bookings</h1>
-      {bookingDetails.length > 0 ? (
-        renderedList
+      <header className="profile-section-header">
+        <div>
+          <h2>Your bookings</h2>
+          <p>View and manage your upcoming cinema visits.</p>
+        </div>
+      </header>
+
+      {bookings.length > 0 ? (
+        <div className="booking-details-grid">
+          {bookings.map((booking) => (
+            <BookingDetailsShow key={booking._id} booking={booking} />
+          ))}
+        </div>
       ) : (
-        <>
-          <div className="no-bookings-text">
-            You currently have no bookings.
-          </div>
-          <Link className="button-link" to={"/showtimes"}>
-            <button className="no-bookings-button">Book Now</button>
+        <div className="no-bookings">
+          <h3>No bookings yet</h3>
+          <p>Your upcoming cinema bookings will appear here.</p>
+          <Link className="no-bookings-button" to="/showtimes">
+            Browse showtimes
           </Link>
-        </>
+        </div>
       )}
     </div>
   );

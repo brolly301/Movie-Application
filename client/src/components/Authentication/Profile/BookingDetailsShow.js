@@ -1,68 +1,98 @@
 import { useState } from "react";
-import { deleteBooking } from "../../../APIs/profile";
-import "../../../CSS/Authentication/BookingDetails.css";
 import { toast } from "react-toastify";
+import { deleteBooking } from "../../../APIs/profile";
+import useUserContext from "../../../hooks/useUserContext";
+import "../../../CSS/Authentication/BookingDetails.css";
 
 export default function BookingDetailsShow({ booking }) {
-  const [active, setActive] = useState(false);
+  const { setBookingDetails } = useUserContext();
+  const [isCancelling, setIsCancelling] = useState(false);
 
-  const handleClick = () => {
-    deleteBooking(booking._id);
-    toast.success("Booking successfully cancelled.");
+  const movie = booking.movieID;
+
+  const formattedDate = new Intl.DateTimeFormat("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(booking.startDate));
+
+  const handleCancel = async () => {
+    const confirmed = window.confirm(
+      `Cancel your booking for ${movie?.title || "this film"}?`,
+    );
+
+    if (!confirmed) {
+      return;
+    }
+    setIsCancelling(true);
+
+    try {
+      const res = await deleteBooking(booking._id);
+
+      if (res.error) {
+        toast.error(res.error);
+        return;
+      }
+
+      setBookingDetails((current) =>
+        current.filter((item) => item._id !== booking._id),
+      );
+
+      toast.success("Booking cancelled and seats released.");
+    } catch (error) {
+      toast.error("Your booking could not be cancelled.");
+    } finally {
+      setIsCancelling(false);
+    }
   };
 
-  console.log(booking);
-
   return (
-    <div className="booking-details-container">
-      <img
-        className="booking-details-image"
-        src={booking.movieID.poster}
-        alt=""
-      />
-      <div className="booking-details-hidden">
-        <h3 className="booking-details-title-hidden">
-          {booking.movieID.title}
-          <img
-            className="booking-title-icon"
-            src={booking.movieID.rated}
-            alt=""
-          />
-        </h3>
+    <article className="booking-details-container">
+      {movie?.poster && (
         <img
-          className="booking-details-image-hidden"
-          src={booking.movieID.poster}
-          alt=""
+          className="booking-details-image"
+          src={movie.poster}
+          alt={`${movie.title} poster`}
         />
-
-        <div className="booking-details-times-container">
-          <h3 className="booking-details-title">
-            {booking.movieID.title}
+      )}
+      <div className="booking-details-content">
+        <header className="booking-details-header">
+          <div>
+            <h3>{movie?.title || "Film unavailable"}</h3>
+            <span>#{booking._id.slice(-8).toUpperCase()}</span>
+          </div>
+          {movie?.rated && (
             <img
               className="booking-title-icon"
-              src={booking.movieID.rated}
-              alt=""
+              src={movie.rated}
+              alt={`${movie.title} age rating`}
             />
-          </h3>
-          <div className="booking-details-date-time">
-            <div className="booking-details-date">
-              <h4>Date:</h4>
-              <h4>{booking.startDate.substring(0, 15)}</h4>
-            </div>
-            <div className="booking-details-time">
-              <h4>Time:</h4>
-              <h4>{booking.startTime}</h4>
-            </div>
-            <div className="booking-details-time">
-              <h4>Seats:</h4>
-              <h4>{booking.seatNumber?.map((seat) => `${seat} `)}</h4>
-            </div>
+          )}
+        </header>
+        <dl className="booking-details-meta">
+          <div>
+            <dt>Date</dt>
+            <dd>{formattedDate}</dd>
           </div>
-          <button onClick={handleClick} className="booking-cancel-button">
-            Cancel
-          </button>
-        </div>
+          <div>
+            <dt>Time</dt>
+            <dd>{booking.startTime}</dd>
+          </div>
+          <div>
+            <dt>Seats</dt>
+            <dd>{booking.seatNumber?.join(", ") || "None"}</dd>
+          </div>
+        </dl>
+        <button
+          type="button"
+          className="booking-cancel-button"
+          disabled={isCancelling}
+          onClick={handleCancel}
+        >
+          {isCancelling ? "Cancelling..." : "Cancel booking"}
+        </button>
       </div>
-    </div>
+    </article>
   );
 }

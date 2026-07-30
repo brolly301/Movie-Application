@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Booking = require("../models/booking");
+const Movie = require("../models/movie");
 const uuidv1 = require("uuidv1");
 const crypto = require("crypto");
 
@@ -52,14 +53,61 @@ exports.editLoginDetails = async (req, res) => {
 
 exports.getBookingDetails = async (req, res) => {
   const bookings = await Booking.find({ email: req.user.email }).populate(
-    "movieID"
+    "movieID",
   );
+
   res.send(bookings);
 };
 
 exports.deleteBooking = async (req, res) => {
-  const bookings = await Booking.findOneAndDelete({
-    _id: req.body.bookingID,
-  });
-  res.send(bookings);
+  try {
+    const booking = await Booking.findOne({
+      _id: req.body.bookingID,
+    });
+
+    if (!booking) {
+      return res.status(404).json({
+        error: "Booking not found.",
+      });
+    }
+
+    await Movie.updateOne(
+      {
+        _id: booking.movieID,
+      },
+      {
+        $set: {
+          "shows.$[show].seats.$[seat].reserved": false,
+        },
+      },
+      {
+        arrayFilters: [
+          {
+            "show.date": booking.startDate,
+            "show.startTime": booking.startTime,
+          },
+          {
+            "seat.seatNumber": {
+              $in: booking.seatNumber,
+            },
+          },
+        ],
+      },
+    );
+
+    await Booking.deleteOne({
+      _id: booking._id,
+    });
+
+    return res.status(200).json({
+      message: "Booking cancelled.",
+      bookingID: booking._id,
+    });
+  } catch (error) {
+    console.error("Booking cancellation failed:", error.message);
+
+    return res.status(500).json({
+      error: "Booking could not be cancelled.",
+    });
+  }
 };

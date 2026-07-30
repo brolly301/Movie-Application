@@ -43,6 +43,7 @@ export function UserContextProvider({ children }) {
     userData,
     setUserData,
     bookingDetails,
+     setBookingDetails,
   };
 
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>;

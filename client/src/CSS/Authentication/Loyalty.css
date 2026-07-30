@@ -1,35 +1,94 @@
 .profile-loyalty-container {
+  width: 100%;
+}
+
+.profile-loyalty-balance {
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+}
+
+.profile-loyalty-balance span {
+  margin-right: auto;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.profile-loyalty-balance strong {
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.profile-loyalty-balance small {
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+}
+
+.profile-loyalty-progress {
+  margin-top: 1.5rem;
+}
+
+.profile-loyalty-progress-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+}
+
+.profile-loyalty-progress-track {
+  overflow: hidden;
+  height: 8px;
+  background: var(--color-surface-raised);
+  border-radius: 999px;
+}
+
+.profile-loyalty-progress-track span {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: inherit;
+  transition: width 300ms ease;
+}
+
+.profile-loyalty-message {
+  margin: 1rem 0;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.profile-loyalty-ready {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.profile-loyalty-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.6rem 0.9rem;
   color: white;
+  background: var(--color-accent);
+  border-radius: var(--radius-small);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-.profile-loyalty-container > h4 {
-  font-size: 1.2rem;
+.profile-loyalty-button:hover {
+  background: var(--color-accent-hover);
 }
 
-.profile-loyalty-container > button.no-border {
-  all: unset;
-  height: 30px;
-  color: white;
-  text-align: center;
-  border: 1px solid white;
-  margin: 10px 0 10px 0;
-  width: 300px;
-}
-
-.profile-loyalty-container > button.border {
-  all: unset;
-  height: 30px;
-  background-color: #f85050d9;
-  color: white;
-  text-align: center;
-  border: 1px solid black;
-  margin: 0 0 10px 0;
-}
-
-.profile-loyalty-points {
-  font-size: 40px;
-  margin: 0;
+.profile-loyalty-button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
 }
