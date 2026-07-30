@@ -1,59 +1,92 @@
 import React from "react";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./MovieSceneCarousel.css";
+import neonDivide from "../../images/movies/neon-divide.png";
+import afterlight from "../../images/movies/afterlight.png";
+import lastTransmission from "../../images/movies/lastTransmission.png";
 
 export default function MovieSceneCarousel() {
-  const images = [
+  const slides = [
     {
-      title: "inception",
-      image:
-        "https://r4.wallpaperflare.com/wallpaper/267/487/613/inception-movies-wallpaper-d980c82d71aa5dfb86e7f8fff071265d.jpg",
+      eyebrow: "Featured this week",
+      title: "Neon Divide",
+      description:
+        "A detective follows a signal broadcasting from a city that officially disappeared twenty years ago.",
+      certificate: "15",
+      runtime: "1h 52m",
+      genre: "Science Fiction",
+      image: neonDivide,
     },
     {
-      title: "pulpFiction",
-      image:
-        "https://r4.wallpaperflare.com/wallpaper/207/333/124/movie-pulp-fiction-wallpaper-7930886de16a0d0bd667388fd001d64d.jpg",
+      eyebrow: "Now showing",
+      title: "Afterlight",
+      description:
+        "Two strangers cross an empty country searching for the final place where the sun still rises.",
+      certificate: "12A",
+      runtime: "2h 6m",
+      genre: "Drama",
+      image: afterlight,
     },
     {
-      title: "fightClub",
-      image:
-        "https://r4.wallpaperflare.com/wallpaper/642/893/115/american-bale-bateman-christian-wallpaper-c980085df10a0dcbc6b7f84fa051863d.jpg",
-    },
-    {
-      title: "interstellar",
-      image:
-        "https://r4.wallpaperflare.com/wallpaper/755/16/993/biography-comedy-drama-wallstreet-wallpaper-fa3dda2bf88cc723c6822f063735f196.jpg",
-    },
-    {
-      title: "theDarkKnight",
-      image:
-        "https://r4.wallpaperflare.com/wallpaper/838/223/687/movies-the-dark-knight-joker-heath-ledger-wallpaper-624192a06df61e2b7a58c275f0d8a9e2.jpg",
+      eyebrow: "New release",
+      title: "Last Transmission",
+      description:
+        "A deep-space crew receives a distress call carrying their own voices from seven years in the future.",
+      certificate: "15",
+      runtime: "1h 44m",
+      genre: "Thriller",
+      image: lastTransmission,
     },
   ];
 
-  const setting = {
-    infinite: "true",
-    speed: 500,
+  const settings = {
+    infinite: true,
+    fade: true,
+    speed: 700,
     arrows: false,
+    dots: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 6500,
+    pauseOnHover: true,
   };
 
-  const renderedList = images.map((image) => {
-    return (
-      <div>
-        <img className="movie-scene-carousel-image" src={image.image} />
+  const renderedList = slides.map((slide) => (
+    <article className="hero-slide" key={slide.title}>
+      <img
+        className="hero-image"
+        src={slide.image}
+        alt={`${slide.title} featured artwork`}
+      />
+
+      <div className="hero-overlay" />
+
+      <div className="hero-content">
+        <p className="hero-eyebrow">{slide.eyebrow}</p>
+        <h2 className="hero-title">{slide.title}</h2>
+
+        <ul className="hero-metadata" aria-label="Movie information">
+          <li>{slide.certificate}</li>
+          <li>{slide.runtime}</li>
+          <li>{slide.genre}</li>
+        </ul>
+
+        <p className="hero-description">{slide.description}</p>
+
+        <Link className="hero-action" to="/showtimes">
+          Browse showtimes
+        </Link>
       </div>
-    );
-  });
+    </article>
+  ));
 
   return (
-    <div className="movie-scene-carousel-container">
-      <Slider {...setting}>{renderedList}</Slider>
+    <div className="hero-carousel">
+      <Slider {...settings}>{renderedList}</Slider>
     </div>
   );
 }
