@@ -8,74 +8,83 @@ import { sendNewsletter } from "../APIs/contact";
 export default function Footer() {
   const { userData } = useUserContext();
   const [email, setEmail] = useState("");
-
-  const handleChange = (e) => {
-    setEmail(e.target.value);
-    console.log(email);
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await sendNewsletter(email);
-    if (res.error) toast(res.error);
-    else {
-      toast.success("You have successfully been added to our newsletter.");
+    setIsSubmitting(true);
+
+    try {
+      const res = await sendNewsletter(email);
+
+      if (res.error) {
+        toast.error(res.error);
+        return;
+      }
+
+      toast.success("You have been successfully added to the newsletter.");
+      setEmail("");
+    } catch {
+      toast.error("Newsletter signup failed. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
+  const accountLink = userData.user ? "/account" : "/login";
+
   return (
-    <div className="footer-main">
-      <hr></hr>
+    <footer className="footer-main">
       <div className="footer-container">
-        <div>
-          <h3>Socials</h3>
-          <h4>Twitter</h4>
-          <h4>Instagram</h4>
-          <h4>Facebook</h4>
+        <div className="footer-brand">
+          <Link className="footer-title" to="/">
+            Movie Dome
+          </Link>
+          <p>A fictional cinema booking experience.</p>
         </div>
-        <div>
-          <h3>Account</h3>
-          <Link
-            className="footer-link"
-            to={userData.user ? "/account" : "/login"}>
-            <h4>Profile</h4>
-          </Link>
-          <Link
-            className="footer-link"
-            to={userData.user ? "/account" : "/login"}>
-            <h4>Bookings</h4>
-          </Link>
-          <Link
-            className="footer-link"
-            to={userData.user ? "/account" : "/login"}>
-            <h4>Loyalty</h4>
-          </Link>
-        </div>
-        <div>
-          <h3>Explore</h3>
-          <Link className="footer-link" to={"/showtimes"}>
-            <h4>Book Movie</h4>
-          </Link>
-          <Link className="footer-link" to={"/specialOffers"}>
-            <h4>Browse Offers</h4>
-          </Link>
-          <Link className="footer-link" to={"/contactUs"}>
-            <h4>Contact Us</h4>
-          </Link>
-        </div>
+        <nav className="footer-navigation" aria-label="Footer navigation">
+          <div className="footer-column">
+            <h3>Explore</h3>
+            <Link to="/showtimes">What’s on</Link>
+            <Link to="/comingSoon">Coming soon</Link>
+            <Link to="/prices">Prices</Link>
+            <Link to="/specialOffers">Offers</Link>
+          </div>
+          <div className="footer-column">
+            <h3>Account</h3>
+            <Link to={accountLink}>Profile</Link>
+            <Link to={accountLink}>Bookings</Link>
+            <Link to="/loyalty">Loyalty</Link>
+            <Link to="/contactUs">Contact</Link>
+          </div>
+        </nav>
         <div className="footer-subscribe">
-          <h3>Find Out Latest Deals</h3>
-          <form on onSubmit={handleSubmit}>
-            <input
-              onChange={handleChange}
-              className="footer-input"
-              type="text"
-              placeholder="Enter email address..."
-            />
-            <button className="">Subscribe</button>
+          <h3>Newsletter</h3>
+          <p>Occasional updates about new films and offers.</p>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="newsletter-email">Email address</label>
+            <div className="footer-form-row">
+              <input
+                id="newsletter-email"
+                className="footer-input"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                autoComplete="email"
+                required
+              />
+              <button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Joining…" : "Join"}
+              </button>
+            </div>
           </form>
         </div>
       </div>
-    </div>
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} Movie Dome</p>
+        <p>Portfolio project</p>
+      </div>
+    </footer>
   );
 }

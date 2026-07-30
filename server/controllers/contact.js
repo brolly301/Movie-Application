@@ -35,10 +35,6 @@ exports.sendContactForm = (req, res) => {
 exports.sendNewsletter = (req, res) => {
   const { email } = req.body;
 
-  res.status(200).json({
-    message: "Success",
-  });
-
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -54,14 +50,19 @@ exports.sendNewsletter = (req, res) => {
     html: "Thank you for signing up to our newsletter.",
   };
 
-  transporter.sendMail(options, function (err, info) {
-    if (err) {
-      console.log(err);
-    }
-    res.send.JSON({
-      message: "Message successfully sent.",
+   try {
+    await transporter.sendMail(options);
+
+    return res.status(200).json({
+      message: "Newsletter signup successful.",
     });
-  });
+  } catch (error) {
+    console.error("Newsletter email failed:", error.message);
+
+    return res.status(500).json({
+      error: "Newsletter signup failed.",
+    });
+  }
 };
 
 exports.sendNotification = (req, res) => {
