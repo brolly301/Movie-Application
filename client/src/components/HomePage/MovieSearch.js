@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import useMovieContext from "../../hooks/useMovieContext";
 import MovieDropdown from "../Misc/MovieDropdown";
 import DateDropdown from "../Misc/DateDropdown";
 import TimeDropdown from "../Misc/TimeDropdown ";
 import "../../CSS/HomePage/MovieSearch.css";
+import { useNavigate } from "react-router-dom";
 
 export default function MovieSearch() {
   const { movies } = useMovieContext();
@@ -24,21 +24,50 @@ export default function MovieSearch() {
     startTime: [],
   });
 
-  console.log(formData);
+  const navigate = useNavigate();
+
+  const isBookingReady = Boolean(
+    formData.movie && formData.date && formData.startTime && formData.seats,
+  );
+
+  const handleBook = () => {
+    if (!isBookingReady) return;
+
+    navigate(`/showtimes/${formData.movie._id}/seating`, {
+      state: {
+        movie: formData.movie,
+        show: formData,
+        seats: formData.seats,
+      },
+    });
+  };
 
   const handleSelectedMovie = (option) => {
-    setFormData({ ...formData, movie: option });
-  };
-  const handleSelectedDate = (option) => {
-    setFormData({ ...formData, date: option });
-  };
-  const handleSelectedTime = (option) => {
     setFormData({
-      ...formData,
+      movie: option,
+      date: null,
+      startTime: null,
+      seats: null,
+    });
+
+    setDate(undefined);
+  };
+
+  const handleSelectedDate = (option) => {
+    setFormData((current) => ({
+      ...current,
+      date: option,
+      startTime: null,
+      seats: null,
+    }));
+  };
+
+  const handleSelectedTime = (option) => {
+    setFormData((current) => ({
+      ...current,
       startTime: option.startTime,
       seats: option.seats,
-    });
-    console.log(formData);
+    }));
   };
 
   const handleDate = (date) => {
@@ -85,23 +114,14 @@ export default function MovieSearch() {
         handleSelectedTime={handleSelectedTime}
         active={active}
       />
-      <Link
-        className="movie-book-link"
-        to={`showtimes/${formData.movie?._id}/seating`}
-        state={{
-          movie: formData.movie,
-          show: formData,
-          seats: formData.seats,
-        }}
+      <button
+        type="button"
+        onClick={handleBook}
+        disabled={!isBookingReady}
+        className={active ? "movie-search-book-button" : "movie-display-hidden"}
       >
-        <button
-          className={
-            active ? "movie-search-book-button" : "movie-display-hidden"
-          }
-        >
-          Book
-        </button>
-      </Link>
+        Book
+      </button>
     </div>
   );
 }

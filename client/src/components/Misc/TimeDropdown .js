@@ -13,7 +13,8 @@ export default function TimeDropdown({
 
   useEffect(() => {
     setSelected("");
-  }, [movie]);
+      setIsOpen(false);
+  }, [movie, date]);
 
   const handleClick = (e) => {
     setIsOpen(!isOpen);
@@ -25,21 +26,13 @@ export default function TimeDropdown({
     handleSelectedTime(option);
   };
 
-  const newList = [
-    ...new Set(
-      options?.map((show) => {
-        if (show.date.substring(4, 10) === date) {
-          return show;
-        }
-      })
-    ),
-  ];
+ const matchingShows = options.filter((show) => show.date === date);
 
-  const renderedOptions = newList?.map((option) => {
+  const renderedOptions = matchingShows.map((option) => {
     return (
       <div
         className="movie-search-dropdowns"
-        key={Math.floor(Math.random() * 10000)}
+        key={option._id}
         onClick={() => handleSelected(option)}
       >
         {option?.startTime}
@@ -49,12 +42,12 @@ export default function TimeDropdown({
 
   return (
     <div className="movie-input-container">
-      <button
-        onClick={handleClick}
-        type="text"
-        readOnly
-        className={active ? "movie-search-input" : "movie-display-hidden"}
-      >
+     <button
+  type="button"
+  disabled={!date}
+  onClick={handleClick}
+  className={active ? "movie-search-input" : "movie-display-hidden"}
+>
         <span className="movie-dropdown-icon-container">
           {selected || "Choose Time..."}
           {isOpen ? (

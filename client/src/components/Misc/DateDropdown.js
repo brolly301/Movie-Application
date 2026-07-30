@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
+const formatDate = (value) =>
+  new Intl.DateTimeFormat("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+  }).format(new Date(value));
+
 export default function DateDropdown({
   options,
   handleDate,
@@ -13,6 +20,7 @@ export default function DateDropdown({
 
   useEffect(() => {
     setSelected("");
+      setIsOpen(false);
   }, [movie]);
 
   const handleClick = (e) => {
@@ -20,24 +28,22 @@ export default function DateDropdown({
   };
 
   const handleSelected = (option) => {
-    setSelected(option);
+      setSelected(formatDate(option));
     setIsOpen(!isOpen);
     handleDate(option);
     handleSelectedDate(option);
   };
 
-  const newList = [
-    ...new Set(options.map((option) => option.date.substring(4, 10))),
-  ];
+  const newList = [...new Set(options.map((option) => option.date))];
 
   const renderedOptions = newList?.map((option) => {
     return (
       <div
         className="movie-search-dropdowns"
-        key={Math.floor(Math.random() * 10000)}
+        key={option}
         onClick={() => handleSelected(option)}
       >
-        {option}
+      {formatDate(option)}
       </div>
     );
   });
@@ -46,8 +52,8 @@ export default function DateDropdown({
     <div className="movie-input-container">
       <button
         onClick={handleClick}
-        type="text"
-        readOnly
+        type="button"
+         disabled={!movie}
         className={active ? "movie-search-input" : "movie-display-hidden"}
       >
         <span className="movie-dropdown-icon-container">
