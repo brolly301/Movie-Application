@@ -1,67 +1,42 @@
-import "../../CSS/Prices/Prices.css";
+const foodPrices = [
+  { item: "Regular popcorn", category: "Snacks", price: 4.99 },
+  { item: "Large popcorn", category: "Snacks", price: 5.99 },
+  { item: "Regular soft drink", category: "Drinks", price: 2.99 },
+  { item: "Large soft drink", category: "Drinks", price: 3.99 },
+  { item: "M&Ms", category: "Chocolate", price: 2.99 },
+  { item: "Dairy Milk", category: "Chocolate", price: 2.99 },
+  { item: "Maltesers", category: "Chocolate", price: 2.99 },
+  { item: "Pick & Mix Small", category: "Sweets", price: 1.49 },
+  { item: "Pick & Mix Medium", category: "Sweets", price: 2.69 },
+  { item: "Pick & Mix Large", category: "Sweets", price: 3.99 },
+];
+
+const formatPrice = (price) =>
+  new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+  }).format(price);
 
 export default function FoodPriceTable() {
   return (
     <div className="prices-table-container">
       <table>
-        <tr>
-          <th>Item</th>
-          <th>Category</th>
-          <th>Price</th>
-        </tr>
-
-        <tr>
-          <td>Regular Popcorn</td>
-          <td>Snacks</td>
-          <td>£4.99</td>
-        </tr>
-        <tr>
-          <td>Large Popcorn</td>
-          <td>Snacks</td>
-          <td>£5.99</td>
-        </tr>
-
-        <tr>
-          <td>Regular Soft Drink</td>
-          <td>Drinks</td>
-          <td>£2.99</td>
-        </tr>
-        <tr>
-          <td>Large Soft Drink</td>
-          <td>Drinks</td>
-          <td>£3.99</td>
-        </tr>
-        <tr>
-          <td>M&Ms</td>
-          <td>Chocolate</td>
-          <td>£2.99</td>
-        </tr>
-        <tr>
-          <td>Dairy Milk</td>
-          <td>Chocolate</td>
-          <td>£2.99</td>
-        </tr>
-        <tr>
-          <td>Malteasers</td>
-          <td>Chocolate</td>
-          <td>£2.99</td>
-        </tr>
-
-        <tr>
-          <td>Pix n Mix Small</td>
-          <td>Sweets</td>
-          <td>£1.49</td>
-        </tr>
-        <tr>
-          <td>Pix n Mix Medium</td>
-          <td>Sweets</td>
-          <td>£2.69</td>
-        </tr>
-        <tr>
-          <td>Pix n Mix Large</td>
-          <td>Sweets</td>
-          <td>£3.99</td>
-        </tr>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {foodPrices.map((item) => (
+            <tr key={item.item}>
+              <td>{item.item}</td>
+              <td>{item.category}</td>
+              <td>{formatPrice(item.price)}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );

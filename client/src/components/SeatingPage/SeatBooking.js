@@ -57,7 +57,7 @@ export default function SeatBooking({ movie, show, seats, tickets, extras }) {
       if (userData.user) {
         const updatedUserData = {
           ...userData,
-          loyaltyPoints: userData.loyaltyPoints + 20,
+          loyaltyPoints: Number(userData.loyaltyPoints) + 20,
         };
 
         setUserData(updatedUserData);
@@ -143,9 +143,9 @@ export default function SeatBooking({ movie, show, seats, tickets, extras }) {
       >
         {isTicketPage ? "Confirm booking" : "Continue"}
       </button>
-      {userData.loyaltyPoints >= 100 && (
+      {!isTicketPage && Number(userData.loyaltyPoints) >= 100 && (
         <button className="seat-freeBooking-button" onClick={handleFreeBooking}>
-          Free Booking (Loyalty)
+          Use free loyalty ticket
         </button>
       )}
     </div>

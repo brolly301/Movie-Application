@@ -1,28 +1,71 @@
 .loyalty-icon-container {
-  height: 300px;
-  width: 200px;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
-  letter-spacing: 2px;
-  background-color: #d9d9d9;
-  margin: 0 10px 0 10px;
-  padding: 0 10px 0 10px;
+  position: relative;
+  min-width: 0;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-small);
 }
 
-.loyalty-icon-container > img {
-  height: 100px;
-  width: 100px;
+.loyalty-icon-container h2,
+.loyalty-icon-container strong,
+.loyalty-icon-container p {
+  position: relative;
+  z-index: 1;
+  max-width: calc(100% - 9rem);
 }
 
-.loyalty-icon-container > hr:nth-of-type(1) {
-  width: 120px;
-  margin-bottom: 20px;
+.loyalty-icon-container h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.25rem;
 }
 
-.loyalty-icon-container > hr:nth-of-type(2) {
-  width: 120px;
-  margin-top: 20px;
+.loyalty-icon-container strong {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+
+.loyalty-icon-container p {
+  margin: 1rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.loyalty-icon-top {
+  margin-bottom: 2.25rem;
+}
+
+.loyalty-icon-graphic {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  color: var(--color-accent);
+  font-size: clamp(5rem, 8vw, 7.5rem);
+  line-height: 1;
+  opacity: 0.12;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.loyalty-icon-graphic svg {
+  display: block;
+}
+
+.loyalty-icon-number {
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  opacity: 0.45;
+}
+
+@media (max-width: 760px) {
+  .loyalty-icon-graphic {
+    right: 1.5rem;
+    font-size: 6rem;
+  }
 }
