@@ -14,7 +14,7 @@ export default function MoviePage() {
   return (
     <div>
       <MovieSearch />
-      <MovieDetails movie={movie} link="now-showing" />
+      <MovieDetails movie={movie} link="showtimes" />
       <br />
       <br />
       <Banner>Now Showing</Banner>

@@ -13,7 +13,7 @@ export default function ComingSoonShowPage() {
   return (
     <div>
       <MovieSearch />
-      <MovieDetails movie={movie} link="coming-soon" />
+      <MovieDetails movie={movie} link="comingSoon" />
       <br />
       <br />
       <Banner>Coming Soon</Banner>

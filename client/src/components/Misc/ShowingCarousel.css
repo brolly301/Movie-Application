@@ -1,55 +1,91 @@
 .showing-carousel-container {
-  width: 1200px;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  width: min(calc(100% - 2rem), 1120px);
+  margin: 0 auto 4rem;
 }
 
-.showing-carousel-image {
-  height: 250px;
-  margin: 0 auto;
+.showing-carousel-container .slick-list {
+  margin: 0 -0.5rem;
 }
 
-@media (max-width: 1260px) {
-  .showing-carousel-container {
-    width: 1000px;
+.showing-carousel-container .slick-slide > div {
+  padding: 0 0.5rem;
+}
+
+.movie-card {
+  display: block;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.movie-card-image-container {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+}
+
+.movie-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 220ms ease,
+    opacity 220ms ease;
+}
+
+.movie-card-details {
+  padding: 0.875rem 0.25rem 0;
+}
+
+.movie-card-details h3 {
+  margin: 0;
+  overflow: hidden;
+  color: var(--color-text);
+  font-size: 0.925rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movie-card-details p {
+  margin: 0.3rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.movie-card:hover .movie-card-image {
+  opacity: 0.82;
+  transform: scale(1.025);
+}
+
+.movie-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-medium);
+}
+
+.showing-carousel-container .slick-prev,
+.showing-carousel-container .slick-next {
+  z-index: 5;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.showing-carousel-container .slick-prev {
+  left: -2.75rem;
+}
+
+.showing-carousel-container .slick-next {
+  right: -2.75rem;
+}
+
+@media (max-width: 1200px) {
+  .showing-carousel-container .slick-prev {
+    left: 0.5rem;
   }
-}
 
-@media (max-width: 1060px) {
-  .showing-carousel-container {
-    width: 850px;
-  }
-}
-
-@media (max-width: 910px) {
-  .showing-carousel-container {
-    width: 750px;
-  }
-}
-
-@media (max-width: 790px) {
-  .showing-carousel-container {
-    width: 560px;
-  }
-}
-
-@media (max-width: 660px) {
-  .showing-carousel-container {
-    width: 470px;
-  }
-}
-
-@media (max-width: 550px) {
-  .showing-carousel-container {
-    width: 370px;
-  }
-}
-
-@media (max-width: 450px) {
-  .showing-carousel-container {
-    width: 300px;
-    margin-bottom: 20px;
+  .showing-carousel-container .slick-next {
+    right: 0.5rem;
   }
 }

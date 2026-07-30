@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ShowingCarousel.css";
 
-export default function MovieCarousel({ movies, link }) {
+export default function MovieCarousel({ movies = [], link }) {
   const setting = {
     dots: true,
     infinite: "true",
@@ -17,68 +17,29 @@ export default function MovieCarousel({ movies, link }) {
     autoplaySpeed: 4000,
     responsive: [
       {
-        breakpoint: 1260,
+        breakpoint: 1100,
         settings: {
-          dots: true,
-          infinite: "true",
-          speed: 500,
           slidesToShow: 5,
-          slidesToScroll: 1,
-          arrows: true,
-          autoplay: true,
-          autoplaySpeed: 4000,
         },
       },
       {
-        breakpoint: 1060,
+        breakpoint: 900,
         settings: {
-          dots: true,
-          infinite: "true",
-          speed: 500,
           slidesToShow: 4,
-          slidesToScroll: 1,
-          arrows: true,
-          autoplay: true,
-          autoplaySpeed: 4000,
         },
       },
       {
-        breakpoint: 910,
+        breakpoint: 700,
         settings: {
-          dots: true,
-          infinite: "true",
-          speed: 500,
           slidesToShow: 3,
-          slidesToScroll: 1,
-          arrows: true,
-          autoplay: true,
-          autoplaySpeed: 4000,
+          arrows: false,
         },
       },
       {
-        breakpoint: 660,
+        breakpoint: 520,
         settings: {
-          dots: true,
-          infinite: "true",
-          speed: 500,
           slidesToShow: 2,
-          slidesToScroll: 1,
-          arrows: true,
-          autoplay: true,
-          autoplaySpeed: 4000,
-        },
-      },
-      {
-        breakpoint: 450,
-        settings: {
-          dots: false,
-          infinite: "true",
-          speed: 500,
-          slidesToShow: 1.5,
-          slidesToScroll: 1,
-          arrows: true,
-          autoplay: true,
-          autoplaySpeed: 4000,
+          arrows: false,
         },
       },
     ],
@@ -86,11 +47,30 @@ export default function MovieCarousel({ movies, link }) {
 
   const renderedList = movies.map((movie) => {
     return (
-      <div>
-        <Link state={{ movie: movie }} to={`/${link}/${movie?._id}`}>
-          <img className="showing-carousel-image" src={movie?.poster} />
-        </Link>
-      </div>
+      <div className="movie-card-slide" key={movie._id}>
+      <Link
+        className="movie-card"
+        to={`/${link}/${movie._id}`}
+        state={{ movie }}
+      >
+        <div className="movie-card-image-container">
+          <img
+            className="movie-card-image"
+            src={movie.poster}
+            alt={`${movie.title} poster`}
+            loading="lazy"
+          />
+        </div>
+
+        <div className="movie-card-details">
+          <h3>{movie.title}</h3>
+          <p>
+            {movie.year}
+            {movie.genre && ` · ${movie.genre.split(",")[0]}`}
+          </p>
+        </div>
+      </Link>
+    </div>
     );
   });
 
