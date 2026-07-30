@@ -1,35 +1,81 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-body {
-  font-family: "Bebas Neue";
-  margin: 0;
-  background-color: #333;
-  min-height: 100vh;
+:root {
+  --color-background: #0c0d10;
+  --color-surface: #14161b;
+  --color-surface-raised: #1b1e25;
+
+  --color-text: #f5f3ee;
+  --color-text-muted: #a6a8af;
+
+  --color-accent: #ef4b50;
+  --color-accent-hover: #ff6065;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+
+  --font-body: "Segoe UI", Arial, sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
+
+  --content-width: 1280px;
+
+  --radius-small: 8px;
+  --radius-medium: 14px;
+  --radius-large: 20px;
+
+  --shadow-small: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-large: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
-/* Setting footers parent element so it can be pushed to the bottom */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-top: 0;
+}
+
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-button {
-  font-family: "Bebas Neue";
-}
-
-h1 {
-  font-weight: normal;
-}
-h2 {
-  font-weight: normal;
-}
-h3 {
-  font-weight: normal;
-}
-h4 {
-  font-weight: normal;
-}
-h5 {
-  font-weight: normal;
 }
