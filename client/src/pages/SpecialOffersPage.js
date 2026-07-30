@@ -3,12 +3,16 @@ import "../CSS/SpecialOffers/SpecialOffers.css";
 
 export default function SpecialOffersPage() {
   return (
-    <div className="special-offers-page-container">
-      <h1>Special Offers</h1>
-      <h2 className="special-offers-heading">
-        Explore Our Current special offers and deals
-      </h2>
+   <main className="special-offers-page-container">
+      <header className="special-offers-page-header">
+        <h1>Special offers</h1>
+        <p>Make more of your next visit with our latest cinema deals.</p>
+      </header>
       <SpecialOffersList />
-    </div>
+      <p className="special-offers-note">
+        Offers are subject to availability and cannot be used with another
+        promotion.
+      </p>
+    </main>
   );
 }

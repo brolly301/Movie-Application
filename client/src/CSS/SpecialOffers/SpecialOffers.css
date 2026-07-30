@@ -1,34 +1,92 @@
-.special-offers-container {
-  width: 400px;
-  height: 100%;
-
-  border: 1px solid black;
-  text-align: center;
-  padding-bottom: 20px;
-  margin-right: 30px;
-  margin-bottom: 20px;
-  margin-left: 30px;
-  background-color: #d9d9d9;
-}
-
-.special-offers-image-container {
-  width: 300px;
-  margin: 0 auto;
-}
-
-.special-offers-image-container > img {
+.special-offers-page-container {
   width: 100%;
-  height: 300px;
+  padding: 3.5rem 0 5rem;
 }
 
-.special-offers-container > p {
-  padding-left: 50px;
-  padding-right: 45px;
-  text-align: left;
-}
-
-.special-offers-page-container > h1,
-h2.special-offers-heading {
+.special-offers-page-header {
+  width: min(calc(100% - 2rem), 1120px);
+  margin: 0 auto 2.5rem;
   text-align: center;
-  color: white;
+}
+
+.special-offers-page-header h1 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.special-offers-page-header p {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.special-offers-container {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-small);
+}
+
+.special-offers-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.special-offers-content {
+  padding: 1.25rem;
+}
+
+.special-offers-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.special-offers-title h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+.special-offers-title strong {
+  flex: 0 0 auto;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+}
+
+.special-offers-content p {
+  margin: 0.75rem 0 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+.special-offers-content > span {
+  display: block;
+  padding-top: 0.75rem;
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.special-offers-note {
+  width: min(calc(100% - 2rem), 1120px);
+  margin: 1rem auto 0;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .special-offers-page-container {
+    padding-top: 2.5rem;
+  }
 }

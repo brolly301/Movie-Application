@@ -1,16 +1,24 @@
 import React from "react";
 import "../../CSS/SpecialOffers/SpecialOffers.css";
 
-const SpecialOffer = ({ children, details, image }) => {
+export default function SpecialOffer({ offer }) {
+  const { title, image, price, details, availability } = offer;
   return (
     <div className="special-offers-container">
-      <h2>{children}</h2>
-      <div className="special-offers-image-container">
-        <img src={image} />
+      <img
+        className="special-offers-image"
+        src={image}
+        alt={`${title} cinema offer`}
+        loading="lazy"
+      />
+      <div className="special-offers-content">
+        <div className="special-offers-title">
+          <h2>{title}</h2>
+          <strong>{price}</strong>
+        </div>
+        <p>{details}</p>
+        <span>{availability}</span>
       </div>
-      <p>{details}</p>
     </div>
   );
-};
-
-export default SpecialOffer;
+}
