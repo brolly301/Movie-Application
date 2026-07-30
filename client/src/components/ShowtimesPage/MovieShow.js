@@ -7,14 +7,11 @@ import MovieShowShowtimes from "./MovieShowShowtimes";
 export default function MovieShow({ movie, link }) {
   const { date } = useMovieContext();
 
-  const renderedList = movie.shows?.map((show) => {
-    if (show.date.substring(4, 10) === date) {
-      return <MovieTimes key={show._id} show={show} movie={movie} />;
-    }
-  });
+  const showsForDate = movie.shows.filter((show) => show.date === date);
 
-  const actors = "movie.actors";
-  const genre = "movie.genre";
+  const renderedList = showsForDate.map((show) => (
+    <MovieTimes key={show._id} show={show} movie={movie} />
+  ));
 
   const splitActors = () =>
     movie.actors.split(",").map((value) => {
@@ -60,8 +57,12 @@ export default function MovieShow({ movie, link }) {
             </div>
           </div>
 
-          <Link state={{ movie: movie }} to={`/${link}/${movie._id}`}>
-            <button className="movie-show-button">More Details</button>
+          <Link
+            className="movie-show-button"
+            state={{ movie }}
+            to={`/${link}/${movie._id}`}
+          >
+            More details
           </Link>
         </div>
       </div>

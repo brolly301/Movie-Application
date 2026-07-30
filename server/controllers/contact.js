@@ -32,7 +32,7 @@ exports.sendContactForm = (req, res) => {
   });
 };
 
-exports.sendNewsletter = (req, res) => {
+exports.sendNewsletter = async (req, res) => {
   const { email } = req.body;
 
   const transporter = nodemailer.createTransport({
@@ -50,7 +50,7 @@ exports.sendNewsletter = (req, res) => {
     html: "Thank you for signing up to our newsletter.",
   };
 
-   try {
+  try {
     await transporter.sendMail(options);
 
     return res.status(200).json({
