@@ -7,66 +7,85 @@ import { toast } from "react-toastify";
 
 const ComingSoonShow = ({ movie, link }) => {
   const { userData } = useUserContext();
+  
+  const formattedReleaseDate = new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(movie.released));
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-
+    const handleNotification = async () => {
     if (!userData.email) {
-      toast("Please login to get notifications about upcoming movies.");
-    } else {
-      const res = await sendNotification(userData.email, movie);
-      if (res.error) toast(res.error);
-      else {
-        toast("You will be notified near this movies release!");
+      toast.info("Log in to receive release notifications.");
+      return;
+    }
+
+    try {
+      const response = await sendNotification(userData.email, movie);
+
+      if (response.error) {
+        toast.error(response.error);
+        return;
       }
+
+      toast.success(`We’ll notify you when ${movie.title} is releasing.`);
+    } catch (error) {
+      toast.error("The notification could not be created. Please try again.");
     }
   };
 
   return (
     <div className="comingSoon-container">
-      <div className="comingSoon-poster_title">
-        <h1 className="movie-title-hidden">{movie.title}</h1>
-        <img className="comingSoon-poster" src={movie.poster} alt="" />
-        <Link state={{ movie: movie }} to={`/${link}/${movie._id}`}>
-          <button className="comingSoon-show-button">More Details</button>
-        </Link>
-      </div>
+        <img
+        className="comingSoon-poster"
+        src={movie.poster}
+        alt={`${movie.title} poster`}
+      />
+
       <div className="comingSoon-details">
-        <h1 className="movie-title">
-          {movie.title} <img src={movie.rated} className="movie-rating-icon" />
-        </h1>
-        <div className="comingSoon-details-row">
-          <div className="comingSoon-details-column-1">
-            <label>Genre:</label>
-            <h3>{movie.genre}</h3>
-            <label>Running Time:</label>
-            <h3>{movie.runtime}</h3>
-            <label className="comingSoon-hidden">Released Date:</label>
-            <h3 className="comingSoon-hidden">13th February 2009</h3>
-            <button
-              onClick={handleClick}
-              className="comingSoon-show-notified-button"
-            >
-              Get notified
-            </button>
+        <header className="comingSoon-card-header">
+          <h2>{movie.title}</h2>
+          <img
+            className="movie-rating-icon"
+            src={movie.rated}
+            alt={`${movie.title} age rating`}
+          />
+        </header>
+        <dl className="comingSoon-meta">
+          <div>
+            <dt>Release date</dt>
+            <dd>{formattedReleaseDate}</dd>
           </div>
-          <div className="comingSoon-details-column-2">
-            <label>Released Year:</label>
-            <h3>13th February 2009</h3>
-            <label>Director:</label>
-            <h3>{movie.director}</h3>
+          <div>
+            <dt>Genre</dt>
+            <dd>{movie.genre}</dd>
           </div>
+          <div>
+            <dt>Running time</dt>
+            <dd>{movie.runtime}</dd>
+          </div>
+          <div>
+            <dt>Director</dt>
+            <dd>{movie.director}</dd>
+          </div>
+        </dl>
+        <div className="comingSoon-actions">
+          <Link
+            className="comingSoon-show-button"
+            state={{ movie }}
+            to={`/${link}/${movie._id}`}
+          >
+            More details
+          </Link>
+
+          <button
+            type="button"
+            className="comingSoon-show-notified-button"
+            onClick={handleNotification}
+          >
+            Email me details
+          </button>
         </div>
-        <Link
-          style={{ textDecoration: "none" }}
-          state={{ movie: movie }}
-          to={`/${link}/${movie._id}`}
-        >
-          <button className="comingSoon-show-button-2">More Details</button>
-        </Link>
-        <button className="comingSoon-show-notified-button-hidden">
-          Get notified
-        </button>
       </div>
     </div>
   );

@@ -4,15 +4,19 @@ import ComingSoonShow from "./ComingSoonShow";
 export default function ComingSoonList() {
   const { comingSoon } = useMovieContext();
 
-  const renderedList = comingSoon?.map((movie) => {
+  if (!comingSoon?.length) {
     return (
-      <ComingSoonShow
-        key={Math.random() * 10000}
-        movie={movie}
-        link="comingSoon"
-      />
+      <p className="comingSoon-empty">
+        No upcoming films are available right now.
+      </p>
     );
-  });
+  }
 
-  return <div className="comingSoon-list">{renderedList}</div>;
+  return (
+    <div className="comingSoon-list">
+      {comingSoon.map((movie) => (
+        <ComingSoonShow key={movie._id} movie={movie} link="comingSoon" />
+      ))}
+    </div>
+  );
 }

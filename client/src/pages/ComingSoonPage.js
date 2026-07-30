@@ -2,9 +2,12 @@ import ComingSoonList from "../components/ComingSoonPage/ComingSoonList";
 
 export default function ComingSoonPage() {
   return (
-    <div>
-      <h1 className="comingSoon-title">Movies Coming Soon</h1>
+    <main className="comingSoon-page">
+      <header className="comingSoon-page-header">
+        <h1>Coming soon</h1>
+        <p>Discover the films arriving at Movie Dome next.</p>
+      </header>
       <ComingSoonList />
-    </div>
+    </main>
   );
 }
