@@ -2,95 +2,136 @@ import { bookMovie, editMovie } from "../../APIs/movies";
 import useUserContext from "../../hooks/useUserContext";
 import { editUserDetails } from "../../APIs/profile";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useTicketContext from "../../hooks/useTicketContext";
+import useExtraContext from "../../hooks/useExtraContext";
 
 export default function SeatBooking({ movie, show, seats, tickets, extras }) {
   const { userData, setUserData } = useUserContext();
   const { totalTickets, setTicketData } = useTicketContext();
-  const redirect = useNavigate();
+  const { setExtraData } = useExtraContext();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const isTicketPage = pathname.includes("/tickets");
 
   const handleRedirect = () => {
-    if (seats < 1) {
+    if (seats.length === 0) {
       toast.error("Please choose a seat before proceeding.");
     } else {
-      redirect(`/showtimes/${movie._id}/tickets`, {
+      navigate(`/showtimes/${movie._id}/tickets`, {
         state: { movie: movie, show: show, seats: seats },
       });
     }
   };
 
-  const handleBooking = () => {
+  const handleBooking = async () => {
     if (totalTickets !== seats.length) {
+      const remainingTickets = seats.length - totalTickets;
+
       toast.error(
-        `Please choose another ${seats.length - tickets.length} tickets`
+        `Please choose ${remainingTickets} more ${
+          remainingTickets === 1 ? "ticket" : "tickets"
+        }.`,
       );
-    } else {
-      //This needs fixed for quick book, to do with updating bookMovie and editMovie
-      //Look at whats being passed through before book is pressed for movietimes and
-      //movie search components, but it will all be on seat details
-      bookMovie({
+
+      return;
+    }
+
+    try {
+      const booking = await bookMovie({
         startTime: show.startTime,
         startDate: show.date,
         movieID: movie._id,
         email: userData.email,
         seatNumber: seats,
-        tickets: tickets,
-        extras: extras,
+        tickets,
+        extras,
       });
-      editMovie({
+
+      await editMovie({
         title: movie.title,
         showID: show._id,
         seatID: seats,
       });
 
       if (userData.user) {
-        setUserData({
+        const updatedUserData = {
           ...userData,
-          loyaltyPoints: (userData.loyaltyPoints += 20),
-        });
-        editUserDetails({ ...userData });
+          loyaltyPoints: userData.loyaltyPoints + 20,
+        };
+
+        setUserData(updatedUserData);
+        await editUserDetails(updatedUserData);
       }
-      toast("Booking confirmed. Check your account for booking details.");
-      redirect(`/showtimes/${movie._id}/confirmation`, {
+
+      navigate(`/showtimes/${movie._id}/confirmation`, {
         state: {
-          movie: movie,
-          show: show,
-          seats: seats,
-          tickets: tickets,
-          extras: extras,
-          totalTickets: totalTickets,
+          bookingId: booking._id,
+          movie,
+          show,
+          seats,
+          tickets,
+          extras,
+          totalTickets,
         },
       });
+
       setTicketData([]);
+      setExtraData([]);
+      toast.success("Booking confirmed.");
+    } catch (error) {
+      toast.error("Your booking could not be completed. Please try again.");
     }
   };
 
-  const handleFreeBooking = () => {
-    if (seats < 1) {
-      toast.error("Please choose a seat before proceeding.");
-    } else {
-      bookMovie({
+  const handleFreeBooking = async () => {
+    if (seats.length !== 1) {
+      toast.error("Select exactly one seat to use a free loyalty ticket.");
+      return;
+    }
+
+    try {
+      const booking = await bookMovie({
         startTime: show.startTime,
         startDate: show.date,
         movieID: movie._id,
         email: userData.email,
         seatNumber: seats,
+        tickets: [],
+        extras: [],
       });
-      editMovie({
+
+      await editMovie({
         title: movie.title,
         showID: show._id,
         seatID: seats,
       });
 
-      if (userData.user) {
-        setUserData({
-          ...userData,
-          loyaltyPoints: (userData.loyaltyPoints -= 100),
-        });
-        editUserDetails({ ...userData });
-      }
-      toast("Free Booking confirmed. Check your account for booking details.");
+      const updatedUserData = {
+        ...userData,
+        loyaltyPoints: Number(userData.loyaltyPoints) - 100,
+      };
+
+      setUserData(updatedUserData);
+      await editUserDetails(updatedUserData);
+
+      navigate(`/showtimes/${movie._id}/confirmation`, {
+        state: {
+          bookingId: booking._id,
+          movie,
+          show,
+          seats,
+          tickets: [],
+          extras: [],
+          totalTickets: 1,
+        },
+      });
+
+      setTicketData([]);
+      setExtraData([]);
+      toast.success("Free loyalty ticket booked.");
+    } catch (error) {
+      toast.error("Your loyalty booking could not be completed.");
     }
   };
 
@@ -98,11 +139,9 @@ export default function SeatBooking({ movie, show, seats, tickets, extras }) {
     <div className="seat-booking-container">
       <button
         className="seat-booking-button"
-        onClick={
-          document.URL.includes("tickets") ? handleBooking : handleRedirect
-        }
+        onClick={isTicketPage ? handleBooking : handleRedirect}
       >
-        Book
+        {isTicketPage ? "Confirm booking" : "Continue"}
       </button>
       {userData.loyaltyPoints >= 100 && (
         <button className="seat-freeBooking-button" onClick={handleFreeBooking}>

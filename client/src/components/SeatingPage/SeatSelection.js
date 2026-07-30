@@ -2,27 +2,24 @@ import { useLocation } from "react-router-dom";
 import Seat from "./Seat";
 import "../../CSS/Seating/SeatSelection.css";
 
-export default function SeatSelection({ seats, setSeats }) {
-  const location = useLocation();
-  const show = location.state.show;
+export default function SeatSelection({ show, seats, setSeats }) {
+  const handleSelection = (seatNumber) => {
+    setSeats((currentSeats) => {
+      if (currentSeats.includes(seatNumber)) {
+        return currentSeats.filter((seat) => seat !== seatNumber);
+      }
 
-  const handleSelection = (seat, active) => {
-    if (!active) {
-      setSeats([...seats, seat]);
-    } else {
-      const updatedSeats = seats.filter((seatNumber) => {
-        return seatNumber !== seat;
-      });
-      setSeats(updatedSeats);
-    }
+      return [...currentSeats, seatNumber];
+    });
   };
 
   const renderedList = show.seats?.map((seat) => {
     return (
       <Seat
-        handleSelection={handleSelection}
-        seat={seat}
         key={seat.seatNumber}
+        seat={seat}
+        selected={seats.includes(seat.seatNumber)}
+        handleSelection={handleSelection}
       />
     );
   });
@@ -31,11 +28,11 @@ export default function SeatSelection({ seats, setSeats }) {
     <div className="seat-list-container">
       <div className="seat-selection-key">
         <span className="seat-selection-color" />
-        <label>Available</label>
+        <span>Available</span>
         <span className="seat-selection-color" />
-        <label>Selected</label>
+        <span>Selected</span>
         <span className="seat-selection-color" />
-        <label>Reserved</label>
+        <span>Reserved</span>
       </div>
       <div className="seat-container">{renderedList}</div>
       <div className="seat-screen"> Screen</div>

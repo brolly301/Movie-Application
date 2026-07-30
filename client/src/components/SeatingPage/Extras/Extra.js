@@ -3,35 +3,10 @@ import "../../../CSS/Seating/Tickets/Ticket.css";
 import useExtraContext from "../../../hooks/useExtraContext";
 
 export default function Extra({ product, price, id }) {
-  const [counter, setCounter] = useState(0);
-  const { addProduct, addQuantity, removeQuantity, deleteTicket, extraData } =
-    useExtraContext();
+  const { extraData, updateExtraQuantity } = useExtraContext();
 
-  const handleIncrease = () => {
-    setCounter((counter) => counter + 1);
-    if (extraData.length <= 0) {
-      addProduct(id, product, price);
-    } else {
-      extraData?.map((extra) => {
-        if (extra.id !== id) {
-          addProduct(id, product, price);
-        } else {
-          addQuantity(id);
-        }
-      });
-    }
-  };
-
-  const handleDecrease = () => {
-    if (counter > 0) {
-      setCounter((counter) => counter - 1);
-      if (counter <= 1) {
-        deleteTicket(id);
-      } else {
-        removeQuantity(id);
-      }
-    }
-  };
+  const extra = extraData.find((item) => item.id === id);
+  const quantity = extra?.quantity ?? 0;
 
   return (
     <div className="ticket-container">
@@ -39,11 +14,22 @@ export default function Extra({ product, price, id }) {
         <span className="ticket-type">{product}</span>
         <span className="ticket-price">£{price.toFixed(2)}</span>
       </div>
-      <span className="ticket-button-container">
-        <button onClick={handleDecrease}>-</button>
-        <span>{counter}</span>
-        <button onClick={handleIncrease}>+</button>
-      </span>
+      <div className="ticket-button-container">
+        <button
+          type="button"
+          disabled={quantity === 0}
+          onClick={() => updateExtraQuantity(id, product, price, -1)}
+        >
+          −
+        </button>
+        <span>{quantity}</span>
+        <button
+          type="button"
+          onClick={() => updateExtraQuantity(id, product, price, 1)}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }

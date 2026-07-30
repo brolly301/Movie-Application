@@ -1,27 +1,46 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import SeatBooking from "./SeatBooking";
 import "../../CSS/Seating/SeatDetails.css";
 
-const SeatDetails = ({ seats, movie, show, tickets, extras }) => {
+const SeatDetails = ({ seats, movie, show, tickets = [], extras = [] }) => {
+  const { pathname } = useLocation();
+  const isTicketPage = pathname.includes("/tickets");
+
+  const formattedDate = new Intl.DateTimeFormat("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+  }).format(new Date(show.date));
+
+  const ticketTotal = tickets.reduce(
+    (total, ticket) => total + ticket.price * ticket.quantity,
+    0,
+  );
+
+  const extrasTotal = extras.reduce(
+    (total, extra) => total + extra.price * extra.quantity,
+    0,
+  );
+
+  const bookingTotal = ticketTotal + extrasTotal;
+
   return (
     <div className="seat-details-container">
       <h1>{movie.title}</h1>
-      <h2>Movie Dome - Screen {Math.floor(Math.random() * 10) + 1}</h2>
-      <h2>
-        {show.date.substring(0, 10)} | {show.startTime}
-      </h2>
-
+      <p className="seat-details-cinema">Movie Dome</p>
+      <p className="seat-details-show">
+        {formattedDate} · {show.startTime}
+      </p>
       <hr />
       <div className="seat-numbers-container">
         <h2>Seats</h2>
         <h2 className="seat-numbers">
-          {seats.length > 0
-            ? seats.map((seat) => `${seat} `)
-            : "No seats selected."}
+          {seats.length > 0 ? seats.join(", ") : "No seats selected"}
         </h2>
       </div>
       <hr />
-      {document.URL.includes("tickets") ? (
+      {isTicketPage ? (
         <>
           <div className="seat-numbers-container">
             <h2>Tickets</h2>
@@ -46,24 +65,30 @@ const SeatDetails = ({ seats, movie, show, tickets, extras }) => {
               {extras.length > 0
                 ? extras.map((extra) => {
                     return (
-                      <div>
-                        <p className="ticket-seat-details-p">
-                          {extra.quantity}X {extra.product}
-                        </p>
-                      </div>
+                      <p className="ticket-seat-details-p">
+                        {extra.quantity} X {extra.product}
+                      </p>
                     );
                   })
                 : "No extras selected."}
             </h2>
           </div>
           <hr />
+
+          <div className="booking-total">
+            <span>Total</span>
+            <strong>£{bookingTotal.toFixed(2)}</strong>
+          </div>
         </>
       ) : (
         ""
       )}
 
       <div className="seat-numbers-header">
-        <h2>{seats.length} Seats Selected</h2>
+        <h2>
+          {" "}
+          {seats.length} {seats.length === 1 ? "seat" : "seats"} selected
+        </h2>
         <SeatBooking
           extras={extras}
           tickets={tickets}

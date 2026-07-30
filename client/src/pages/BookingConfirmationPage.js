@@ -1,10 +1,11 @@
-import React from "react";
 import BookingConfirmation from "../components/BookingConfirmation";
+import BookingJourney from "../components/SeatingPage/BookingJourney";
 
 export default function BookingConfirmationPage() {
   return (
-    <div>
+    <main className="seat-panel-container">
+      <BookingJourney />
       <BookingConfirmation />
-    </div>
+    </main>
   );
 }

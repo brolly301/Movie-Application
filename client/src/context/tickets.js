@@ -5,63 +5,52 @@ const TicketContext = createContext();
 export function TicketProvider({ children }) {
   const [ticketData, setTicketData] = useState([]);
 
-  const totalTickets = ticketData?.reduce(
-    (total, ticket) => (total += ticket.quantity),
-    0
+  const totalTickets = ticketData.reduce(
+    (total, ticket) => total + ticket.quantity,
+    0,
   );
 
-  const addProduct = (id, product, price) => {
-    const createProduct = [
-      ...ticketData,
-      {
-        product: product,
-        price: price,
-        quantity: 1,
-        id: id,
-      },
-    ];
-    setTicketData(createProduct);
-  };
+  const updateTicketQuantity = (id, product, price, change) => {
+    setTicketData((currentTickets) => {
+      const existingTicket = currentTickets.find((ticket) => ticket.id === id);
 
-  const addQuantity = (id) => {
-    const updatedTicket = ticketData.map((ticket) => {
-      if (ticket.id === id) {
-        return { ...ticket, quantity: ticket.quantity + 1 };
+      if (!existingTicket && change > 0) {
+        return [
+          ...currentTickets,
+          {
+            id,
+            product,
+            price,
+            quantity: 1,
+          },
+        ];
       }
-      return ticket;
-    });
-    setTicketData(updatedTicket);
-  };
 
-  const removeQuantity = (id) => {
-    const updatedTicket = ticketData.map((ticket) => {
-      if (ticket.id === id && ticket.quantity >= 1) {
-        return { ...ticket, quantity: ticket.quantity - 1 };
+      if (!existingTicket) {
+        return currentTickets;
       }
-      return ticket;
+
+      const newQuantity = existingTicket.quantity + change;
+
+      if (newQuantity <= 0) {
+        return currentTickets.filter((ticket) => ticket.id !== id);
+      }
+
+      return currentTickets.map((ticket) =>
+        ticket.id === id ? { ...ticket, quantity: newQuantity } : ticket,
+      );
     });
-    setTicketData(updatedTicket);
   };
 
-  const deleteTicket = (id) => {
-    const updatedTickets = ticketData.filter((ticket) => {
-      return ticket.id !== id;
-    });
-    setTicketData(updatedTickets);
-  };
-
-  const valuestoShare = {
-    addProduct,
-    addQuantity,
-    removeQuantity,
-    deleteTicket,
+  const valuesToShare = {
     ticketData,
     setTicketData,
     totalTickets,
+    updateTicketQuantity,
   };
 
   return (
-    <TicketContext.Provider value={valuestoShare}>
+    <TicketContext.Provider value={valuesToShare}>
       {children}
     </TicketContext.Provider>
   );

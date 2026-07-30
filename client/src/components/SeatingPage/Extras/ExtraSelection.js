@@ -1,87 +1,38 @@
-import React from "react";
 import Extra from "./Extra";
+import "../../../CSS/Seating/Tickets/TicketSelection.css";
 
-const ExtraSelection = ({ seats }) => {
-  const extraData = [
-    {
-      id: 1,
-      product: "Regular Popcorn",
-      price: 4.99,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      product: "Large Popcorn",
-      price: 5.99,
-      quantity: 1,
-    },
-    {
-      id: 3,
-      product: "Regular Soft Drink",
-      price: 2.99,
-      quantity: 1,
-    },
-    {
-      id: 4,
-      product: "Large Soft Drink",
-      price: 3.99,
-      quantity: 1,
-    },
-    {
-      id: 5,
-      product: "M&Ms",
-      price: 2.99,
-      quantity: 1,
-    },
-    {
-      id: 6,
-      product: "Dairy Milk",
-      price: 2.99,
-      quantity: 1,
-    },
-    {
-      id: 7,
-      product: "Malteasers",
-      price: 2.99,
-      quantity: 1,
-    },
-    {
-      id: 8,
-      product: "Pix n Mix Small",
-      price: 1.49,
-      quantity: 1,
-    },
-    {
-      id: 9,
-      product: "Pix n Mix Medium",
-      price: 2.69,
-      quantity: 1,
-    },
-    {
-      id: 10,
-      product: "Pix n Mix Large",
-      price: 3.99,
-      quantity: 1,
-    },
-  ];
+const extraData = [
+  { id: 1, product: "Regular Popcorn", price: 4.99 },
+  { id: 2, product: "Large Popcorn", price: 5.99 },
+  { id: 3, product: "Regular Soft Drink", price: 2.99 },
+  { id: 4, product: "Large Soft Drink", price: 3.99 },
+  { id: 5, product: "M&Ms", price: 2.99 },
+  { id: 6, product: "Dairy Milk", price: 2.99 },
+  { id: 7, product: "Maltesers", price: 2.99 },
+  { id: 8, product: "Pick & Mix Small", price: 1.49 },
+  { id: 9, product: "Pick & Mix Medium", price: 2.69 },
+  { id: 10, product: "Pick & Mix Large", price: 3.99 },
+];
 
-  const renderedList = extraData.map((extra) => {
-    return (
-      <Extra
-        product={extra.product}
-        price={extra.price}
-        id={extra.id}
-        seats={seats}
-      />
-    );
-  });
+export default function ExtraSelection() {
   return (
-    <div className="ticket-selection-main">
-      <h1>Choose Extras</h1>
-      <hr />
-      <div className="ticket-selection-container">{renderedList}</div>
-    </div>
+    <section className="ticket-selection-main">
+      <header className="ticket-selection-header">
+        <div>
+          <h2>Add extras</h2>
+          <p>Snacks and drinks are optional.</p>
+        </div>
+      </header>
+      <div className="ticket-selection-container">
+        {extraData.map((extra) => (
+          <Extra
+            key={extra.id}
+            id={extra.id}
+            product={extra.product}
+            price={extra.price}
+          />
+        ))}
+      </div>
+    </section>
   );
-};
-
-export default ExtraSelection;
+}

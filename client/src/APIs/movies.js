@@ -18,7 +18,7 @@ export const getComingSoon = async () => {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-    }
+    },
   );
   return await response.json();
 };
@@ -52,9 +52,13 @@ export const bookMovie = async ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify(booking),
-    }
+    },
   );
-  return await response.json();
+  if (!response.ok) {
+    throw new Error("Booking request failed.");
+  }
+
+  return response.json();
 };
 
 export const editMovie = async ({ title, showID, seatID } = {}) => {
@@ -68,5 +72,9 @@ export const editMovie = async ({ title, showID, seatID } = {}) => {
     },
     body: JSON.stringify(updatedMovie),
   });
-  return await response.json();
+  if (!response.ok) {
+    throw new Error("Seat reservation request failed.");
+  }
+
+  return response.text();
 };

@@ -1,40 +1,83 @@
 .ticket-container {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  height: 40px;
-  width: 90%;
-  margin-bottom: 20px;
-  border: 1px solid #333;
-}
-
-.ticket-type {
-  font-size: 18px;
-}
-.ticket-price {
-  font-size: 18px;
-}
-.ticket-button-container {
-}
-
-.ticket-button-container > span {
-  font-size: 18px;
-}
-
-.ticket-button-container > button {
-  all: unset;
-  margin: 0 5px 0 5px;
-  font-size: 18px;
-  border: 1px solid black;
-  padding: 1px 7px 1px 7px;
-}
-
-.ticket-button-container > button:hover {
-  background-color: #8a8989;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 58px;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
 }
 
 .ticket-price-type-container {
-  width: 50%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ticket-type {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.ticket-price {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+}
+
+.ticket-button-container {
+  display: grid;
+  grid-template-columns: 34px 28px 34px;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.ticket-button-container span {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ticket-button-container button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.ticket-button-container button:hover:not(:disabled) {
+  color: white;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.ticket-button-container button:disabled {
+  color: #62646b;
+  border-color: var(--color-border);
+  opacity: 0.5;
+}
+
+.ticket-button-container button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+@media (max-width: 400px) {
+  .ticket-container {
+    padding: 0.75rem;
+  }
+
+  .ticket-type {
+    font-size: 0.8rem;
+  }
 }

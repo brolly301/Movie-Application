@@ -2,30 +2,27 @@ import React from "react";
 import SeatImage from "../../images/seat.png";
 import { useState } from "react";
 
-export default function Seat({ seat, handleSelection }) {
-  const [isActive, setIsActive] = useState(false);
-
-  const handleClick = (e) => {
-    if (!seat.reserved) {
-      handleSelection(e.target.id, isActive);
-      setIsActive(!isActive);
-    }
-  };
-
-  //Similar to set expanded index for
+export default function Seat({ seat, selected, handleSelection }) {
+  const className = [
+    "seat-position-container",
+    selected && "seat-position-container-selected",
+    seat.reserved && "seat-position-container-reserved",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <div
-      onClick={handleClick}
-      className={
-        "seat-position-container" +
-        (isActive ? "-selected " : "") +
-        (seat.reserved ? "-reserved" : "")
-      }
-      id={seat.seatNumber}
-      src={SeatImage}
+    <button
+      type="button"
+      className={className}
+      disabled={seat.reserved}
+      aria-pressed={selected}
+      aria-label={`Seat ${seat.seatNumber}${
+        seat.reserved ? ", reserved" : selected ? ", selected" : ", available"
+      }`}
+      onClick={() => handleSelection(seat.seatNumber)}
     >
       {seat.seatNumber}
-    </div>
+    </button>
   );
 }

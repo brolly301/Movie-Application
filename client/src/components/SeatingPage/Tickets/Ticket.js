@@ -4,47 +4,11 @@ import "../../../CSS/Seating/Tickets/Ticket.css";
 import useTicketContext from "../../../hooks/useTicketContext";
 
 export default function Ticket({ product, price, seats, id }) {
-  const [counter, setCounter] = useState(0);
+  const { ticketData, updateTicketQuantity, totalTickets } = useTicketContext();
 
-  const {
-    addProduct,
-    addQuantity,
-    removeQuantity,
-    deleteTicket,
-    ticketData,
-    totalTickets,
-  } = useTicketContext();
-
-  const handleIncrease = () => {
-    if (seats.length !== totalTickets) {
-      if (counter < seats.length) {
-        setCounter((counter) => counter + 1);
-
-        if (ticketData.length <= 0) {
-          addProduct(id, product, price);
-        } else {
-          ticketData?.map((ticket) => {
-            if (ticket.id !== id) {
-              addProduct(id, product, price);
-            } else {
-              addQuantity(id);
-            }
-          });
-        }
-      }
-    }
-  };
-  const handleDecrease = () => {
-    if (counter > 0) {
-      setCounter((counter) => counter - 1);
-
-      if (counter <= 1) {
-        deleteTicket(id);
-      } else {
-        removeQuantity(id);
-      }
-    }
-  };
+  const ticket = ticketData.find((item) => item.id === id);
+  const quantity = ticket?.quantity ?? 0;
+  const maximumReached = totalTickets >= seats.length;
 
   return (
     <div className="ticket-container">
@@ -52,11 +16,23 @@ export default function Ticket({ product, price, seats, id }) {
         <span className="ticket-type">{product}</span>
         <span className="ticket-price">£{price.toFixed(2)}</span>
       </div>
-      <span className="ticket-button-container">
-        <button onClick={handleDecrease}>-</button>
-        <span>{counter}</span>
-        <button onClick={handleIncrease}>+</button>
-      </span>
+      <div className="ticket-button-container">
+        <button
+          type="button"
+          disabled={quantity === 0}
+          onClick={() => updateTicketQuantity(id, product, price, -1)}
+        >
+          −
+        </button>
+        <span>{quantity}</span>
+        <button
+          type="button"
+          disabled={maximumReached}
+          onClick={() => updateTicketQuantity(id, product, price, 1)}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }

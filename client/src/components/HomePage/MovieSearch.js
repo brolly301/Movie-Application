@@ -14,12 +14,11 @@ export default function MovieSearch() {
   const [formData, setFormData] = useState({
     movie: null,
     date: null,
-    startTime: null,
-    seats: null,
+    show: null,
   });
 
   const [selectedMovie, setSelectedMovie] = useState({
-    movie: null || [],
+    movie: null,
     dates: [],
     startTime: [],
   });
@@ -27,7 +26,7 @@ export default function MovieSearch() {
   const navigate = useNavigate();
 
   const isBookingReady = Boolean(
-    formData.movie && formData.date && formData.startTime && formData.seats,
+    formData.movie && formData.date && formData.show,
   );
 
   const handleBook = () => {
@@ -36,8 +35,7 @@ export default function MovieSearch() {
     navigate(`/showtimes/${formData.movie._id}/seating`, {
       state: {
         movie: formData.movie,
-        show: formData,
-        seats: formData.seats,
+        show: formData.show,
       },
     });
   };
@@ -46,8 +44,7 @@ export default function MovieSearch() {
     setFormData({
       movie: option,
       date: null,
-      startTime: null,
-      seats: null,
+      show: null,
     });
 
     setDate(undefined);
@@ -57,16 +54,14 @@ export default function MovieSearch() {
     setFormData((current) => ({
       ...current,
       date: option,
-      startTime: null,
-      seats: null,
+      show: null,
     }));
   };
 
   const handleSelectedTime = (option) => {
     setFormData((current) => ({
       ...current,
-      startTime: option.startTime,
-      seats: option.seats,
+      show: option,
     }));
   };
 
