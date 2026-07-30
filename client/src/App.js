@@ -18,10 +18,12 @@ import LoyaltyPage from "./pages/LoyaltyPage";
 import TicketsPage from "./pages/TicketsPage";
 import BookingConfirmation from "./pages/BookingConfirmationPage";
 import { ToastContainer } from "react-toastify";
+import ScrollToTop from "./components/Misc/ScrollToTop";
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <ToastContainer />
       <Routes>

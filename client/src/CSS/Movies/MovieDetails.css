@@ -1,150 +1,209 @@
+.movie-details-main-container {
+  width: min(calc(100% - 2rem), 1120px);
+  margin: 3rem auto 4rem;
+}
+
 .movie-details-container {
-  width: 900px;
-  height: 100%;
-  border: 1px solid black;
-  margin: 0 auto;
-  display: flex;
-  background-color: #d9d9d9;
-}
-
-.movie-details-section {
-  width: 600px;
-  margin-left: 20px;
-}
-
-.movie-details-section > div {
-  display: flex;
-}
-
-.movie-details-column-1 {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-right: 30px;
-}
-.movie-details-column-2 {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.movie-details-column-1 > label {
-  font-size: 20px;
-}
-.movie-details-column-1 > h3 {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #3b3b3b;
-}
-.movie-details-column-2 > label {
-  font-size: 20px;
-}
-.movie-details-column-2 > h3 {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #3b3b3b;
-}
-
-.movie-details-description-label {
-  font-size: 20px;
-}
-
-.movie-details-description-p {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #3b3b3b;
-}
-
-.movie-hidden-title {
-  display: none;
-}
-
-.movie-date-time-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-small);
 }
 
 .movie-details-poster {
-  height: 300px;
-  width: 220px;
-  border-radius: 2%;
-  margin-top: 15px;
-  margin-left: 20px;
+  width: 260px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-small);
+}
+
+.movie-details-section {
+  min-width: 0;
+}
+
+.movie-details-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.movie-details-header > div {
+  min-width: 0;
+}
+
+.movie-details-header span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.movie-details-header h1 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.movie-details-rating {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.movie-details-meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.movie-details-meta div,
+.movie-details-credits div {
+  min-width: 0;
+}
+
+.movie-details-meta dt,
+.movie-details-credits dt {
+  margin-bottom: 0.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+}
+
+.movie-details-meta dd,
+.movie-details-credits dd {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.movie-details-plot {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.movie-details-plot h2 {
+  margin: 0 0 0.5rem;
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.movie-details-plot p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.movie-details-credits {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  gap: 1.5rem;
+  margin: 1.25rem 0 0;
+}
+
+.movie-booking-section {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+}
+
+.movie-booking-section > header {
+  margin-bottom: 1.25rem;
+}
+
+.movie-booking-section > header h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.25rem;
+}
+
+.movie-booking-section > header p {
+  margin: 0.3rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.movie-booking-section .movie-times-list {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .new-movies-times-list {
-  width: 900px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.5rem;
 }
 
-@media (max-width: 910px) {
+.movie-details-status {
+  width: min(calc(100% - 2rem), 1120px);
+  margin: 3rem auto;
+  padding: 2rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  text-align: center;
+}
+
+@media (max-width: 800px) {
   .movie-details-container {
-    width: 95%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* margin-right: 7px; */
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 1.5rem;
   }
 
   .movie-details-poster {
-    margin: 0;
+    width: 180px;
   }
 
-  .movie-column-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
+  .movie-details-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .movie-details-main-container {
+    margin-top: 2rem;
   }
 
-  .movie-hidden-title {
-    display: block;
+  .movie-details-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
   }
 
-  .movie-shown-title {
-    display: none;
+  .movie-details-poster {
+    width: min(100%, 220px);
+    margin: 0 auto;
   }
 
-  .movie-details-section {
-    width: 90%;
-    margin: 0;
+  .movie-details-header h1 {
+    font-size: 2.5rem;
   }
 
-  .movie-details-column-1 {
-    width: 100%;
-    padding: 0 20px 0 20px;
-  }
-  .movie-details-column-2 {
-    width: 100%;
-    padding: 0 20px 0 20px;
+  .movie-details-meta,
+  .movie-details-credits {
+    grid-template-columns: 1fr;
   }
 
-  .movie-details-description-label {
-    width: 100%;
-
-    padding-left: 20px;
-  }
-
-  .movie-details-description-p {
-    width: 100%;
-    padding-left: 20px;
-    margin-right: 20px;
-  }
-
-  .new-movies-times-list {
-    width: 95%;
-    overflow-x: scroll;
-  }
-
-  .movie-date-time-container {
-    width: 100%;
+  .movie-booking-section {
+    padding: 1rem;
   }
 }

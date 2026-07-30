@@ -1,24 +1,38 @@
 import MovieTimes from "./MovieTimes";
-import "../../CSS/Movies/MovieDetails.css";
 import useMovieContext from "../../hooks/useMovieContext";
+import "../../CSS/Movies/MovieDetails.css";
 
 export default function MovieTimesList({ movie }) {
   const { date } = useMovieContext();
 
-  const renderedList = movie.shows?.map((show) => {
-    if (show.date.substring(4, 10) === date) {
-      return <MovieTimes show={show} movie={movie} />;
-    }
-  });
+  const showsForDate =
+    movie.shows?.filter((show) => show.date === date) || [];
+
+  if (!date) {
+    return (
+      <p className="movie-details-status">
+        Choose a date to view showtimes.
+      </p>
+    );
+  }
+
+  if (showsForDate.length === 0) {
+    return (
+      <p className="movie-details-status">
+        No showtimes are available on this date.
+      </p>
+    );
+  }
 
   return (
-    <div
-      className={
-        document.URL.includes("/showtimes/")
-          ? "new-movies-times-list"
-          : "movie-times-list"
-      }>
-      {renderedList}
+    <div className="new-movies-times-list">
+      {showsForDate.map((show) => (
+        <MovieTimes
+          key={show._id}
+          show={show}
+          movie={movie}
+        />
+      ))}
     </div>
   );
 }

@@ -2,18 +2,20 @@ import useMovieContext from "../../hooks/useMovieContext";
 import MovieDatesShow from "./MovieDatesShow";
 import { useEffect, useMemo } from "react";
 
-const MovieDatesList = () => {
+const MovieDatesList = ({movie}) => {
   const { movies, date, setDate } = useMovieContext();
 
-  const movieDates = useMemo(() => {
-    const dates = movies.flatMap((movie) =>
-      movie.shows.map((show) => show.date),
-    );
+ const movieDates = useMemo(() => {
+  const sourceMovies = movie ? [movie] : movies;
 
-    return [...new Set(dates)].sort(
-      (first, second) => new Date(first) - new Date(second),
-    );
-  }, [movies]);
+  const dates = sourceMovies.flatMap((item) =>
+    item.shows?.map((show) => show.date) || []
+  );
+
+  return [...new Set(dates)].sort(
+    (first, second) => new Date(first) - new Date(second)
+  );
+}, [movies, movie]);
 
   useEffect(() => {
     if (movieDates.length && !movieDates.includes(date)) {

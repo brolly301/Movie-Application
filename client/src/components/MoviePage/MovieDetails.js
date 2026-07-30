@@ -1,47 +1,83 @@
-import "../../CSS/Movies/MovieDetails.css";
 import MovieTimesList from "./MovieTimesList";
 import MovieDatesList from "../ShowtimesPage/MovieDatesList";
+import "../../CSS/Movies/MovieDetails.css";
 
-export default function MovieDetails({ movie, link }) {
-  let movie_dates;
-  if (link === "now-showing") {
-    movie_dates = <MovieDatesList />;
-  }
+export default function MovieDetails({ movie, showBooking = false }) {
+  const releaseDate = new Date(movie.released);
+
+  const formattedReleaseDate = Number.isNaN(releaseDate.getTime())
+    ? movie.released
+    : new Intl.DateTimeFormat("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }).format(releaseDate);
 
   return (
     <div className="movie-details-main-container">
       <div className="movie-details-container">
-        <div className="movie-column-container">
-          <h1 className="movie-hidden-title">{movie.title}</h1>
-          <img className="movie-details-poster" src={movie.poster} alt="" />
-        </div>
+        <img
+          className="movie-details-poster"
+          src={movie.poster}
+          alt={`${movie.title} poster`}
+        />
         <div className="movie-details-section">
-          <h1 className="movie-shown-title">{movie.title}</h1>
-          <div>
-            <div className="movie-details-column-1">
-              <label>Running Time:</label>
-              <h3>{movie.runtime}</h3>
-              <label>Starring:</label>
-              <h3>{movie.actors}</h3>
+          <header className="movie-details-header">
+            <div>
+              <span>{showBooking ? "Now showing" : "Coming soon"}</span>
+              <h1>{movie.title}</h1>
             </div>
-            <div className="movie-details-column-2">
-              <label>Genre:</label>
-              <h3>{movie.genre}</h3>
-              <label>Director:</label>
-              <h3>{movie.director}</h3>
+            {movie.rated && (
+              <img
+                className="movie-details-rating"
+                src={movie.rated}
+              />
+            )}
+          </header>
+          <dl className="movie-details-meta">
+            <div>
+              <dt>Release date</dt>
+              <dd>{formattedReleaseDate}</dd>
             </div>
-          </div>
-          <label className="movie-details-description-label">
-            Description:
-          </label>
-          <p className="movie-details-description-p">{movie.plot}</p>
+            <div>
+              <dt>Running time</dt>
+              <dd>{movie.runtime}</dd>
+            </div>
+            <div>
+              <dt>Genre</dt>
+              <dd>{movie.genre}</dd>
+            </div>
+            <div>
+              <dt>IMDb rating</dt>
+              <dd>{movie.imdbRating ? `${movie.imdbRating} / 10` : "Not rated"}</dd>
+            </div>
+          </dl>
+          <section className="movie-details-plot">
+            <h2>About the film</h2>
+            <p>{movie.plot}</p>
+          </section>
+          <dl className="movie-details-credits">
+            <div>
+              <dt>Director</dt>
+              <dd>{movie.director}</dd>
+            </div>
+            <div>
+              <dt>Starring</dt>
+              <dd>{movie.actors}</dd>
+            </div>
+          </dl>
         </div>
       </div>
-      <div className="movie-date-time-container">
-        {movie_dates}
-
-        <MovieTimesList movie={movie} />
-      </div>
+      {showBooking && (
+        <section className="movie-booking-section">
+          <header>
+            <h2>Choose a showtime</h2>
+            <p>Select a date and time to continue to seat selection.</p>
+          </header>
+          <MovieDatesList movie={movie} />
+          <MovieTimesList movie={movie} />
+        </section>
+      )}
     </div>
   );
 }
