@@ -1,8 +1,24 @@
 .movie-times-button {
-  width: 100%;
-  height: 40px;
-  margin: 5px 0 5px 0;
-  background-color: #f85050e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
   color: white;
-  font-size: 18px;
+  background: var(--color-accent);
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.movie-times-button:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.movie-times-button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
 }

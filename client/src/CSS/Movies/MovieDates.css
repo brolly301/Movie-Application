@@ -9,10 +9,12 @@
 }
 
 .movie-date-show {
-  flex: 0 0 auto;
+  flex: 1 1 0;
 }
 
+
 .movie-date-button {
+ width: 100%;
   min-width: 7rem;
   padding: 0.75rem 1rem;
   color: var(--color-text-muted);
@@ -53,5 +55,9 @@
     width: 100%;
     padding-right: 1rem;
     padding-left: 1rem;
+  }
+  
+  .movie-date-show {
+    flex: 0 0 auto;
   }
 }

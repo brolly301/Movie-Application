@@ -1,16 +1,11 @@
-  .showtimes-page {
+.showtimes-page {
   width: 100%;
   padding: 3.5rem 0 5rem;
 }
 
 .showtimes-page-header {
+  margin-bottom: 2rem;
   text-align: center;
-    margin-bottom: 2rem
-
-}
-
-.movie-times-list {
-  justify-content: center;
 }
 
 .showtimes-page-header h1 {
@@ -29,203 +24,168 @@
 }
 
 .movie-container {
-  width: 800px;
-  height: 350px;
-  border: 1px solid black;
-  margin: 0 auto;
-  display: flex;
-  margin-bottom: 20px;
-  background-color: #d9d9d9;
-  margin-top: 20px;
-  transition: all 0.5s ease;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) 220px;
+  gap: 2rem;
+  width: min(calc(100% - 2rem), 1120px);
+  margin: 0 auto 1rem;
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-small);
 }
 
 .movie-poster {
-  height: 290px;
-  width: 220;
-  border-radius: 2%;
-  margin-top: 15px;
-  margin-left: 20px;
-}
-
-.movie-times-container > button {
-  height: 50px;
-  width: 90px;
-  color: white;
-  background-color: rgb(151, 149, 149);
-  margin-right: 5px;
+  width: 180px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-small);
 }
 
 .movie-details {
-  margin-left: 30px;
-}
-
-.movie-show-button {
-  width: 100%;
-  height: 40px;
-  margin: 5px 0 5px 0;
-  background-color: #333;
-  color: white;
-  border: 1px solid white;
-  font-size: 18px;
-}
-
-.movie-showtimes-container {
-  position: absolute;
-  margin-left: 600px;
-}
-
-.movie-page-title {
-  color: white;
-}
-
-.movie-poster-details {
+  min-width: 0;
   display: flex;
-  /* width: 100%;
-  justify-content: center;
-  align-items: center; */
-  transition: all 0.5s ease;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.movie-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.movie-title h2,
+.showtimes-title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.5rem;
 }
 
 .movie-rating-icon {
-  width: 33px;
-  height: 33px;
-  margin-left: 10px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
-.movie-show-details-column-1 {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-right: 30px;
-}
-.movie-show-details-column-2 {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: 10px;
-  justify-content: space-between;
+.movie-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  width: 100%;
+  margin: 1.5rem 0;
 }
 
-.movie-show-details-column-2 > label {
-  font-size: 20px;
-}
-.movie-show-details-column-2 > h3 {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #3b3b3b;
-}
-.movie-show-details-column-1 > label {
-  font-size: 20px;
-}
-.movie-show-details-column-1 > h3 {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #3b3b3b;
+.movie-meta div {
+  min-width: 0;
 }
 
-.movie-poster-hidden {
-  display: none;
+.movie-meta dt {
+  margin-bottom: 0.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
 }
 
-.movie-show-title-hidden {
-  display: none;
+.movie-meta dd {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
-.movie-show-details-container {
-  display: flex;
-  /* margin-left: 30px; */
-  justify-content: center;
+.movie-show-button {
+  display: inline-flex;
   align-items: center;
+  min-height: 42px;
+  margin-top: auto;
+  padding: 0.65rem 1rem;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-small);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease;
 }
 
-@media (max-width: 860px) {
-  .movie-dates-list {
-    width: 90%;
-  }
-
-  .movie-container {
-    width: 90%;
-    flex-wrap: wrap;
-  }
+.movie-show-button:hover {
+  background: var(--color-surface-raised);
+  border-color: var(--color-accent);
 }
 
-@media (max-width: 810px) {
-  .showtimes-title {
-    margin: 20px 0 10px 0;
-  }
+.movie-showtimes-container {
+  padding-left: 2rem;
+  border-left: 1px solid var(--color-border);
+}
 
-  .movie-showtimes-container {
-    position: relative;
-    text-align: center;
+.movie-showtimes {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
 
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 20px;
-    width: 66%;
-  }
-
-  .movie-details {
-    width: 100%;
-  }
-
+@media (max-width: 800px) {
   .movie-container {
-    height: 100%;
-    justify-content: center;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 1.5rem;
   }
 
   .movie-poster {
-    height: 270px;
+    width: 150px;
+  }
+
+  .movie-showtimes-container {
+    grid-column: 1 / -1;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
+
+  .movie-showtimes {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 560px) {
-  .movie-details {
-    margin: 0 auto;
+  .showtimes-page {
+    padding-top: 2.5rem;
+  }
+
+  .movie-container {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem;
   }
 
   .movie-poster {
-    display: none;
-  }
-  
-  .movie-poster-hidden {
-    height: 290px;
-    width: 220;
-    margin-right: 30px;
-    margin-left: 30px;
-    border-radius: 2%;
-    display: block;
+    width: 100px;
   }
 
-  .movie-show-title-hidden {
-    display: flex;
+  .movie-title {
+    align-items: flex-start;
   }
 
-  .movie-details > h1 {
-    display: none;
+  .movie-title h2 {
+    font-size: 1.25rem;
   }
 
-  .movie-details-hidden {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  .movie-rating-icon {
+    width: 28px;
+    height: 28px;
   }
 
-  .movie-poster-details {
-    margin: 0;
-    padding: 0;
+  .movie-meta {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0;
   }
 
   .movie-show-button {
     width: 100%;
+    justify-content: center;
   }
-}
 
-@media (max-width: 560px) {
-  .movie-showtimes-container {
-    width: 242px;
+  .movie-showtimes {
+    grid-template-columns: 1fr;
   }
 }
